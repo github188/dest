@@ -1,0 +1,63 @@
+﻿生成启动时间为 2017/3/29 11:32:40。
+     1>项目“E:\work_studio\Mustang_\80-moservice\mau\prj_win32\mau_kdvp.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\include /I..\..\common\include /I"..\..\..\10-common\include\cbb" /I"..\..\..\10-common\include\gk" /I"..\..\..\10-common\include\protocol" /I"..\..\..\10-common\include\platform" /I"..\..\..\10-common\include\mau" /I"..\..\..\10-common\include\system" /I"..\..\..\10-common\include\mcu" /I"..\..\..\10-common\include\database" /I"..\..\..\10-common\include\db-6.0.20\win32" /I"..\..\..\10-common\include\jansson" /I"..\..\..\10-common\include\libevent2\win" /I"..\..\..\10-common\include\libevent2" /I"..\..\..\10-common\include\librabbitmq" /I"..\..\..\10-common\include\librabbitmq\win32\msinttypes" /I"..\..\..\10-common\include\rediswrap" /I"..\..\..\10-common\include\operation" /I"..\..\..\10-common\include\zkclient" /I"..\..\..\10-common\include\upu" /I"..\..\..\10-common\include\pas" /I"..\..\..\10-common\include\connectadp" /I"..\..\..\10-common\include\sa" /I"..\..\..\10-common\include\cbb\zlib" /I..\..\acl\lib_acl_cpp\include /I..\..\acl\lib_acl\include /I"..\..\..\10-common\include\nppclient" /Zi /nologo /W3 /WX- /O2 /Oy- /GL /D _CRT_SECURE_NO_WARNINGS /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yc"inc.h" /Fp".\Release\inc.pch" /Fo".\Release\\" /Fd".\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\source\inc.cpp
+         inc.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\include /I..\..\common\include /I"..\..\..\10-common\include\cbb" /I"..\..\..\10-common\include\gk" /I"..\..\..\10-common\include\protocol" /I"..\..\..\10-common\include\platform" /I"..\..\..\10-common\include\mau" /I"..\..\..\10-common\include\system" /I"..\..\..\10-common\include\mcu" /I"..\..\..\10-common\include\database" /I"..\..\..\10-common\include\db-6.0.20\win32" /I"..\..\..\10-common\include\jansson" /I"..\..\..\10-common\include\libevent2\win" /I"..\..\..\10-common\include\libevent2" /I"..\..\..\10-common\include\librabbitmq" /I"..\..\..\10-common\include\librabbitmq\win32\msinttypes" /I"..\..\..\10-common\include\rediswrap" /I"..\..\..\10-common\include\operation" /I"..\..\..\10-common\include\zkclient" /I"..\..\..\10-common\include\upu" /I"..\..\..\10-common\include\pas" /I"..\..\..\10-common\include\connectadp" /I"..\..\..\10-common\include\sa" /I"..\..\..\10-common\include\cbb\zlib" /I..\..\acl\lib_acl_cpp\include /I..\..\acl\lib_acl\include /I"..\..\..\10-common\include\nppclient" /Zi /nologo /W3 /WX- /O2 /Oy- /GL /D _CRT_SECURE_NO_WARNINGS /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /GF /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Yu"inc.h" /Fp".\Release\inc.pch" /Fo".\Release\\" /Fd".\Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\source\apdbopr.cpp ..\source\asyndbopr.cpp ..\source\bmclicense.cpp ..\source\bmcssn.cpp ..\source\cmcmussn.cpp ..\source\cmmaussn.cpp ..\source\cmussn.cpp ..\source\confinfodbopr.cpp ..\source\connmsadpssn.cpp ..\source\dbopr.cpp ..\source\hdussn.cpp ..\source\main.cpp ..\source\maudata.cpp ..\source\mautest.cpp ..\source\mauutility.cpp ..\source\mauvc.cpp ..\source\nppssn.cpp ..\source\nussn.cpp ..\source\resmgrssn.cpp ..\source\scheduledbopr.cpp ..\source\templatedbopr.cpp ..\source\upussn.cpp ..\source\vmeetingdbopr.cpp ..\source\redisadapter.cpp
+         apdbopr.cpp
+         asyndbopr.cpp
+         bmclicense.cpp
+         bmcssn.cpp
+         cmcmussn.cpp
+         cmmaussn.cpp
+         cmussn.cpp
+         confinfodbopr.cpp
+         connmsadpssn.cpp
+         dbopr.cpp
+         hdussn.cpp
+         main.cpp
+         maudata.cpp
+         mautest.cpp
+         mauutility.cpp
+         mauvc.cpp
+         nppssn.cpp
+         nussn.cpp
+         resmgrssn.cpp
+         scheduledbopr.cpp
+         正在编译...
+         templatedbopr.cpp
+         upussn.cpp
+         vmeetingdbopr.cpp
+         redisadapter.cpp
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Release\mau.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"..\..\..\10-common\lib\release\win32_2010" /LIBPATH:"..\..\..\10-common\lib\release\win32" ospLib.lib kdvsys.lib commonlib.lib tinyxmldll.lib dbi_vs2010.lib libmysql.lib kdvlog.lib jsoncpp.lib "jansson-2.5.lib" librabbitmq.lib librabbitmqwrap.lib zkclient.lib conflistconvert.lib connectadplib_vs2010.lib connectsa.lib libupu_win32.lib librediswrap.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:nafxcwd.lib /NODEFAULTLIB:libcd.lib /NODEFAULTLIB:libcmtd.lib /NODEFAULTLIB:LIBCMT /MANIFEST /ManifestFile:"Release\mau.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"E:\work_studio\Mustang_\80-moservice\mau\prj_win32\Release\mau.pdb" /SUBSYSTEM:CONSOLE /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Release\mau.lib" /MACHINE:X86 .\Release\apdbopr.obj
+         .\Release\asyndbopr.obj
+         .\Release\bmclicense.obj
+         .\Release\bmcssn.obj
+         .\Release\cmcmussn.obj
+         .\Release\cmmaussn.obj
+         .\Release\cmussn.obj
+         .\Release\confinfodbopr.obj
+         .\Release\connmsadpssn.obj
+         .\Release\dbopr.obj
+         .\Release\hdussn.obj
+         .\Release\main.obj
+         .\Release\maudata.obj
+         .\Release\mautest.obj
+         .\Release\mauutility.obj
+         .\Release\mauvc.obj
+         .\Release\nppssn.obj
+         .\Release\nussn.obj
+         .\Release\resmgrssn.obj
+         .\Release\scheduledbopr.obj
+         .\Release\templatedbopr.obj
+         .\Release\upussn.obj
+         .\Release\vmeetingdbopr.obj
+         .\Release\redisadapter.obj
+         .\Release\inc.obj
+     1>LINK : fatal error LNK1181: 无法打开输入文件“commonlib.lib”
+     1>已完成生成项目“E:\work_studio\Mustang_\80-moservice\mau\prj_win32\mau_kdvp.vcxproj”(Build 个目标)的操作 - 失败。
+
+生成失败。
+
+已用时间 00:00:10.45

@@ -1,0 +1,48 @@
+package Dss.Event;
+
+import public "dssevenum.proto";
+
+option optimize_for = CODE_SIZE;
+
+message DssMessageWrap{
+	optional CltDssEvent event = 1;
+	optional bytes message_body = 2; // 具体消息串行化后置入
+	optional bytes context = 3;	// 客户自定义上下文
+}
+
+message DssNetAddr{
+	optional string IpAddr = 1;
+	optional string IpMask = 2;
+	optional iptype Type = 3;
+	optional uint32 Port = 4;
+}
+
+message ApplyLanPort{
+	optional DssNetAddr reqSubnet = 1;		//subnet network
+}
+
+message ApplyWanPort{
+	optional CarrierType carriertype = 1;
+}
+
+message ApplyLanPortReply{
+	optional uint32 ServerHandle = 1;	//worker id
+	optional DssNetAddr portAddr = 2;	//worker ip address
+	optional bool reqSucceed = 3;		//succeed -- true, fali -- false
+}
+
+message ApplyWanPortReply{
+	optional CarrierType carriertype = 1;
+	optional uint32 ServerHandle = 2;
+	optional DssNetAddr portAddr = 3;	//worker port address
+	optional bool reqSucceed = 4;
+}
+
+message SecretKey{
+  	optional bytes	key = 1;
+  	optional uint32	keylen = 2;
+	optional SecMode ModeID = 3;
+  	optional SecAlg AlgID = 4;
+}
+
+

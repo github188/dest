@@ -1,0 +1,392 @@
+package Dss.Event;
+
+import public "dssevstruct.proto";
+
+option optimize_for = CODE_SIZE;
+
+message DssCltCreatClientReq{
+	optional string Alias = 1;
+	optional DssObj Type = 2;
+	optional string QName = 3;
+}
+
+message DssCltCreatClientAck{
+	optional string Alias = 1;
+	optional DssObj Type = 2;
+	optional uint32 ClientId = 3;
+	optional uint32 keepalivetime = 4;	//ms
+}
+
+message DssCltPing{
+	optional uint32 ClientId = 1;
+}
+
+message CltDssPong{
+	optional uint32 ClientId = 1;
+}
+
+message DssCltCreatClientNack{
+	optional string Alias = 1;
+	optional DssObj Type = 2;
+}
+
+message CltDssDestroyClientCmd{
+	optional uint32 ClientId = 1;
+}
+
+message CltDssSyncApplyLanPortReq{
+	optional uint32 ClientId = 1;
+	optional string MeetingHandle = 2;
+	optional uint32 BandWidth = 3;
+	repeated ApplyLanPort portdesc = 4;
+}
+
+message DssCltSyncApplyLanPortReply {
+	optional uint32 ClientId = 1;
+	optional string MeetingHandle = 2;
+	optional uint32 BandWidth = 3;
+	repeated ApplyLanPortReply reply = 4;
+}
+
+message CltDssSyncApplyConsLanPortReq{
+	optional uint32 ClientId = 1;
+	optional string MeetingHandle = 2;
+	optional uint32 BandWidth = 3;
+	optional ApplyLanPort portdesc = 4;
+	optional bool ForceIp = 5;
+	optional bool Adaptive = 6;
+	optional uint32 ConsPortNum = 7;
+}
+
+message DssCltSyncApplyConsLanPortReply {
+	optional uint32 ClientId = 1;
+	optional string MeetingHandle = 2;
+	optional uint32 BandWidth = 3;
+	optional ApplyLanPortReply reply = 4;
+	optional bool ForceIp = 5;
+	optional bool Adaptive = 6;
+	optional uint32 ConsPortNum = 7;
+}
+
+message CltDssASyncApplyConsLanPortReq{
+	optional uint32 ClientId = 1;
+	optional string MeetingHandle = 2;
+	optional uint32 BandWidth = 3;
+	optional ApplyLanPort portdesc = 4;
+	optional bool ForceIp = 5;
+	optional bool Adaptive = 6;
+	optional uint32 ConsPortNum = 7;
+}
+
+message DssCltASyncApplyConsLanPortReply {
+	optional uint32 ClientId = 1;
+	optional string MeetingHandle = 2;
+	optional uint32 BandWidth = 3;
+	optional ApplyLanPortReply reply = 4;
+	optional bool ForceIp = 5;
+	optional bool Adaptive = 6;
+	optional uint32 ConsPortNum = 7;
+}
+message CltDssSyncApplyWanPortReq{
+	optional uint32 ClientId = 1;
+	optional string MeetingHandle = 2;
+	optional uint32 BandWidth = 3;
+	repeated ApplyWanPort portdesc = 4;
+}
+
+message DssCltSyncApplyWanPortReply{
+	optional uint32 ClientId = 1;
+	optional string MeetingHandle = 2;
+	optional uint32 BandWidth = 3;
+	repeated ApplyWanPortReply reply = 4;
+}
+
+message CltDssASyncApplyLanPortReq{
+	optional uint32 ClientId = 1;
+	optional string MeetingHandle = 2;
+	optional uint32 BandWidth = 3;
+	repeated ApplyLanPort portdesc = 4;
+}
+
+message DssCltASyncApplyLanPortReply {
+	optional uint32 ClientId = 1;
+	optional string MeetingHandle = 2;
+	optional uint32 BandWidth = 3;
+	repeated ApplyLanPortReply reply = 4;
+}
+
+message CltDssASyncApplyWanPortReq{
+	optional uint32 ClientId = 1;
+	optional string MeetingHandle = 2;
+	optional uint32 BandWidth = 3;
+	repeated ApplyWanPort portdesc = 4;
+}
+
+message DssCltASyncApplyWanPortReply{
+	optional uint32 ClientId = 1;
+	optional string MeetingHandle = 2;
+	optional uint32 BandWidth = 3;
+	repeated ApplyWanPortReply reply = 4;
+}
+
+message CltDssReleasePortCmd{
+	optional uint32 ClientId = 1;
+	optional DssNetAddr Address = 2;
+}
+
+message CltDssAddBridgeReq{
+	optional uint32 ClientId = 1;
+	optional DssNetAddr RcvAddr = 2;
+	optional uint32 StartServerHandle = 3;
+	optional bool forceip = 4;
+}
+
+message DssCltAddBridgeAck{
+	optional uint32 ClientId = 1;
+	optional DssNetAddr RcvAddr = 2;
+	optional uint32 StartServerHandle = 3;
+	optional uint32 BridgeHandle = 4;
+}
+message DssCltAddBridgeNack{
+	optional uint32 ClientId = 1;
+	optional DssNetAddr RcvAddr = 2;
+	optional uint32 StartServerHandle = 3;
+}
+message CltDssRemoveBridgeCmd{
+	optional uint32 ClientId = 1;
+	optional uint32 BridgeHandle = 2;
+}
+
+message CltDssSendToBridgeReq{
+	optional uint32 ClientId = 1;
+	optional uint32 BridgeHandle = 2;
+	optional DssNetAddr RcvAddr = 3;
+}
+
+message DssCltSendToBridgeAck{
+	optional uint32 ClientId = 1;
+	optional uint32 BridgeHandle = 2;
+	optional DssNetAddr RcvAddr = 3;
+}
+
+message DssCltSendToBridgeNack{
+	optional uint32 ClientId = 1;
+	optional uint32 BridgeHandle = 2;
+	optional DssNetAddr RcvAddr = 3;
+}
+
+message CltDssStopSendToBridgeCmd{
+	optional uint32 ClientId = 1;
+	optional uint32 BridgeHandle = 2;
+	optional DssNetAddr RcvAddr = 3;
+}
+
+message CltDssReceiveFromBridgeReq{
+	optional uint32 ClientId = 1;
+	optional uint32 BridgeHandle = 2;
+	optional uint64 DstEpId = 3;
+	optional DssNetAddr DstAddr = 4;
+}
+
+message DssCltReceiveFromBridgeAck{
+	optional uint32 ClientId = 1;
+	optional uint32 BridgeHandle = 2;
+	optional uint64 DstEpId = 3;
+	optional DssNetAddr DstAddr = 4;
+}
+
+message DssCltReceiveFromBridgeNack{
+	optional uint32 ClientId = 1;
+	optional uint32 BridgeHandle = 2;
+	optional uint64 DstEpId = 3;
+	optional DssNetAddr DstAddr = 4;
+}
+
+message CltDssStopReceiveFromBridgeCmd{
+	optional uint32 ClientId = 1;
+	optional uint32 BridgeHandle = 2;
+	optional DssNetAddr MapAddr = 3;
+	optional uint64 DstEpId = 4;
+	optional DssNetAddr DstAddr = 5;
+}
+
+message CltDssAddSwitchReq{
+	optional uint32 ClientId = 1;
+	optional uint64 DstEpId = 2;
+	optional DssNetAddr DstAddr = 3;
+	optional DssNetAddr RcvAddr = 4;
+	optional DssNetAddr MapAddr = 5;
+	optional SecretKey  DecKey = 6;
+	optional SecretKey  EncKey = 7;
+	optional bool		Uniform = 8;
+	optional DsType		dstype	= 9;
+}
+
+message DssCltAddSwitchAck{
+	optional uint32 ClientId = 1;
+	optional uint64 DstEpId = 2;
+	optional DssNetAddr DstAddr = 3;
+	optional DssNetAddr RcvAddr = 4;
+	optional DsType		dstype = 5;
+}
+
+message DssCltAddSwitchNack{
+	optional uint32 ClientId = 1;
+	optional uint64 DstEpId = 2;
+	optional DssNetAddr DstAddr = 3;
+	optional DssNetAddr RcvAddr = 4;
+	optional DsType		dstype = 5;
+}
+
+message CltDssAddM2OneSwitchReq{
+	optional uint32 ClientId = 1;
+	optional uint64 DstEpId = 2;
+	optional DssNetAddr DstAddr = 3;
+	optional DssNetAddr RcvAddr = 4;
+	optional DssNetAddr MapAddr = 5;
+	optional SecretKey  DecKey = 6;
+	optional SecretKey  EncKey = 7;
+	optional bool		Uniform = 8;
+	optional DsType		dstype	= 9;
+}
+
+message DssCltAddM2OneSwitchAck{
+	optional uint32 ClientId = 1;
+	optional uint64 DstEpId = 2;
+	optional DssNetAddr DstAddr = 3;
+	optional DssNetAddr RcvAddr = 4;
+	optional DsType		dstype = 5;
+}
+
+message DssCltAddM2OneSwitchNack{
+	optional uint32 ClientId = 1;
+	optional uint64 DstEpId = 2;
+	optional DssNetAddr DstAddr = 3;
+	optional DssNetAddr RcvAddr = 4;
+	optional DsType		dstype = 5;
+}
+
+message CltDssAddSrcSwitchReq{
+	optional uint32 ClientId = 1;
+	optional uint64 SrcEpId = 2;
+	optional DssNetAddr SrcAddr = 3;
+	optional uint64 DstEpId = 4;
+	optional DssNetAddr DstAddr = 5;
+	optional DssNetAddr RcvAddr = 6;
+	optional DssNetAddr MapAddr = 7;
+	optional SecretKey  DecKey = 8;
+	optional SecretKey  EncKey = 9;
+	optional bool		Uniform = 10;
+	optional DsType		dstype	= 11;
+}
+
+message DssCltAddSrcSwitchAck{
+	optional uint32 ClientId = 1;
+	optional uint64 SrcEpId = 2;
+	optional DssNetAddr SrcAddr = 3;
+	optional uint64 DstEpId = 4;
+	optional DssNetAddr DstAddr = 5;
+	optional DssNetAddr RcvAddr = 6;
+	optional DsType		dstype = 7;
+}
+
+message DssCltAddSrcSwitchNack{
+	optional uint32 ClientId = 1;
+	optional uint64 SrcEpId = 2;
+	optional DssNetAddr SrcAddr = 3;
+	optional uint64 DstEpId = 4;
+	optional DssNetAddr DstAddr = 5;
+	optional DssNetAddr RcvAddr = 6;
+	optional DsType		dstype = 7;
+}
+
+message CltDssRemoveSwitchCmd{
+	optional uint32 ClientId = 1;
+	optional uint64 SrcEpId = 2;
+	optional DssNetAddr SrcAddr = 3;
+	optional uint64 DstEpId = 4;
+	optional DssNetAddr DstAddr = 5;
+	optional DssNetAddr RcvAddr = 6;
+	optional DssNetAddr MapAddr = 7;
+	optional DsType		dstype = 8;
+}
+
+message CltDssAddDumpReq{
+	optional uint32 ClientId = 1;
+	optional DssNetAddr RcvAddr = 2;
+}
+
+message DssCltAddDumpAck{
+	optional uint32 ClientId = 1;
+	optional DssNetAddr RcvAddr = 2;
+}
+
+message DssCltAddDumpNack{
+	optional uint32 ClientId = 1;
+	optional DssNetAddr RcvAddr = 2;
+}
+
+message CltDssRemoveDumpCmd{
+	optional uint32 ClientId = 1;
+	optional DssNetAddr RcvAddr = 2;
+}
+
+message DssCltSrvLostNtf{
+	optional uint32 ClientId = 1;
+	optional uint32 SrvHandle = 2;
+}
+
+message DssCltSrvRegisterNtf{
+	optional uint32 ClientId = 1;
+	optional uint32 SrvHandle = 2;
+}
+
+message CltDssAliveDetectReq{
+	optional uint32 reserved = 1;
+}
+
+message DssCltAliveDetectRsp{
+	optional uint32 reserved = 1;
+}
+
+message CltDssAttachLanIpOfPortReq{
+	optional uint32 ClientId = 1;
+	optional uint32 SrvHandle = 2;
+	optional uint32 Port = 3;
+	optional DssNetAddr subnet = 4;
+}
+
+message DssCltAttachLanIpOfPortAck{
+	optional uint32 ClientId = 1;
+	optional uint32 SrvHandle = 2;
+	optional uint32 Port = 3;
+	optional string IpAddr = 4;
+}
+
+message DssCltAttachLanIpOfPortNack{
+	optional uint32 ClientId = 1;
+	optional uint32 SrvHandle = 2;
+	optional uint32 Port = 3;
+	optional DssNetAddr subnet = 4;
+}
+
+message CltDssAttachWanIpOfPortReq{
+	optional uint32 ClientId = 1;
+	optional uint32 SrvHandle = 2;
+	optional uint32 Port = 3;
+	optional CarrierType carriertype = 4;
+}
+
+message DssCltAttachWanIpOfPortAck{
+	optional uint32 ClientId = 1;
+	optional uint32 SrvHandle = 2;
+	optional uint32 Port = 3;
+	optional string IpAddr = 4;
+}
+
+message DssCltAttachWanIpOfPortNack{
+	optional uint32 ClientId = 1;
+	optional uint32 SrvHandle = 2;
+	optional uint32 Port = 3;
+	optional CarrierType carriertype = 4;
+}

@@ -1,0 +1,49 @@
+###
+### Copyright (c) 2006 Kedacom
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in css linux project.
+###
+#########################################################################
+
+TOP := ..
+
+COMM_DIR := ../../common/linux_compile
+
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+APP_TARGET      := css
+
+## Define debugging symbols
+DEBUG = 0
+LINUX_COMPILER = _HHPPC_
+#CFLAGS += -D__ppc__ 
+
+#CFLAGS += -D_LINUX12_ -D_MPC_EMBEDDED_MTADP_
+CFLAGS += -D_UTF8
+
+## Object files that compose the target(s)
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(patsubst %.cpp,%, $(SRCS))
+
+## Add driver-specific include directory to the search path
+#INC_PATH += $(TOP)/include ../../common/include ../../../10-common/include/mcu ../../../10-common/include/system ../../../10-common/include/platform ../../../10-common/include/protocol ../../../10-#common/include/t120 ../../../10-#common/include/nms1 ../../../10-common/include/cbb/license ../../../10-common/include/snmpmanager
+INC_PATH += $(TOP)/include ../../common/include ../../../10-common/include/watchdog ../../../10-common/include/sa ../../../10-common/include/protocol ../../../10-common/include/platform ../../../10-common/include/mau ../../../10-common/include/system ../../../10-common/include/mcu ../../../10-common/include/database ../../../10-common/include/db-6.0.20/linux ../../../10-common/include/jansson ../../../10-common/include/libevent2/linux ../../../10-common/include/libevent2 ../../../10-common/include/librabbitmq ../../../10-common/include/operation ../../../10-common/include/zkclient ../../../10-common/include/upu ../../../10-common/include/pas ../../../10-common/include/connectadp ../../../10-common/include/cbb ../../../10-common/include/cbb/tinyxml 
+
+LIB_PATH += ../../../10-common/lib/release/linux_ppc_qoriq_2637 ../../../10-common/lib/release/linux_ppc_qoriq_2637/nipdebug	
+
+## Libraries to include in shared object file
+#db-4.2
+LIBS := dbi mysqlclient kdvlog zkclient zookeeper_mt watchdogclient connectsa zkwrapper zookeeper rabbitmqwrap rabbitmq_r connectadp upu_r jansson event \
+        kdvsys commonlib lanman\
+        osp rt dl pthread \
+        conflistconvert protobuf tinyxml captureexception
+        
+       
+
+
+include $(COMM_DIR)/common.mk

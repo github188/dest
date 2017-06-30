@@ -1,0 +1,381 @@
+/*****************************************************************************
+模块名      : MAU
+文件名      : evmcumau.h
+创建时间    : 2014年 08月 26日
+实现功能    : 
+作者        : 王也
+版本        : 
+-----------------------------------------------------------------------------
+修改记录:
+日  期      版本        修改人      修改内容
+2014/08/26  5.0         王也          创建
+******************************************************************************/
+
+#ifndef		_EV_MCU_MAU_H_
+#define		_EV_MCU_MAU_H_
+
+#include "osp.h"
+#include "eventid.h"
+
+/*
+//MAU向MCU发送创会请求
+OSPEVENT( MAU_MCU_CREATECONF_REQ,			  EV_MPC_MPCD_BGN );
+//MAU创会请求ACK答复
+OSPEVENT( MCU_MAU_CREATECONF_ACK,			  EV_MPC_MPCD_BGN + 1 );
+//MAU创会请求NACK答复
+OSPEVENT( MCU_MAU_CREATECONF_NACK,			  EV_MPC_MPCD_BGN + 2 );
+
+//MAU命令MCU结束会议
+OSPEVENT( MAU_MCU_RELEASECONF_CMD,			  EV_MPC_MPCD_BGN + 3 );
+
+//MAU请求MCU添加终端
+OSPEVENT( MAU_MCU_ADDMT_REQ,				  EV_MPC_MPCD_BGN + 4 );
+//MAU添加终端ACK答复
+OSPEVENT( MCU_MAU_ADDMT_ACK,				  EV_MPC_MPCD_BGN + 5 );
+//MAU添加终端NACK答复
+OSPEVENT( MCU_MAU_ADDMT_NACK,				  EV_MPC_MPCD_BGN + 6 );
+
+//MCU会议结束通知
+OSPEVENT( MCU_MAU_CONFRELEASE_NTF,			  EV_MPC_MPCD_BGN + 10 );
+//MCU会议状态改变通知
+OSPEVENT( MCU_MAU_CONFSTATECHANGE_NTF,		  EV_MPC_MPCD_BGN + 11 );
+//MCU请求呼叫会议
+OSPEVENT( MCU_MAU_CONFCALLADDR_REQ,		  EV_MPC_MPCD_BGN + 12 );
+//MAU回复MCU 所请求会议的呼叫地址
+OSPEVENT( MAU_MCU_CONFCALLADDR_ACK,		  EV_MPC_MPCD_BGN + 13 );
+//MAU NACK回复MCU 所请求会议的呼叫地址
+OSPEVENT( MAU_MCU_CONFCALLADDR_NACK,		  EV_MPC_MPCD_BGN + 14 );
+//MAU向MCU请求呼叫地址
+OSPEVENT( MAU_MCU_CALLADDR_REQ,			  EV_MPC_MPCD_BGN + 15 );
+//MCU ACK回复MAU 呼叫地址
+OSPEVENT( MCU_MAU_CALLADDR_ACK,			  EV_MPC_MPCD_BGN + 16 );
+//MCU NACK回复MAU 呼叫地址
+OSPEVENT( MCU_MAU_CALLADDR_NACK,			  EV_MPC_MPCD_BGN + 17 );
+
+//MCU 上报MAU 最大媒体会议数
+OSPEVENT( MCU_MAU_MAXMEDIACONFNUM_NTF,		  EV_MPC_MPCD_BGN + 18 );
+
+//MCU 上报当前会议列表
+OSPEVENT( MCU_MAU_CONFLIST_NTF,              EV_MPC_MPCD_BGN + 19 );
+
+//MAU请求会议完整信息，消息体：u8(E164 len)+会议E164号
+OSPEVENT( MAU_MCU_CONFINFO_REQ,              EV_MPC_MPCD_BGN + 20 );
+//MCU回应会议完整信息，消息体：TConfInfo
+OSPEVENT( MCU_MAU_CONFINFO_ACK,              EV_MPC_MPCD_BGN + 21 );
+//MCU拒绝回应会议完整信息，消息体：u8(E164 len)+会议E164号
+OSPEVENT( MCU_MAU_CONFINFO_NACK,             EV_MPC_MPCD_BGN + 22 );
+
+// wy[2012/08/21]
+//MCU向MAU同步热备信息，消息体：同步信息类型(EHBType)+ConfE164NO+热备信息Buf
+OSPEVENT( MCU_MAU_BAKEUP_CONFINFO_NTF,       EV_MPC_MPCD_BGN + 23 );
+//MAU向MCU请求进行会议基本信息恢复，消息体：TReqHeadInfo+TConfInfo+AliasLen(u16)+AliasBuf
+//                                           +TVmpModule+MtInConfList(192)+MtInviteList(192)
+OSPEVENT( MAU_MCU_RESUME_CONFINFO_REQ,       EV_MPC_MPCD_BGN + 24 );
+//MCU回复MAU会议基本信息恢复情况
+OSPEVENT( MCU_MAU_RESUME_CONFINFO_ACK,       EV_MPC_MPCD_BGN + 25 );
+OSPEVENT( MCU_MAU_RESUME_CONFINFO_NACK,      EV_MPC_MPCD_BGN + 26 );
+//MAU向MCU请求进行会议额外信息恢复，消息体：TReqHeadInfo+TBDBConfProtectInfo+TBDBConfPollParam
+//                                           +TMt(VidBrdSrc)+TMt(AudBrdSrc)+TMt(LastSpeaker)
+//                                           +TMt(VacLast)+TMt(DSSrc)+MtDecoderMuteList(192)
+//                                           +MtCaptureMuteList(192)+SelectVideoMt(192*TMt)+SelectAudioMt(192*TMt)
+OSPEVENT( MAU_MCU_RESUME_CONFINFOEX_REQ,     EV_MPC_MPCD_BGN + 27 );
+//MCU回复MAU会议额外信息恢复情况
+OSPEVENT( MCU_MAU_RESUME_CONFINFOEX_ACK,     EV_MPC_MPCD_BGN + 28 );
+OSPEVENT( MCU_MAU_RESUME_CONFINFOEX_NACK,    EV_MPC_MPCD_BGN + 29 );
+
+//MCU请求缩短会议运行时间，消息体:TReqHeadInfo+u16(wDelayTime)
+OSPEVENT( MCU_MAU_SUBCONFDURATION_REQ,       EV_MPC_MPCD_BGN + 30 );
+OSPEVENT( MAU_MCU_SUBCONFDURATION_ACK,	      EV_MPC_MPCD_BGN + 31 );
+OSPEVENT( MAU_MCU_SUBCONFDURATION_NACK,	  EV_MPC_MPCD_BGN + 32 );
+
+//MCU 上报MAU MTADP/MP/PRS等接入模块状态, 消息体：TMtsMdStatus
+OSPEVENT( MCU_MAU_MTSMDSTATUS_NTF,			  EV_MPC_MPCD_BGN + 35 );
+
+//MCU请求延长会议,消息体：TReqHeadInfo+u16(wMtId)+u16(wMccId)+u16(wDelayTime)
+OSPEVENT( MCU_MAU_DELAYCONF_REQ,			  EV_MPC_MPCD_BGN + 36 );
+OSPEVENT( MAU_MCU_DELAYCONF_ACK,			  EV_MPC_MPCD_BGN + 37 );
+OSPEVENT( MAU_MCU_DELAYCONF_NACK,			  EV_MPC_MPCD_BGN + 38 );
+
+//MAU请求MCU上的会议列表详细信息，消息体：无
+OSPEVENT( MAU_MCU_LISTALLCONF_REQ,		      EV_MPC_MPCD_BGN + 39 );
+//应答MAU_MCU_LISTALLCONF_REQ，消息体：无
+OSPEVENT( MCU_MAU_LISTALLCONF_ACK,	          EV_MPC_MPCD_BGN + 40 );
+//MCU上没有会议,消息体：无
+OSPEVENT( MCU_MAU_LISTALLCONF_NACK,         EV_MPC_MPCD_BGN + 41 ); 
+
+//会议完整信息通知,消息体: CServMsgHead+TConfInfo+TConfAllMtInfo
+OSPEVENT( MCU_MAU_CONFINFO_NOTIF,            EV_MPC_MPCD_BGN + 42 );
+//MCU发给MAU的终端所有信息通知, 消息体：TConfAllMtInfo
+OSPEVENT( MCU_MAU_CONFALLMTINFO_NOTIF,       EV_MPC_MPCD_BGN + 43 );
+//MCU发给MAU的终端列表通知, 消息体：u8(实际终端个数)+(TMtStatus+TMtExt+TLogicalChannel)
+OSPEVENT( MCU_MAU_MTLIST_NOTIF,              EV_MPC_MPCD_BGN + 44 );
+
+//设置主席，消息体:TReqHeadInfo+TMt
+OSPEVENT( MAU_MCU_SETCHAIRMAN_REQ,           EV_MPC_MPCD_BGN + 45 );
+//设置主席成功，消息体:
+OSPEVENT( MCU_MAU_SETCHAIRMAN_ACK,           EV_MPC_MPCD_BGN + 46 );
+//设置主席失败，消息体:
+OSPEVENT( MCU_MAU_SETCHAIRMAN_NACK,          EV_MPC_MPCD_BGN + 47 );
+
+//取消主席，消息体:TReqHeadInfo + TMt
+OSPEVENT( MAU_MCU_CANCELCHAIRMAN_REQ,        EV_MPC_MPCD_BGN + 48 );
+//取消主席成功，消息体:
+OSPEVENT( MCU_MAU_CANCELCHAIRMAN_ACK,        EV_MPC_MPCD_BGN + 49 );
+//取消主席失败，消息体:
+OSPEVENT( MCU_MAU_CANCELCHAIRMAN_NACK,       EV_MPC_MPCD_BGN + 50 );
+
+//设置主讲，消息体：TReqHeadInfo + TMt
+OSPEVENT( MAU_MCU_SETSPEAKER_REQ,            EV_MPC_MPCD_BGN + 51 );
+//设置主讲成功，消息体:
+OSPEVENT( MCU_MAU_SETSPEAKER_ACK,            EV_MPC_MPCD_BGN + 52 );
+//设置主讲失败，消息体:
+OSPEVENT( MCU_MAU_SETSPEAKER_NACK,           EV_MPC_MPCD_BGN + 53 );
+
+//取消主讲，消息体：TReqHeadInfo + TMt
+OSPEVENT( MAU_MCU_CANCELSPEAKER_REQ,         EV_MPC_MPCD_BGN + 54 );
+//取消主讲成功，消息体:
+OSPEVENT( MCU_MAU_CANCELSPEAKER_ACK,         EV_MPC_MPCD_BGN + 55 );
+//取消主讲失败，消息体:
+OSPEVENT( MCU_MAU_CANCELSPEAKER_NACK,        EV_MPC_MPCD_BGN + 56 );
+
+//MAU请求MCU删除终端，消息体：TReqHeadInfo + TMt
+OSPEVENT( MAU_MCU_DELMT_REQ,				  EV_MPC_MPCD_BGN + 57 );
+//MAU删除终端ACK答复，消息体：无
+OSPEVENT( MCU_MAU_DELMT_ACK,				  EV_MPC_MPCD_BGN + 58 );
+//MAU删除终端NACK答复，消息体：无
+OSPEVENT( MCU_MAU_DELMT_NACK,				  EV_MPC_MPCD_BGN + 59 );
+
+//呼叫终端，消息体：TReqHeadInfo + TMt
+OSPEVENT( MAU_MCU_CALLMT_REQ,				  EV_MPC_MPCD_BGN + 60 );
+//呼叫终端ACK答复，消息体：无
+OSPEVENT( MCU_MAU_CALLMT_ACK,				  EV_MPC_MPCD_BGN + 61 );
+//呼叫终端NACK答复，消息体：无
+OSPEVENT( MCU_MAU_CALLMT_NACK,				  EV_MPC_MPCD_BGN + 62 );
+
+
+//挂断终端，消息体：TReqHeadInfo + TMt
+OSPEVENT( MAU_MCU_DROPMT_REQ,				  EV_MPC_MPCD_BGN + 63 );
+//挂断终端ACK答复，消息体：无
+OSPEVENT( MCU_MAU_DROPMT_ACK,				  EV_MPC_MPCD_BGN + 64 );
+//挂断终端NACK答复，消息体：无
+OSPEVENT( MCU_MAU_DROPMT_NACK,				  EV_MPC_MPCD_BGN + 65 );
+
+//MAU请求MCU终端静音，消息体：TReqHeadInfo + TMt +1byte(1- MUTE 0-NOMUTE)+1byte(1-DECODER 2-CAPTURE)
+OSPEVENT( MAU_MCU_MTAUDMUTE_REQ,			  EV_MPC_MPCD_BGN + 66 );
+//MAU终端静音ACK答复，消息体：无
+OSPEVENT( MCU_MAU_MTAUDMUTE_ACK,			  EV_MPC_MPCD_BGN + 67 );
+//MAU终端静音NACK答复，消息体：无
+OSPEVENT( MCU_MAU_MTAUDMUTE_NACK,			  EV_MPC_MPCD_BGN + 68 );
+//发送短消息，消息体：2 byte(终端数,网络序,值为N,0为广播到所有终端) + N个TMt +TROLLMSG
+OSPEVENT( MAU_MCU_SENDRUNMSG_CMD,            EV_MPC_MPCD_BGN + 69 );
+
+//sp2
+//开始画面合成，消息体：TReqHeadInfo + TVMPParam
+OSPEVENT( MAU_MCU_STARTVMP_REQ,			  EV_MPC_MPCD_BGN + 70 );
+//开始画面合成ACK答复，消息体：无
+OSPEVENT( MCU_MAU_STARTVMP_ACK,			  EV_MPC_MPCD_BGN + 71 );
+//开始画面合成NACK答复，消息体：无
+OSPEVENT( MCU_MAU_STARTVMP_NACK,			  EV_MPC_MPCD_BGN + 72 );
+
+//会场哑音，消息体：TReqHeadInfo
+OSPEVENT( MAU_MCU_ALLMTMUTE_REQ,			  EV_MPC_MPCD_BGN + 73 );
+//会场哑音ACK答复，消息体：无
+OSPEVENT( MCU_MAU_ALLMTMUTE_ACK,			  EV_MPC_MPCD_BGN + 74 );
+//会场哑音NACK答复，消息体：无
+OSPEVENT( MCU_MAU_ALLMTMUTE_NACK,			  EV_MPC_MPCD_BGN + 75 );
+
+//会场静音，消息体：TReqHeadInfo
+OSPEVENT( MAU_MCU_ALLMTSILENCE_REQ,		  EV_MPC_MPCD_BGN + 76 );
+//会场静音ACK答复，消息体：无
+OSPEVENT( MCU_MAU_ALLMTSILENCE_ACK,		  EV_MPC_MPCD_BGN + 77 );
+//会场静音NACK答复，消息体：无
+OSPEVENT( MCU_MAU_ALLMTSILENCE_NACK,		  EV_MPC_MPCD_BGN + 78 );
+
+//MCU通知MAU会议结束剩余时间, 消息体: 1 u16 (网络序, 会议结束剩余时间, 单位: 分钟)
+OSPEVENT( MCU_MAU_CONFTIMELEFT_NOTIF,        EV_MPC_MPCD_BGN + 79 );
+//申请主席通知到MAU, 消息体： TMt(申请的终端) 
+OSPEVENT( MCU_MAU_MTAPPLYCHAIRMANT_NOTIF,    EV_MPC_MPCD_BGN + 80 );
+//申请主讲通知到MAU，MT->MCU，消息体NULL
+OSPEVENT( MCU_MAU_MTAPPLYSPEAKER_NOTIF,	  EV_MPC_MPCD_BGN + 81 ); 
+
+//取消会场哑音，消息体：TReqHeadInfo
+OSPEVENT( MAU_MCU_CANCELALLMTMUTE_REQ,		  EV_MPC_MPCD_BGN + 82 );
+//会场哑音ACK答复，消息体：无
+OSPEVENT( MCU_MAU_CANCELALLMTMUTE_ACK,		  EV_MPC_MPCD_BGN + 83 );
+//会场哑音NACK答复，消息体：无
+OSPEVENT( MCU_MAU_CANCELALLMTMUTE_NACK,	  EV_MPC_MPCD_BGN + 84 );
+
+//取消会场静音，消息体：TReqHeadInfo
+OSPEVENT( MAU_MCU_CANCELALLMTSILENCE_REQ,	  EV_MPC_MPCD_BGN + 85 );
+//会场静音ACK答复，消息体：无
+OSPEVENT( MCU_MAU_CANCELALLMTSILENCE_ACK,	  EV_MPC_MPCD_BGN + 86 );
+//会场静音NACK答复，消息体：无
+OSPEVENT( MCU_MAU_CANCELALLMTSILENCE_NACK,	  EV_MPC_MPCD_BGN + 87 );
+
+//开始讨论
+OSPEVENT( MAU_MCU_STARTDISCUSS_REQ,    EV_MPC_MPCD_BGN + 88 );
+OSPEVENT( MCU_MAU_STARTDISCUSS_ACK,    EV_MPC_MPCD_BGN + 89 );
+OSPEVENT( MCU_MAU_STARTDISCUSS_NACK,   EV_MPC_MPCD_BGN + 90 );
+
+//结束讨论
+OSPEVENT( MAU_MCU_STOPDISCUSS_REQ,     EV_MPC_MPCD_BGN + 91 );
+OSPEVENT( MCU_MAU_STOPDISCUSS_ACK,     EV_MPC_MPCD_BGN + 92 );
+OSPEVENT( MCU_MAU_STOPDISCUSS_NACK,    EV_MPC_MPCD_BGN + 93 );
+
+//修改画面合成参数
+OSPEVENT( MAU_MCU_CHANGEVMP_REQ,			  EV_MPC_MPCD_BGN + 94);
+//修改画面合成参数ACK答复，消息体：无
+OSPEVENT( MCU_MAU_CHANGEVMP_ACK,			  EV_MPC_MPCD_BGN + 95);
+//修改画面合成参数NACK答复，消息体：无
+OSPEVENT( MCU_MAU_CHANGEVMP_NACK,			  EV_MPC_MPCD_BGN + 96);
+
+//开始画面合成，消息体：TReqHeadInfo
+OSPEVENT( MAU_MCU_STOPVMP_REQ,			      EV_MPC_MPCD_BGN + 97 );
+//开始画面合成ACK答复，消息体：无
+OSPEVENT( MCU_MAU_STOPVMP_ACK,			      EV_MPC_MPCD_BGN + 98 );
+//开始画面合成NACK答复，消息体：无
+OSPEVENT( MCU_MAU_STOPVMP_NACK,			  EV_MPC_MPCD_BGN + 99 );
+
+//MAU向MCU发送延长会议命令
+OSPEVENT( MAU_MCU_DELAYCONF_REQ,			  EV_MPC_MPCD_BGN + 100 );
+OSPEVENT( MCU_MAU_DELAYCONF_ACK,			  EV_MPC_MPCD_BGN + 101 );
+OSPEVENT( MCU_MAU_DELAYCONF_NACK,			  EV_MPC_MPCD_BGN + 102 );
+
+//MCU延长会议通知, 消息体: 1 u16 (网络序，延长时间，单位：分钟)
+OSPEVENT( MCU_MAU_DELAYCONF_NOTIF,           EV_MPC_MPCD_BGN + 103 );	
+
+//会议模式通知,消息体：TConfMode
+OSPEVENT( MCU_MAU_CONFMODE_NOTIF,            EV_MPC_MPCD_BGN + 104 );
+
+//会议简单信息通知，消息体：TBasicConfInfo
+OSPEVENT( MCU_MAU_SIMCONFINFO_NOTIF,         EV_MPC_MPCD_BGN + 105 );
+
+//MCU给会议控制台的视频复合参数通知, 消息体：  TVMPParam
+OSPEVENT( MCU_MAU_VMPPARAM_NOTIF,	          EV_MPC_MPCD_BGN + 106 );
+
+//MAU向MCU添加终端（终端被动添加,MAU_MCU_ADDMT_REQ为终端主动入会）,消息体：
+OSPEVENT( MAU_MCU_ADDMT_PASSIVITY_REQ,	      EV_MPC_MPCD_BGN + 107 );
+OSPEVENT( MCU_MAU_ADDMT_PASSIVITY_ACK,		  EV_MPC_MPCD_BGN + 108 );
+OSPEVENT( MCU_MAU_ADDMT_PASSIVITY_NACK,	  EV_MPC_MPCD_BGN + 109 );
+
+//MAU向MCU发送开始轮询命令,消息体：MAU请求MCU终端静音，消息体：TReqHeadInfo + TPollInfo + TMtPollParam数组
+OSPEVENT( MAU_MCU_STARTPOLL_CMD,			  EV_MPC_MPCD_BGN + 110 );
+//MAU向MCU发送停止轮询命令,消息体：MAU请求MCU终端静音，消息体：TReqHeadInfo
+OSPEVENT( MAU_MCU_STOPPOLL_CMD,			  EV_MPC_MPCD_BGN + 111 );
+//MAU向MCU发送暂停轮询命令,消息体：MAU请求MCU终端静音，消息体：TReqHeadInfo
+OSPEVENT( MAU_MCU_PAUSEPOLL_CMD,	          EV_MPC_MPCD_BGN + 112 );
+//MAU向MCU发送继续轮询命令,消息体：MAU请求MCU终端静音，消息体：TReqHeadInfo
+OSPEVENT( MAU_MCU_RESUMEPOLL_CMD,	          EV_MPC_MPCD_BGN + 113 );
+
+//MAU向MCU发送指定轮询位置命令，消息体：TReqHeadInfo + TMt
+OSPEVENT( MAU_MCU_SPECPOLLPOS_REQ,	          EV_MPC_MPCD_BGN + 114 );
+OSPEVENT( MCU_MAU_SPECPOLLPOS_ACK,		      EV_MPC_MPCD_BGN + 115 );
+OSPEVENT( MCU_MAU_SPECPOLLPOS_NACK,	      EV_MPC_MPCD_BGN + 116 );
+
+//MAU向MCU发送修改轮询参数命令，消息体：TReqHeadInfo + TPollInfo + TMtPollParam数组
+OSPEVENT( MAU_MCU_CHANGEPOLLPARAM_CMD,	      EV_MPC_MPCD_BGN + 117 );
+//MCU向MAU发送轮询参数改变通知，消息体：TReqHeadInfo + TPollInfo + TMtPollParam数组
+OSPEVENT( MCU_MAU_POLLPARAMCHANGE_NOTIF,	  EV_MPC_MPCD_BGN + 118 );
+
+//MCU向MAU发送轮询状态通知，消息体：TReqHeadInfo + TPollInfo
+OSPEVENT( MCU_MAU_POLLSTATE_NOTIF,	          EV_MPC_MPCD_BGN + 119 );
+
+
+//混音成员操作
+//增加混音成员, 消息体：TMt数组
+OSPEVENT( MAU_MCU_ADDMIXMEMBER_CMD,          EV_MPC_MPCD_BGN + 120 );
+//移除混音成员, 消息体：TMt数组
+OSPEVENT( MAU_MCU_REMOVEMIXMEMBER_CMD,       EV_MPC_MPCD_BGN + 121 );
+
+//终端申请加入混音通知, 消息体：TMt(申请终端)
+OSPEVENT( MCU_MAU_MTAPPLYMIX_NOTIF,          EV_MPC_MPCD_BGN + 122 );
+
+//MAU向MCU发送设置语音通道来时提醒
+OSPEVENT( MAU_MCU_SETVOICEHINT_CMD,		  EV_MPC_MPCD_BGN + 123 );
+
+//语音通道来时提醒状态通知
+OSPEVENT( MCU_MAU_VOICEHINT_NTF,	          EV_MPC_MPCD_BGN + 124 );
+
+//MAU请求MCU上的会议列表详细信息命令，消息体：无
+OSPEVENT( MAU_MCU_LISTALLCONF_CMD,		      EV_MPC_MPCD_BGN + 125 );
+*/
+
+//
+//下面开始使用子消息
+//
+//MAU <--> MCU之间的主消息（不分方向）
+OSPEVENT( MAINEV_MAU_MCU,	                  EV_MPC_MPCD_BGN + 126 );
+
+//MAU请求MCU上的会议列表详细信息命令，消息体：无
+OSPEVENT( MCU_MAU_ALLMTALIAS_NTF,		      EV_MPC_MPCD_BGN + 127 );
+
+
+#define MAU_MCU_SUBEV_BEGIN (u32)65535			//子消息起始号
+
+#ifndef MAKESUBEV_u16
+//入参是u16的情况下使用
+#define  MAKESUBEV_u16(x)          x - MAU_MCU_SUBEV_BEGIN
+#endif
+
+#ifndef MAKESUBEV_u32
+//入参是u32的情况下使用
+#define  MAKESUBEV_u32(x)          x
+#endif
+
+#ifndef MAKESUBEV_U16_TO_U32
+//u16子消息转为u32子消息
+#define  MAKESUBEV_U16_TO_U32(x)   x + MAU_MCU_SUBEV_BEGIN 
+#endif
+
+
+
+
+const u32 SUBEV_MCU_MAU_MTSTATUS_NTF      = MAU_MCU_SUBEV_BEGIN + 1;
+
+const u32 SUBEV_MCU_MAU_ALLMTALIAS_NTF    = MAU_MCU_SUBEV_BEGIN + 2;
+
+//终端信息拆成两条处理,终端逻辑通道信息通知
+const u32 SUBEV_MCU_MAU_MTLOGICCHNNL_NTF  = MAU_MCU_SUBEV_BEGIN + 3;
+
+const u32 SUBEV_MCU_MAU_CALLMTFAILURE_NTF = MAU_MCU_SUBEV_BEGIN + 4;		//呼叫终端失败通知
+const u32 SUBEV_MCU_MAU_CALLSUCCESS_NTF   = MAU_MCU_SUBEV_BEGIN + 5;      //呼叫终端成功通知
+
+//指定对话方
+const u32 SUBEV_MAU_MCU_SPECDIALOGIST_REQ     = MAU_MCU_SUBEV_BEGIN + 6;
+const u32 SUBEV_MCU_MAU_SPECDIALOGIST_ACK     = MAU_MCU_SUBEV_BEGIN + 7;
+const u32 SUBEV_MCU_MAU_SPECDIALOGIST_NACK    = MAU_MCU_SUBEV_BEGIN + 8;
+
+//取消对话方
+const u32 SUBEV_MAU_MCU_CANCELDIALOGIST_REQ   = MAU_MCU_SUBEV_BEGIN + 9;
+const u32 SUBEV_MCU_MAU_CANCELDIALOGIST_ACK   = MAU_MCU_SUBEV_BEGIN + 10;
+const u32 SUBEV_MCU_MAU_CANCELDIALOGIST_NACK  = MAU_MCU_SUBEV_BEGIN + 11; 
+
+//webmcc拒绝终端加入混音通知
+const u32 SUBEV_MAU_MCU_REFUSEMIX_NTF		   = MAU_MCU_SUBEV_BEGIN + 12;
+
+//webmcc修改会议开放属性请求
+const u32 SUBEV_MAU_MCU_MDFPUBLICCONF_CMD	   = MAU_MCU_SUBEV_BEGIN + 13;
+
+//rnn[2014/04/22]电视墙相关
+const u32 SUBEV_MAU_MCU_STARTTVS_REQ		   = MAU_MCU_SUBEV_BEGIN + 14;
+const u32 SUBEV_MCU_MAU_STARTTVS_ACK		   = MAU_MCU_SUBEV_BEGIN + 15;
+const u32 SUBEV_MCU_MAU_STARTTVS_NACK		   = MAU_MCU_SUBEV_BEGIN + 16;
+
+const u32 SUBEV_MAU_MCU_CHANGETVSPARAM_REQ	   = MAU_MCU_SUBEV_BEGIN + 17;
+const u32 SUBEV_MCU_MAU_CHANGETVSPARAM_ACK	   = MAU_MCU_SUBEV_BEGIN + 18;
+const u32 SUBEV_MCU_MAU_CHANGETVSPARAM_NACK   = MAU_MCU_SUBEV_BEGIN + 19;
+
+const u32 SUBEV_MAU_MCU_STOPTVS_REQ		   = MAU_MCU_SUBEV_BEGIN + 20;
+const u32 SUBEV_MCU_MAU_STOPTVS_ACK		   = MAU_MCU_SUBEV_BEGIN + 21;
+const u32 SUBEV_MCU_MAU_STOPTVS_NACK		   = MAU_MCU_SUBEV_BEGIN + 22;
+
+const u32 SUBEV_MCU_MAU_HDUINFO_NTF		   = MAU_MCU_SUBEV_BEGIN + 23;
+
+const u32 SUBEV_MAU_MCU_SETHDUVOLUME_NTF	   = MAU_MCU_SUBEV_BEGIN + 24;	
+
+const u32 SUBEV_MCU_MAU_PLAYHDUFAIL_NTF	   = MAU_MCU_SUBEV_BEGIN + 25;
+//end
+
+
+#endif
+

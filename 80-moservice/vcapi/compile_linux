@@ -1,0 +1,43 @@
+#!/bin/sh
+
+######编译普通版本######
+
+#清理旧的lua文件
+rm -rf ./src/v1/lua/*
+
+#生成lua
+source_path="${PWD}/lua"
+dest_path="${PWD}/src/v1/lua"
+include_path="${PWD}/../apiscript;${PWD}/../apiscript/normal"
+/usr/python3.5/bin/python3.5 ../apiscript/merge.py $source_path $dest_path $include_path
+
+cd setup
+./compile_linux
+cd ..
+
+if  [ ! -d ../../10-common/version/release/linux/restapi ]; then
+	mkdir ../../10-common/version/release/linux/restapi
+fi
+
+echo "copy restapi to release path"
+cp ./setup/temp/apisetup.bin ../../10-common/version/release/linux/restapi/apisetup.bin
+
+######编译阿里云版本######
+
+#清理旧的lua文件
+rm -rf ./src/v1/lua/*
+
+#生成lua
+include_path="${PWD}/../apiscript;${PWD}/../apiscript/aliyun"
+/usr/python3.5/bin/python3.5 ../apiscript/merge.py $source_path $dest_path $include_path
+
+cd setup
+./compile_linux
+cd ..
+
+if  [ ! -d ../../10-common/version/release/linux/restapi_aliyun ]; then
+	mkdir ../../10-common/version/release/linux/restapi_aliyun
+fi
+
+echo "copy restapi_aliyun to release path"
+cp ./setup/temp/apisetup.bin ../../10-common/version/release/linux/restapi_aliyun/apisetup.bin

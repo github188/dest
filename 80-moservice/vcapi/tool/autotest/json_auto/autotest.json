@@ -1,0 +1,6344 @@
+{
+  "title": "视频会议",
+  "requests": [
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}",
+      "title": "获取视频会议信息",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "name": "autotest",
+        "conf_id": "0009001",
+        "conf_type": 1,
+        "start_time": "2014-12-01T08:12:22+08:00",
+        "end_time": "2014-12-02T09:09:09+08:00",
+        "duration": 240,
+        "bitrate": 1024,
+        "closed_conf": 0,
+        "safe_conf": 0,
+        "encrypted_type": 0,
+        "call_times": 0,
+        "call_interval": 20,
+        "call_chase": 1,
+        "mute": 0,
+        "silence": 0,
+        "video_quality": 0,
+        "encrypted_key": "",
+        "dual_mode": 1,
+        "public_conf": 0,
+        "auto_end": 1,
+        "preoccupy_resource": 0,
+        "max_join_mt": 192,
+        "voice_inspire_enable": 0,
+        "creator": {
+          "name": "keda_user_admin1",
+          "account": "b812b02c-d80e-4250-b9da-e3f8d0ea3cdf",
+          "account_type": 1,
+          "telephone": "",
+          "mobile": "123"
+        },
+        "video_formats": [
+          {
+            "format": 5,
+            "resolution": 12,
+            "frame": 30,
+            "bitrate": 1024
+          }
+        ],
+        "vmp_enable": 0,
+        "mix_enable": 0,
+        "poll_enable": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/cascades/4/mts",
+      "title": "获取级联会议终端列表",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mts": [
+          {
+            "alias": "gkmt_455",
+            "mt_id": "4.1",
+            "online": 1,
+            "e164": "0512110000455",
+            "bitrate":1024,
+            "type": 1,
+            "dual":0,
+            "silence":0,
+            "mute": 0,
+            "ip": "172.16.185.233"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/cascades/0/mts",
+      "title": "当{cascade_id}为0时，获取级联会议终端列表",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mts": [
+          {
+            "alias": ["shiye","gkmt_450","auto high","auto low"],
+            "mt_id": ["1","2","3","4"],
+            "online": 1,
+            "e164": ["","0009010","0009007","0512110000450"],
+            "bitrate":1024,
+            "type": [1,7,8],
+            "dual":0,
+            "silence":[0,1],
+            "mute": [0,1],
+            "ip": ["172.16.185.233","172.16.177.12"]
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts",
+      "title": "获取本级会议终端列表",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mts": [
+          {
+            "alias": ["shiye","gkmt_450","auto high","auto low"],
+            "mt_id": ["1","2","3","4"],
+            "online": 1,
+            "e164": ["","0009010","0009007","0512110000450"],
+            "bitrate":1024,
+            "type": [1,7,8],
+            "dual":0,
+            "silence":[0,1],
+            "mute": [0,1],
+            "protocol":[0,1],
+            "call_mode":2,
+            "ip":["172.16.185.233","172.16.177.12"]
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1",
+      "title": "获取与会终端信息{mt_id}=1",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "alias": "shiye",
+        "mt_id": "1",
+        "ip": "172.16.177.12",
+        "online": 1,
+        "e164": "",
+        "bitrate":1024,
+        "type": 1,
+        "dual":0,
+        "silence":0,
+        "mute":0,
+        "snd_volume": 1,
+        "rcv_volume": 15,
+        "protocol":0,
+        "call_mode": 2,
+        "v_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "v_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "dv_snd_chn": [],
+        "dv_rcv_chn": [],
+        "a_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "a_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/cascades/4/mts",
+      "title": "批量添加级联终端{cascade_id}=3",
+      "method": "POST",
+      "param": {
+        "mts": [
+          {
+            "account": "0512110000458",
+            "account_type": 5,
+            "bitrate": 2048,
+            "protocol": 0
+          },
+          {
+            "account": "0512110000459",
+            "account_type": 5,
+            "bitrate": 2048,
+            "protocol": 0
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/cascades/4/mts",
+      "title": "获取级联会议终端列表 确认级联终端是否已添加",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mts": [
+          {
+            "alias": ["gkmt_455","gkmt_458","gkmt_459"],
+            "mt_id": ["4.1","4.2","4.3"],
+            "online": 1,
+            "e164": ["0512110000455","0512110000458","0512110000459"],
+            "bitrate":1024,
+            "type": 1,
+            "dual":0,
+            "silence":0,
+            "mute": 0,
+            "ip":"172.16.185.233"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts",
+      "title": "批量添加本级终端",
+      "method": "POST",
+      "param": {
+        "mts": [
+          {
+            "account": "0512110000456",
+            "account_type": 5,
+            "bitrate": 1048,
+            "protocol": 0
+          },
+          {
+            "account": "0512110000457",
+            "account_type": 5,
+            "bitrate": 2048,
+            "protocol": 0
+          }
+        ]
+      },
+        "response": {
+            "success": 1
+          }
+
+      },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts",
+      "title": "获取本级会议终端列表   确认本级终端是否添加",
+      "method": "GET",
+      "param":{},
+      "response": {
+        "success": 1,
+        "mts": [
+          {
+            "alias": ["shiye","gkmt_450","gkmt_456","gkmt_457","auto high","auto low"],
+            "mt_id": ["1","2","3","4","5","6"],
+            "online": [0,1],
+            "e164": ["","0512110000450","0512110000456","0512110000457","0009010","0009007"],
+            "bitrate":1024,
+            "type": [1,3,5,7,8],
+            "dual":[0,1],
+            "silence":[0,1],
+            "mute":[0,1],
+            "protocol":[0,1],
+            "call_mode":[0,1,2],
+            "ip":["172.16.185.233","172.16.177.12"]
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts",
+      "title": "批量删除 本级与级联 终端",
+      "method": "DELETE",
+      "param": {
+        "mts": [
+          {
+            "mt_id": "5"
+          },
+          {
+            "mt_id": "6"
+          },
+          {
+            "mt_id": "4.2"
+          },
+          {
+            "mt_id": "4.3"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+        {
+      "uri": "/api/v1/vc/confs/{conf_id}/cascades/4/mts",
+      "title": "获取级联会议终端列表    确认级联终端是否已删除",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mts": [
+          {
+            "alias": "gkmt_455",
+            "mt_id": "4.1",
+            "online": 1,
+            "e164": "0512110000455",
+            "bitrate":1024,
+            "type": 1,
+            "dual":0,
+            "silence":0,
+            "mute": 0,
+            "ip":"172.16.185.233"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts",
+      "title": "获取本级会议终端列表   确认本级和级联终端是否被删除",
+      "method": "GET",
+      "param":{},
+      "response": {
+        "success": 1,
+        "mts": [
+          {
+            "alias": ["shiye","gkmt_450","auto high","auto low"],
+            "mt_id": ["1","2","3","4"],
+            "online": [0,1],
+            "e164":["","0512110000450","0009010","0009007"],
+            "bitrate":1024,
+            "type": [1,3,5,7,8],
+            "dual":[0,1],
+            "silence":[0,1],
+            "mute":[0,1],
+            "protocol":[0,1],
+            "call_mode":[0,1,2],
+            "ip":["172.16.185.233","172.16.177.12"]
+          }
+        ]
+      }
+    },
+    {
+            "uri": "/api/v1/vc/confs/{conf_id}/upload",
+            "title": "上传终端操作",
+            "method": "PUT",
+            "param":  {
+                    "mt_id": "1"
+                },
+            "response": {
+                        "success": 1
+                    }
+                },
+    {
+            "uri": "/api/v1/vc/confs/{conf_id}/upload",
+            "title": "获取上传终端   确认上传终端已设置",
+            "method": "GET",
+            "param": {},
+            "response": {
+                        "success": 1,
+                        "mt_id": "1"
+            }
+    },
+    {
+            "uri": "/api/v1/vc/confs/{conf_id}/upload",
+            "title": "上传终端操作   mt_id填空即取消上传终端",
+            "method": "PUT",
+            "param":  {
+                    "mt_id": ""
+                },
+            "response": {
+                        "success": 1
+                    }
+                },
+    {
+            "uri": "/api/v1/vc/confs/{conf_id}/upload",
+            "title": "获取上传终端   确认上传终端是否已取消",
+            "method": "GET",
+            "param": {},
+            "response": {
+                        "success": 1,
+                        "mt_id": ""
+            }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/online_mts",
+      "title": "批量挂断终端   mt_id=1、2",
+      "method": "DELETE",
+      "param": {
+        "mts": [
+          {
+            "mt_id": "1"
+          },
+          {
+            "mt_id": "2"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1",
+      "title": "获取与会终端信息mt_id=1   确认终端是否被挂断",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "alias": "shiye",
+        "mt_id": "1",
+        "ip": "172.16.177.12",
+        "online": 0,
+        "e164": "",
+        "bitrate":1024,
+        "type": 1,
+        "dual":0,
+        "silence":0,
+        "mute":0,
+        "protocol":0,
+        "call_mode": 0,
+        "dv_snd_chn": [],
+        "dv_rcv_chn": [],
+        "v_rcv_chn":[],
+        "v_snd_chn":[],
+        "a_rcv_chn":[],
+        "a_snd_chn":[]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/2",
+      "title": "获取与会终端信息mt_id=2   确认终端是否被挂断",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "alias": "gkmt_450",
+        "mt_id": "2",
+        "ip": "172.16.185.233",
+        "online": 0,
+        "e164": "0512110000450",
+        "bitrate":1024,
+        "type": 1,
+        "dual":0,
+        "silence":0,
+        "mute":0,
+        "protocol":0,
+        "call_mode": 0,
+        "dv_snd_chn": [],
+        "dv_rcv_chn": [],
+        "v_rcv_chn":[],
+        "v_snd_chn":[],
+        "a_rcv_chn":[],
+        "a_snd_chn":[]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/online_mts",
+      "title": "批量呼叫终端    终端1、2",
+      "method": "POST",
+      "param": {
+        "mts": [
+          {
+            "mt_id": "1"
+          },
+          {
+            "mt_id": "2"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1",
+      "title": "获取与会终端信息mt_id=1    确认终端是否被呼叫上来",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "alias": "shiye",
+        "mt_id": "1",
+        "ip": "172.16.177.12",
+        "online": 1,
+        "e164": "",
+        "bitrate":1024,
+        "type": 1,
+        "dual":0,
+        "silence":0,
+        "mute":0,
+        "snd_volume": 1,
+        "rcv_volume": 15,
+        "protocol":0,
+        "call_mode": 2,
+        "v_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "v_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "dv_snd_chn": [],
+        "dv_rcv_chn": [],
+        "a_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "a_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/2",
+      "title": "获取与会终端信息mt_id=2    确认终端是否被呼叫上来",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "alias": "gkmt_450",
+        "mt_id": "2",
+        "ip": "172.16.185.233",
+        "online": 1,
+        "e164": "0512110000450",
+        "bitrate":1024,
+        "type": 1,
+        "dual":0,
+        "silence":0,
+        "mute":0,
+        "snd_volume": 0,
+        "rcv_volume": 0,
+        "protocol":0,
+        "call_mode": 2,
+        "v_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "v_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "dv_snd_chn": [],
+        "dv_rcv_chn": [],
+        "a_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "a_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/online_mts",
+      "title": "批量挂断终端   单个终端1",
+      "method": "DELETE",
+      "param": {
+        "mts": [
+          {
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1",
+      "title": "获取与会终端信息mt_id=1   确认单个终端是否被挂断",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "alias": "shiye",
+        "mt_id": "1",
+        "ip": "172.16.177.12",
+        "online": 0,
+        "e164": "",
+        "bitrate":1024,
+        "type": 1,
+        "dual":0,
+        "silence":0,
+        "mute":0,
+        "protocol":0,
+        "call_mode": 0,
+        "dv_snd_chn": [],
+        "dv_rcv_chn": [],
+        "v_rcv_chn":[],
+        "v_snd_chn":[],
+        "a_rcv_chn":[],
+        "a_snd_chn":[]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/online_mts",
+      "title": "批量呼叫终端    单个终端1",
+      "method": "POST",
+      "param": {
+        "mts": [
+          {
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1",
+      "title": "获取与会终端信息mt_id=1    确认终端是否单独被呼叫上来",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "alias": "shiye",
+        "mt_id": "1",
+        "ip": "172.16.177.12",
+        "online": 1,
+        "e164": "",
+        "bitrate":1024,
+        "type": 1,
+        "dual":0,
+        "silence":0,
+        "mute":0,
+        "snd_volume": 1,
+        "rcv_volume": 15,
+        "protocol":0,
+        "call_mode": 2,
+        "v_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "v_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "dv_snd_chn": [],
+        "dv_rcv_chn": [],
+        "a_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "a_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/chairman",
+      "title": "指定会议主席",
+      "method": "PUT",
+      "param": {
+        "mt_id": "1"
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/chairman",
+      "title": "获取会议主席     确认会议主席是否已设定",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mt_id": "1"
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/speaker",
+      "title": "指定会议发言人",
+      "method": "PUT",
+      "param": {
+        "mt_id": "1"
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/speaker",
+      "title": "获取会议发言人    确认会议发言人是否已指定",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mt_id": "1"
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/dualstream",
+      "title": "指定会议双流源",
+      "method": "PUT",
+      "param": {
+        "mt_id": "1"
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/dualstream",
+      "title": "获取会议双流源     确认双流是否开启",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mt_id":"1"
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/dualstream",
+      "title": "指定会议双流源      取消双流源",
+      "method": "PUT",
+      "param": {
+        "mt_id": ""
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/dualstream",
+      "title": "获取会议双流源     确认是否通过制定会议双流源接口取消双流源",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mt_id":""
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/dualstream",
+      "title": "指定会议双流源",
+      "method": "PUT",
+      "param": {
+        "mt_id": "1"
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/dualstream",
+      "title": "获取会议双流源     确认双流是否开启",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mt_id":"1"
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/delay",
+      "title": "延长会议时间",
+      "method": "POST",
+      "param": {
+        "delay_time": 120
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}",
+      "title": "获取视频会议信息    确认会议时间是否延长",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "name": "autotest",
+        "conf_id": "0009001",
+        "conf_type": 1,
+        "start_time": "2014-12-01T08:12:22+08:00",
+        "end_time": "2014-12-02T09:09:09+08:00",
+        "duration": 360,
+        "bitrate": 1024,
+        "closed_conf": 0,
+        "safe_conf": 0,
+        "encrypted_type": 0,
+        "call_times": 0,
+        "call_interval": 20,
+        "call_chase": 1,
+        "mute": 0,
+        "silence": 0,
+        "video_quality": 0,
+        "encrypted_key": "",
+        "dual_mode": 1,
+        "public_conf": 0,
+        "auto_end": 1,
+        "preoccupy_resource": 1,
+        "max_join_mt": 192,
+        "voice_inspire_enable": 0,
+        "creator": {
+          "name": "keda_user_admin1",
+          "account": "b812b02c-d80e-4250-b9da-e3f8d0ea3cdf",
+          "account_type": 1,
+          "telephone": "",
+          "mobile": "123"
+        },
+        "video_formats": [
+          {
+            "format": 5,
+            "resolution": 12,
+            "frame": 30,
+            "bitrate": 1024
+          }
+        ],
+        "vmp_enable": 0,
+        "mix_enable": 0,
+        "poll_enable": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/silence",
+      "title": "会场静音操作",
+      "method": "PUT",
+      "param": {
+        "value": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}",
+      "title": "获取视频会议信息    确认会场是否静音",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "name": "autotest",
+        "conf_id": "0009001",
+        "conf_type": 1,
+        "start_time": "2014-12-01T08:12:22+08:00",
+        "end_time": "2014-12-02T09:09:09+08:00",
+        "duration": 360,
+        "bitrate": 1024,
+        "closed_conf": 0,
+        "safe_conf": 0,
+        "encrypted_type": 0,
+        "call_times": 0,
+        "call_interval": 20,
+        "call_chase": 1,
+        "mute": 0,
+        "silence": 1,
+        "video_quality": 0,
+        "encrypted_key": "",
+        "dual_mode": 1,
+        "public_conf": 0,
+        "auto_end": 1,
+        "preoccupy_resource": 1,
+        "max_join_mt": 192,
+        "voice_inspire_enable": 0,
+        "creator": {
+          "name": "keda_user_admin1",
+          "account": "b812b02c-d80e-4250-b9da-e3f8d0ea3cdf",
+          "account_type": 1,
+          "telephone": "",
+          "mobile": "123"
+        },
+        "video_formats": [
+          {
+            "format": 5,
+            "resolution": 12,
+            "frame": 30,
+            "bitrate": 1024
+          }
+        ],
+        "vmp_enable": 0,
+        "mix_enable": 0,
+        "poll_enable": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/silence",
+      "title": "会场静音操作   取消静音",
+      "method": "PUT",
+      "param": {
+        "value": 0
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}",
+      "title": "获取视频会议信息    确认会场静音是否取消",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "name": "autotest",
+        "conf_id": "0009001",
+        "conf_type": 1,
+        "start_time": "2014-12-01T08:12:22+08:00",
+        "end_time": "2014-12-02T09:09:09+08:00",
+        "duration": 360,
+        "bitrate": 1024,
+        "closed_conf": 0,
+        "safe_conf": 0,
+        "encrypted_type": 0,
+        "call_times": 0,
+        "call_interval": 20,
+        "call_chase": 1,
+        "mute": 0,
+        "silence": 0,
+        "video_quality": 0,
+        "encrypted_key": "",
+        "dual_mode": 1,
+        "public_conf": 0,
+        "auto_end": 1,
+        "preoccupy_resource": 1,
+        "max_join_mt": 192,
+        "voice_inspire_enable": 0,
+        "creator": {
+          "name": "keda_user_admin1",
+          "account": "b812b02c-d80e-4250-b9da-e3f8d0ea3cdf",
+          "account_type": 1,
+          "telephone": "",
+          "mobile": "123"
+        },
+        "video_formats": [
+          {
+            "format": 5,
+            "resolution": 12,
+            "frame": 30,
+            "bitrate": 1024
+          }
+        ],
+        "vmp_enable": 0,
+        "mix_enable": 0,
+        "poll_enable": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mute",
+      "title": "会场哑音操作",
+      "method": "PUT",
+      "param": {
+        "value": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}",
+      "title": "获取视频会议信息    确认会场哑音是否开启",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "name": "autotest",
+        "conf_id": "0009001",
+        "conf_type": 1,
+        "start_time": "2014-12-01T08:12:22+08:00",
+        "end_time": "2014-12-02T09:09:09+08:00",
+        "duration": 360,
+        "bitrate": 1024,
+        "closed_conf": 0,
+        "safe_conf": 0,
+        "encrypted_type": 0,
+        "call_times": 0,
+        "call_interval": 20,
+        "call_chase": 1,
+        "mute": 1,
+        "silence": 0,
+        "video_quality": 0,
+        "encrypted_key": "",
+        "dual_mode": 1,
+        "public_conf": 0,
+        "auto_end": 1,
+        "preoccupy_resource": 1,
+        "max_join_mt": 192,
+        "voice_inspire_enable": 0,
+        "creator": {
+          "name": "keda_user_admin1",
+          "account": "b812b02c-d80e-4250-b9da-e3f8d0ea3cdf",
+          "account_type": 1,
+          "telephone": "",
+          "mobile": "123"
+        },
+        "video_formats": [
+          {
+            "format": 5,
+            "resolution": 12,
+            "frame": 30,
+            "bitrate": 1024
+          }
+        ],
+        "vmp_enable": 0,
+        "mix_enable": 0,
+        "poll_enable": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mute",
+      "title": "会场哑音操作",
+      "method": "PUT",
+      "param": {
+        "value": 0
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}",
+      "title": "获取视频会议信息    确认会场哑音是否取消",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "name": "autotest",
+        "conf_id": "0009001",
+        "conf_type": 1,
+        "start_time": "2014-12-01T08:12:22+08:00",
+        "end_time": "2014-12-02T09:09:09+08:00",
+        "duration": 360,
+        "bitrate": 1024,
+        "closed_conf": 0,
+        "safe_conf": 0,
+        "encrypted_type": 0,
+        "call_times": 0,
+        "call_interval": 20,
+        "call_chase": 1,
+        "mute": 0,
+        "silence": 0,
+        "video_quality": 0,
+        "encrypted_key": "",
+        "dual_mode": 1,
+        "public_conf": 0,
+        "auto_end": 1,
+        "preoccupy_resource": 1,
+        "max_join_mt": 192,
+        "voice_inspire_enable": 0,
+        "creator": {
+          "name": "keda_user_admin1",
+          "account": "b812b02c-d80e-4250-b9da-e3f8d0ea3cdf",
+          "account_type": 1,
+          "telephone": "",
+          "mobile": "123"
+        },
+        "video_formats": [
+          {
+            "format": 5,
+            "resolution": 12,
+            "frame": 30,
+            "bitrate": 1024
+          }
+        ],
+        "vmp_enable": 0,
+        "mix_enable": 0,
+        "poll_enable": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/safty",
+      "title": "会议安全操作       开启隐藏会议和会议免打扰",
+      "method": "PUT",
+      "param": {
+        "password": "456",
+        "safe_conf": 1,
+        "closed_conf": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}",
+      "title": "获取视频会议信息    确认是否开启隐藏会议和会议免打扰",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "name": "autotest",
+        "conf_id": "0009001",
+        "conf_type": 1,
+        "start_time": "2014-12-01T08:12:22+08:00",
+        "end_time": "2014-12-02T09:09:09+08:00",
+        "duration": 360,
+        "bitrate": 1024,
+        "closed_conf": 1,
+        "safe_conf": 1,
+        "encrypted_type": 0,
+        "call_times": 0,
+        "call_interval": 20,
+        "call_chase": 1,
+        "mute": 0,
+        "silence": 0,
+        "video_quality": 0,
+        "encrypted_key": "",
+        "dual_mode": 1,
+        "public_conf": 0,
+        "auto_end": 1,
+        "preoccupy_resource": 1,
+        "max_join_mt": 192,
+        "voice_inspire_enable": 0,
+        "creator": {
+          "name": "keda_user_admin1",
+          "account": "b812b02c-d80e-4250-b9da-e3f8d0ea3cdf",
+          "account_type": 1,
+          "telephone": "",
+          "mobile": "123"
+        },
+        "video_formats": [
+          {
+            "format": 5,
+            "resolution": 12,
+            "frame": 30,
+            "bitrate": 1024
+          }
+        ],
+        "vmp_enable": 0,
+        "mix_enable": 0,
+        "poll_enable": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/safty",
+      "title": "会议安全操作      关闭隐藏会议关闭会议免打扰",
+      "method": "PUT",
+      "param": {
+        "password": "456",
+        "safe_conf": 0,
+        "closed_conf": 0
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}",
+      "title": "获取视频会议信息     确认是否关闭隐藏会议关闭会议免打扰",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "name": "autotest",
+        "conf_id": "0009001",
+        "conf_type": 1,
+        "start_time": "2014-12-01T08:12:22+08:00",
+        "end_time": "2014-12-02T09:09:09+08:00",
+        "duration": 360,
+        "bitrate": 1024,
+        "closed_conf": 0,
+        "safe_conf": 0,
+        "encrypted_type": 0,
+        "call_times": 0,
+        "call_interval": 20,
+        "call_chase": 1,
+        "mute": 0,
+        "silence": 0,
+        "video_quality": 0,
+        "encrypted_key": "",
+        "dual_mode": 1,
+        "public_conf": 0,
+        "auto_end": 1,
+        "preoccupy_resource": 1,
+        "max_join_mt": 192,
+        "voice_inspire_enable": 0,
+        "creator": {
+          "name": "keda_user_admin1",
+          "account": "b812b02c-d80e-4250-b9da-e3f8d0ea3cdf",
+          "account_type": 1,
+          "telephone": "",
+          "mobile": "123"
+        },
+        "video_formats": [
+          {
+            "format": 5,
+            "resolution": 12,
+            "frame": 30,
+            "bitrate": 1024
+          }
+        ],
+        "vmp_enable": 0,
+        "mix_enable": 0,
+        "poll_enable": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vad",
+      "title": "开启语音激励",
+      "method": "PUT",
+      "param": {
+        "state": 1,
+        "interval": 5
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vad",
+      "title": "关闭语音激励",
+      "method": "PUT",
+      "param": {
+        "state": 0,
+        "interval": 5
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mixs",
+      "title": "开启会议混音   智能",
+      "method": "POST",
+      "param": {
+        "mode": 1,
+        "members": [
+          {
+            "mt_id": "1"
+          },
+          {
+            "mt_id": "2"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mixs/1",
+      "title": "获取会议混音信息   智能混音是否开启",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 1,
+        "members": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mixs/1",
+      "title": "停止会议混音   智能",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mixs/1",
+      "title": "获取会议混音信息   智能混音是否关闭",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 0,
+        "members": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mixs",
+      "title": "开启会议混音   定制",
+      "method": "POST",
+      "param": {
+        "mode": 2,
+        "members": [
+          {
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mixs/1",
+      "title": "获取会议混音信息   定制混音是否开启",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 2,
+        "members": [
+          {
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mixs/1/members",
+      "title": "添加混音成员",
+      "method": "POST",
+      "param": {
+        "members": [
+          {
+            "mt_id": "2"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mixs/1",
+      "title": "获取会议混音信息   定制混音中混音成员是否添加",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 2,
+        "members": [
+          {
+            "mt_id": "1"
+          },
+          {
+            "mt_id": "2"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mixs/1/members",
+      "title": "删除混音成员",
+      "method": "DELETE",
+      "param": {
+        "members": [
+          {
+            "mt_id": "2"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mixs/1",
+      "title": "获取会议混音信息   定制混音中的终端是否删除",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 2,
+        "members": [
+          {
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mixs/1",
+      "title": "停止会议混音  ",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mixs/1",
+      "title": "获取会议混音信息   定制混音是否关闭",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 0,
+        "members": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/monitors",
+      "title": "获取监控列表       查看会议中是否开启监控",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "monitors": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/monitors",
+      "title": "监控终端      视频模式选看终端1",
+      "method": "POST",
+      "param": {
+        "mode": 0,
+        "src": {
+          "type": 1,
+          "mt_id": "1"
+        },
+        "video_format": {
+          "format": 4,
+          "resolution": 3,
+          "frame": 30,
+          "bitrate": 8128
+        },
+        "audio_format": {
+          "format": 5,
+          "chn_num": 1
+        },
+        "dst": {
+          "ip": "12.235.155.15",
+          "port": 6615
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/monitors",
+      "title": "获取监控列表     是否视频模式选看终端1",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "monitors": [
+          {
+            "mode": 0,
+            "src": {
+              "type": 1,
+              "mt_id": "1",
+              "encrypt": {
+                "mode": 0,
+                "key": ""
+              },
+              "payload_formats": {
+                "real_payload": "106",
+                "active_payload": "106"
+              },
+              "media_formats": {
+                "sampling": 0,
+                "chn_num": 0,
+                "bitrate": 24,
+                "max_frame": 0
+              },
+              "rtcp": {
+                "ip": "172.16.185.233",
+                "port": 27400
+              }
+            },
+            "dst": {
+              "ip": "12.235.155.15",
+              "port": 6615
+            }
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/monitors/12.235.155.15/6615",
+      "enable": true,
+      "title": "取消监控终端",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+          "success": 1
+        }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/monitors",
+      "title": "获取监控列表       查看监控是否被取消",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "monitors": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/monitors",
+      "title": "监控终端      视频模式并选看终端1,30秒是否取消监控",
+      "method": "POST",
+      "param": {
+        "mode": 0,
+        "src": {
+          "type": 1,
+          "mt_id": "1"
+        },
+        "video_format": {
+          "format": 4,
+          "resolution": 3,
+          "frame": 30,
+          "bitrate": 8128
+        },
+        "audio_format": {
+          "format": 5,
+          "chn_num": 1
+        },
+        "dst": {
+          "ip": "12.235.155.15",
+          "port": 6615
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/monitors",
+      "title": "获取监控列表     是否视频模式并选看终端1",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "monitors": [
+          {
+            "mode": 0,
+            "src": {
+              "mt_id": "1",
+              "encrypt": {
+                "mode": 0,
+                "key": ""
+              },
+              "payload_formats": {
+                "real_payload": "106",
+                "active_payload": "106"
+              },
+              "media_formats": {
+                "sampling": 0,
+                "chn_num": 0,
+                "bitrate": 24,
+                "max_frame": 0
+              },
+              "rtcp": {
+                "ip": "172.16.185.233",
+                "port": 20532
+              }
+            },
+            "dst": {
+              "ip": "12.235.155.15",
+              "port": 6615
+            }
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll",
+      "title": "获取会议轮询信息    未开启轮询",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "state": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll",
+      "title": "开启会议轮询    音视频都不传",
+      "method": "PUT",
+      "param": {
+        "mode": 0,
+        "num": 0,
+        "keep_time": 5,
+        "members": [
+          {
+            "mt_id": "1"
+          },
+          {
+            "mt_id": "2"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll",
+      "title": "获取会议轮询信息    音视频都不传",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "state": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll",
+      "title": "开启会议轮询    仅图像轮询",
+      "method": "PUT",
+      "param": {
+        "mode": 1,
+        "num": 100,
+        "keep_time": 5,
+        "members": [
+          {
+            "mt_id": "1"
+          },
+          {
+            "mt_id": "2"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll",
+      "title": "获取会议轮询信息    仅图像轮询",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 1,
+        "state": 1,
+        "num": 100,
+        "keep_time": 5,
+        "cur_poll_mt": {
+          "mt_id": "1"
+        },
+        "members": [
+          {
+            "mt_id": "1"
+          },
+          {
+            "mt_id": "2"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll/state",
+      "title": "修改轮询状态     暂停图像轮询",
+      "method": "PUT",
+      "param": {
+        "value": 1,
+        "mode":1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll",
+      "title": "获取会议轮询信息    是否暂停图像轮询",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 1,
+        "state": 2,
+        "num": 100,
+        "keep_time": 5,
+        "cur_poll_mt": {
+          "mt_id": "1"
+        },
+        "members": [
+          {
+            "mt_id": "1"
+          },
+          {
+            "mt_id": "2"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll/state",
+      "title": "修改轮询状态    继续图像轮询",
+      "method": "PUT",
+      "param": {
+        "value": 2,
+        "mode":1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll",
+      "title": "获取会议轮询信息    是否继续图像轮询",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 1,
+        "state": 1,
+        "num": 100,
+        "keep_time": 5,
+        "cur_poll_mt": {
+          "mt_id": "1"
+        },
+        "members": [
+          {
+            "mt_id": "1"
+          },
+          {
+            "mt_id": "2"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll/state",
+      "title": "修改轮询状态    停止图像轮询",
+      "method": "PUT",
+      "param": {
+        "value": 0,
+        "mode":1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll",
+      "title": "获取会议轮询信息    是否停止轮询",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "state": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll",
+      "title": "开启会议轮询    音视频轮询",
+      "method": "PUT",
+      "param": {
+        "mode": 3,
+        "num": 0,
+        "keep_time": 10,
+        "members": [
+          {
+            "mt_id": "1"
+          }
+        ]
+      },
+        "response": {
+          "success": 1
+        }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll",
+      "title": "获取会议轮询信息    音视频轮询",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 3,
+        "state": 1,
+        "num": 0,
+        "keep_time": 10,
+        "cur_poll_mt": {
+          "mt_id": "1"
+        },
+        "members": [
+          {
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll/state",
+      "title": "修改轮询状态     暂停音视频轮询",
+      "method": "PUT",
+      "param": {
+        "value": 1,
+        "mode":3
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll",
+      "title": "获取会议轮询信息    是否暂停音视频轮询",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 3,
+        "state": 2,
+        "num": 0,
+        "keep_time": 10,
+        "cur_poll_mt": {
+          "mt_id": "1"
+        },
+        "members": [
+          {
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll/state",
+      "title": "修改轮询状态    继续音视频轮询",
+      "method": "PUT",
+      "param": {
+        "value": 2,
+        "mode":1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll",
+      "title": "获取会议轮询信息    是否继续音视频轮询",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 3,
+        "state": 1,
+        "num": 0,
+        "keep_time": 10,
+        "cur_poll_mt": {
+          "mt_id": "1"
+        },
+        "members": [
+          {
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "获取会议画面合成信息    未开启",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps",
+      "title": "开启会议画面合成   自动画面合成",
+      "method": "POST",
+      "param": {
+        "mode": 2,
+        "layout": 2,
+        "broadcast": 1,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": 0,
+            "member_type": 1,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 1,
+            "member_type": 1,
+            "mt_id": "2"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "获取会议画面合成信息    自动画面合成",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 2,
+        "layout": 5,
+        "broadcast": 1,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": [0, 1, 2, 3],
+            "member_type": [1,2,3,4,5,7],
+            "mt_id": ["1", "2", "3","4"]
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "修改会议画面合成    关闭台标广播，设置手动，设置会控指定，修改画面合成风格",
+      "method": "POST",
+      "param": {
+        "mode": 1,
+        "layout": 1,
+        "broadcast": 0,
+        "show_alias": 0,
+        "members": [
+          {
+            "chn_idx": 0,
+            "member_type": 1,
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "获取会议画面合成信息    是否关闭台标广播，设置手动，设置会控指定",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 1,
+        "layout": 1,
+        "broadcast": 0,
+        "show_alias": 0,
+        "members": [
+          {
+            "chn_idx": 0,
+            "member_type": 1,
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "修改会议画面合成    关闭台标广播，设置手动，设置发言人跟随，修改画面合成风格",
+      "method": "POST",
+      "param": {
+        "mode": 1,
+        "layout": 2,
+        "broadcast": 0,
+        "show_alias": 0,
+        "members": [
+          {
+            "chn_idx": 1,
+            "member_type": 2,
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "获取会议画面合成信息    是否关闭台标广播，设置手动，设置发言人跟随",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 1,
+        "layout": 2,
+        "broadcast": 0,
+        "show_alias": 0,
+        "members": [
+          {
+            "chn_idx": 1,
+            "member_type": 2,
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "修改会议画面合成    打开台标广播，设置主席跟随、轮询跟随，修改画面合成风格",
+      "method": "POST",
+      "param": {
+        "mode": 1,
+        "layout": 23,
+        "broadcast": 1,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": 1,
+            "member_type": 3,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 2,
+            "member_type": 4,
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "获取会议画面合成信息    是否打开台标广播，设置主席跟随、轮询跟随，修改画面合成风格",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 1,
+        "layout": 23,
+        "broadcast": 1,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": 1,
+            "member_type": 3,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 2,
+            "member_type": 4,
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "修改会议画面合成    设置自动语音激励，修改画面合成风格",
+      "method": "POST",
+      "param": {
+        "mode": 1,
+        "layout": 5,
+        "broadcast": 1,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": 2,
+            "member_type": 5,
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "获取会议画面合成信息    是否设置自动语音激励，修改画面合成风格",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 1,
+        "layout": 5,
+        "broadcast": 1,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": 2,
+            "member_type": 5,
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "修改会议画面合成    设置双流跟随，修改画面合成风格",
+      "method": "POST",
+      "param": {
+        "mode": 1,
+        "layout": 35,
+        "broadcast": 1,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": 3,
+            "member_type": 7,
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "获取会议画面合成信息    是否设置双流跟随，修改画面合成风格",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 1,
+        "layout": 35,
+        "broadcast": 1,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": 3,
+            "member_type": 7,
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "停止会议手动画面合成",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "获取会议画面合成信息    是否停止",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps",
+      "title": "开启会议画面合成   打开会控手动 终端类型设置为空",
+      "method": "POST",
+      "param": {
+        "mode": 1,
+        "layout": 3,
+        "broadcast": 0,
+        "show_alias": 0,
+        "members": [
+          {
+            "chn_idx": 0,
+            "member_type": 1,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 1,
+            "member_type": 0,
+            "mt_id": "2"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "获取会议画面合成信息    是否打开会控手动 终端类型设置为空",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 1,
+        "layout": 3,
+        "broadcast": 0,
+        "show_alias": 0,
+        "members": [
+          {
+            "chn_idx": 0,
+            "member_type": 1,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 1,
+            "member_type": 0,
+            "mt_id": "2"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "修改会议画面合成    打开广播台标，添加终端，修改画面合成风格",
+      "method": "POST",
+      "param": {
+        "mode": 1,
+        "layout": 13,
+        "broadcast": 1,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": 2,
+            "member_type": 1,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 3,
+            "member_type": 1,
+            "mt_id": "2"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "获取会议画面合成信息    是否打开广播台标，添加终端，修改画面合成风格",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 1,
+        "layout": 13,
+        "broadcast": 1,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": 2,
+            "member_type": 1,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 3,
+            "member_type": 1,
+            "mt_id": "2"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "修改会议画面合成    设置为会议自动",
+      "method": "POST",
+      "param": {
+        "mode": 2,
+        "layout": 13,
+        "broadcast": 1,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": 2,
+            "member_type": 1,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 3,
+            "member_type": 1,
+            "mt_id": "2"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "获取会议画面合成信息    自动画面合成",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 2,
+        "layout": 5,
+        "broadcast": 1,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": [0, 1, 2, 3],
+            "member_type": [1,2,3,4,5,7],
+            "mt_id": ["1", "2", "3","4"]
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders",
+      "title": "开启录像    会议录像、不发布、不支持免登录看直播、支持录主流和双流",
+      "method": "POST",
+      "param": {
+        "video_name": "filename",
+        "recorder_type": 1,
+        "publish_mode": 0,
+        "anonymous": 0,
+        "recorder_mode": 1,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "members": [
+          {
+            "mt_id": "1"
+          },
+          {
+            "mt_id": "2"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否开启会议录像、不发布、不支持免登录看直播、支持录主流和双流",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "rectest",
+        "recorder_type": 1,
+        "state": 1,
+        "anonymous": 0,
+        "recorder_mode": 1,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 0,
+        "current_progress": "0",
+        "members": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders",
+      "title": "获取录像列表      是否开启会议录像、不发布、不支持免登录看直播、支持录主流和双流",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "recorders": [
+          {
+            "rec_id": "5",
+            "video_name": "rectest",
+            "recorder_type": 1,
+            "state": 1,
+            "anonymous": 0,
+            "recorder_mode": 1,
+            "main_stream": 1,
+            "dual_stream": 1,
+            "publish_mode": 0,
+            "current_progress": "0",
+            "members": []
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5/state",
+      "title": "修改录像状态     暂停会议录像",
+      "method": "PUT",
+      "param": {
+        "value": 1,
+        "recorder_mode": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否暂停会议录像",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "rectest",
+        "recorder_type": 1,
+        "state": 2,
+        "anonymous": 0,
+        "recorder_mode": 1,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 0,
+        "current_progress": "0",
+        "members": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5/state",
+      "title": "修改录像状态     继续会议录像",
+      "method": "PUT",
+      "param": {
+        "value": 2,
+        "recorder_mode": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否继续会议录像",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "rectest",
+        "recorder_type": 1,
+        "state": 1,
+        "anonymous": 0,
+        "recorder_mode": 1,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 0,
+        "current_progress": "4",
+        "members": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "停止录像      会议录像",
+      "method": "DELETE",
+      "param": {
+        "recorder_mode": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否停止会议录像",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "state": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders",
+      "title": "获取录像列表      是否停止会议录像",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "recorders": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders",
+      "title": "开启录像    会议录像、发布、支持免登录看直播、不支持录主流和双流、直播",
+      "method": "POST",
+      "param": {
+        "video_name": "filename",
+        "recorder_type": 1,
+        "publish_mode": 0,
+        "anonymous": 0,
+        "recorder_mode": 2,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "members": [
+          {
+            "mt_id": "1"
+          },
+          {
+            "mt_id": "2"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否开启会议录像、发布、支持免登录看直播、不支持录主流和双流、直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "filename",
+        "recorder_type": 1,
+        "state": 1,
+        "anonymous": 0,
+        "recorder_mode": 2,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 0,
+        "current_progress": "0",
+        "members": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5/state",
+      "title": "修改录像状态     暂停会议直播",
+      "method": "PUT",
+      "param": {
+        "value": 1,
+        "recorder_mode": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否暂停会议直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "rectest",
+        "recorder_type": 1,
+        "state": 2,
+        "anonymous": 0,
+        "recorder_mode": 2,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 0,
+        "current_progress": "0",
+        "members": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5/state",
+      "title": "修改录像状态     继续会议直播",
+      "method": "PUT",
+      "param": {
+        "value": 2,
+        "recorder_mode": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否继续会议直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "rectest",
+        "recorder_type": 1,
+        "state": 1,
+        "anonymous": 0,
+        "recorder_mode": 2,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 0,
+        "current_progress": "0",
+        "members": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "停止录像     停止会议直播",
+      "method": "DELETE",
+      "param": {
+        "recorder_mode": 2
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否停止会议直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "state": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders",
+      "title": "获取录像列表      是否停止会议直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "recorders": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders",
+      "title": "开启录像    会议录像、发布、支持免登录看直播、不支持录主流和双流、录像加直播",
+      "method": "POST",
+      "param": {
+        "video_name": "filename",
+        "recorder_type": 1,
+        "publish_mode": 0,
+        "anonymous": 0,
+        "recorder_mode": 3,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "members": [
+          {
+            "mt_id": "1"
+          },
+          {
+            "mt_id": "2"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否开启会议录像、发布、支持免登录看直播、不支持录主流和双流、录像加直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "filename",
+        "recorder_type": 1,
+        "state": 1,
+        "anonymous": 0,
+        "recorder_mode": 3,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 0,
+        "current_progress": "0",
+        "members": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5/state",
+      "title": "修改录像状态     暂停会议录像加直播",
+      "method": "PUT",
+      "param": {
+        "value": 1,
+        "recorder_mode": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否暂停会议录像加直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "rectest",
+        "recorder_type": 1,
+        "state": 2,
+        "anonymous": 0,
+        "recorder_mode": 3,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 0,
+        "current_progress": "0",
+        "members": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5/state",
+      "title": "修改录像状态     继续会议录像加直播",
+      "method": "PUT",
+      "param": {
+        "value": 2,
+        "recorder_mode": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否继续会议录像加直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "rectest",
+        "recorder_type": 1,
+        "state": 1,
+        "anonymous": 0,
+        "recorder_mode": 3,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 0,
+        "current_progress": "3",
+        "members": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "停止录像           停止会议录像加直播",
+      "method": "DELETE",
+      "param": {
+        "recorder_mode": 3
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否停止会议录像加直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "state": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders",
+      "title": "获取录像列表      是否停止会议录像加直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "recorders": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders",
+      "title": "开启录像    终端录像、发布、支持录主流、不支持支持免登录看直播和双流、录像",
+      "method": "POST",
+      "param": {
+        "video_name": "filename",
+        "recorder_type": 2,
+        "publish_mode": 1,
+        "anonymous": 0,
+        "recorder_mode": 1,
+        "main_stream": 1,
+        "dual_stream": 0,
+        "members": [
+          {
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否开启终端录像、发布、支持免登录看直播、不支持录主流和双流、录像",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "filename",
+        "recorder_type": 2,
+        "state": 1,
+        "anonymous": 0,
+        "recorder_mode": 1,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 1,
+        "current_progress": "0",
+        "members": [
+          {
+          "mt_id": "1"
+        }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5/state",
+      "title": "修改录像状态     暂停终端录像",
+      "method": "PUT",
+      "param": {
+        "value": 1,
+        "recorder_mode": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否暂停终端录像",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "rectest",
+        "recorder_type": 2,
+        "state": 2,
+        "anonymous": 0,
+        "recorder_mode": 1,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 1,
+        "current_progress": "0",
+        "members": [
+          {
+          "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5/state",
+      "title": "修改录像状态     继续终端录像",
+      "method": "PUT",
+      "param": {
+        "value": 2,
+        "recorder_mode": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否继续终端录像",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "rectest",
+        "recorder_type": 2,
+        "state": 1,
+        "anonymous": 0,
+        "recorder_mode": 1,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 1,
+        "current_progress": "3",
+        "members": [
+          {
+          "mt_id": "1"
+        }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/monitors",
+      "title": "获取监控列表       查看超过30秒监控是否结束",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "monitors": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/monitors",
+      "title": "监控终端      视频模式选看终端1（与音频一起）",
+      "method": "POST",
+      "param": {
+        "mode": 0,
+        "src": {
+          "type": 1,
+          "mt_id": "1"
+        },
+        "video_format": {
+          "format": 4,
+          "resolution": 3,
+          "frame": 30,
+          "bitrate": 8128
+        },
+        "audio_format": {
+          "format": 5,
+          "chn_num": 1
+        },
+        "dst": {
+          "ip": "12.235.155.15",
+          "port": 6615
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/monitors",
+      "title": "监控终端      音频模式选看终端1（与视频一起）",
+      "method": "POST",
+      "param": {
+        "mode": 1,
+        "src": {
+          "type": 1,
+          "mt_id": "1"
+        },
+        "video_format": {
+          "format": 4,
+          "resolution": 3,
+          "frame": 30,
+          "bitrate": 8128
+        },
+        "audio_format": {
+          "format": 5,
+          "chn_num": 1
+        },
+        "dst": {
+          "ip": "12.235.155.15",
+          "port": 6618
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/monitors",
+      "title": "获取监控列表         是否音视频同时开启",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "monitors": [
+          {
+            "mode": 0,
+            "src": {
+              "mt_id": "1",
+              "encrypt": {
+                "mode": 0,
+                "key": ""
+              },
+              "payload_formats": {
+                "real_payload": "106",
+                "active_payload": "106"
+              },
+              "media_formats": {
+                "sampling": 0,
+                "chn_num": 0,
+                "bitrate": 24,
+                "max_frame": 0
+              },
+              "rtcp": {
+                "ip": "172.16.185.233",
+                "port": 20532
+              }
+            },
+            "dst": {
+              "ip": "12.235.155.15",
+              "port": 6615
+            }
+          },
+          {
+            "mode": 1,
+            "src": {
+              "mt_id": "1",
+              "encrypt": {
+                "mode": 0,
+                "key": ""
+              },
+              "payload_formats": {
+                "real_payload": "98",
+                "active_payload": "98"
+              },
+              "media_formats": {
+                "sampling": 7,
+                "chn_num": 1,
+                "bitrate": 0,
+                "max_frame": 0
+              },
+              "rtcp": {
+                "ip": "172.16.185.233",
+                "port": 21648
+              }
+            },
+            "dst": {
+              "ip": "12.235.155.15",
+              "port": 6618
+            }
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "停止录像         终端录像",
+      "method": "DELETE",
+      "param": {
+        "recorder_mode": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否停止终端录像",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "state": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders",
+      "title": "获取录像列表      是否停止终端录像",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "recorders": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders",
+      "title": "开启录像    终端录像、不发布、不支持支持免登录看直播、支持录主流和双流、直播",
+      "method": "POST",
+      "param": {
+        "video_name": "filename",
+        "recorder_type": 2,
+        "publish_mode": 0,
+        "anonymous": 0,
+        "recorder_mode": 2,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "members": [
+          {
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否开启终端录像、发布、支持免登录看直播、不支持录主流和双流、直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "filename",
+        "recorder_type": 2,
+        "state": 1,
+        "anonymous": 0,
+        "recorder_mode": 2,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 0,
+        "current_progress": "0",
+        "members": [
+          {
+          "mt_id": "1"
+        }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5/state",
+      "title": "修改录像状态     暂停终端直播",
+      "method": "PUT",
+      "param": {
+        "value": 1,
+        "recorder_mode": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否暂停终端直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "rectest",
+        "recorder_type": 2,
+        "state": 2,
+        "anonymous": 0,
+        "recorder_mode": 2,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 0,
+        "current_progress": "0",
+        "members": [
+          {
+          "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5/state",
+      "title": "修改录像状态     继续终端直播",
+      "method": "PUT",
+      "param": {
+        "value": 2,
+        "recorder_mode": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否继续终端直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "rectest",
+        "recorder_type": 2,
+        "state": 1,
+        "anonymous": 0,
+        "recorder_mode": 2,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 0,
+        "current_progress": "0",
+        "members": [
+          {
+          "mt_id": "1"
+        }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "停止录像           停止终端直播",
+      "method": "DELETE",
+      "param": {
+        "recorder_mode": 2
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否停止终端直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "state": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders",
+      "title": "获取录像列表      是否停止终端直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "recorders": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders",
+      "title": "开启录像    终端录像、不发布、不支持支持免登录看直播、支持录主流和双流、录像加直播",
+      "method": "POST",
+      "param": {
+        "video_name": "filename",
+        "recorder_type": 2,
+        "publish_mode": 0,
+        "anonymous": 0,
+        "recorder_mode": 3,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "members": [
+          {
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否开启终端录像、发布、支持免登录看直播、不支持录主流和双流、录像加直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "filename",
+        "recorder_type": 2,
+        "state": 1,
+        "anonymous": 0,
+        "recorder_mode": 3,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 0,
+        "current_progress": "0",
+        "members": [
+          {
+          "mt_id": "1"
+        }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5/state",
+      "title": "修改录像状态     暂停终端录像加直播",
+      "method": "PUT",
+      "param": {
+        "value": 1,
+        "recorder_mode": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否暂停终端录像加直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "rectest",
+        "recorder_type": 2,
+        "state": 2,
+        "anonymous": 0,
+        "recorder_mode": 3,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 0,
+        "current_progress": "0",
+        "members": [
+          {
+          "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5/state",
+      "title": "修改录像状态     继续终端录像加直播",
+      "method": "PUT",
+      "param": {
+        "value": 2,
+        "recorder_mode": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否继续终端录像加直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "video_name": "rectest",
+        "recorder_type": 2,
+        "state": 1,
+        "anonymous": 0,
+        "recorder_mode": 3,
+        "main_stream": 1,
+        "dual_stream": 1,
+        "publish_mode": 0,
+        "current_progress": "3",
+        "members": [
+          {
+          "mt_id": "1"
+        }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "停止录像           停止终端录像加直播",
+      "method": "DELETE",
+      "param": {
+        "recorder_mode": 3
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders/5",
+      "title": "获取录像状态     是否停止终端直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "state": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/recorders",
+      "title": "获取录像列表      是否停止终端直播",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "recorders": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/monitors_heartbeat",
+      "title": "监控终端心跳保活      保活音视频监控",
+      "method": "POST",
+      "param": {
+        "monitors": [
+          {
+            "ip": "12.235.155.15",
+            "port": 6615
+          },
+          {
+            "ip": "12.235.155.15",
+            "port": 6618
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mtvmps",
+      "title": "开启终端自主画面合成     开启台标，会议自动",
+      "method": "POST",
+      "param": {
+        "mode": 2,
+        "layout": 2,
+        "mt_id": "1",
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": 0,
+            "member_type": 1,
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mtvmps/1",
+      "title": "获取终端自主画面合成信息    是否开启台标，会议自动",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 2,
+        "layout": 5,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": [0, 1, 2, 3],
+            "member_type": [2,5],
+            "mt_id": ["1", "2", "3", "4"]
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mtvmps/1",
+      "title": "修改终端自主画面合成参数    关闭台标，开启会议手动，设置成员类型会议指定和空",
+      "method": "PUT",
+      "param": {
+        "mode": 1,
+        "layout": 20,
+        "show_alias": 0,
+        "members": [
+          {
+            "chn_idx": 0,
+            "member_type": 1,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 1,
+            "member_type": 0,
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mtvmps/1",
+      "title": "获取终端自主画面合成信息    是否修改关闭台标，开启会议手动，设置成员类型会议指定和空",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 1,
+        "layout": 20,
+        "show_alias": 0,
+        "members": [
+          {
+            "chn_idx": 0,
+            "member_type": 1,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 1,
+            "member_type": 0,
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mtvmps",
+      "title": "获取开启自主画面合成的终端列表    终端1是否关闭台标，会议手动",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mts": [
+          {
+            "mode": 1,
+            "layout": 20,
+            "show_alias": 0,
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mtvmps/1",
+      "title": "修改终端自主画面合成参数    开启台标，会议自动",
+      "method": "PUT",
+      "param": {
+        "mode": 2,
+        "layout": 5,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": 0,
+            "member_type": 1,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 1,
+            "member_type": 0,
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mtvmps/1",
+      "title": "获取终端自主画面合成信息    是否修改开启台标，会议自动",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 2,
+        "layout": 5,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": [0, 1, 2, 3],
+            "member_type": [2,5],
+            "mt_id": ["1", "2", "3", "4"]
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mtvmps",
+      "title": "获取开启自主画面合成的终端列表    终端1是否开启台标，会议自动",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mts": [
+          {
+            "mode": 2,
+            "layout": 5,
+            "show_alias": 1,
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mtvmps/1",
+      "title": "停止终端自主画面合成    会议自动",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mtvmps",
+      "title": "获取开启自主画面合成的终端列表    终端1是否关闭会议自动",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mts": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mtvmps",
+      "title": "开启终端自主画面合成     未开启台标，会议手动",
+      "method": "POST",
+      "param": {
+        "mode": 1,
+        "layout": 59,
+        "mt_id": "1",
+        "show_alias": 0,
+        "members": [
+          {
+            "chn_idx": 3,
+            "member_type": 1,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 4,
+            "member_type": 0,
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mtvmps/1",
+      "title": "获取终端自主画面合成信息    是否未开启台标，会议手动",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 1,
+        "layout": 59,
+        "show_alias": 0,
+        "members": [
+          {
+            "chn_idx": 3,
+            "member_type": 1,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 4,
+            "member_type": 0,
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mtvmps",
+      "title": "获取开启自主画面合成的终端列表    终端1是否未开启台标，会议手动",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mts": [
+          {
+            "mode": 1,
+            "layout": 59,
+            "show_alias": 0,
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mtvmps/1",
+      "title": "停止终端自主画面合成    会议自动",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mtvmps",
+      "title": "获取开启自主画面合成的终端列表    终端1是否关闭会议自动",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mts": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hduvmps",
+      "title": "开启电视墙自主画面合成     17画面，显示台标，10/11通道，指定/空",
+      "method": "POST",
+      "param": {
+        "layout": 46,
+        "hdu_id": "13_0",
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": 10,
+            "member_type": 1,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 11,
+            "member_type": 0,
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hduvmps/13_0",
+      "title": "获取电视墙自主画面合成信息  是否开启17画面，显示台标，10/11通道，指定/空",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "layout": 46,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": 10,
+            "member_type": 1,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 11,
+            "member_type": 0,
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hduvmps/13_0",
+      "title": "修改电视墙自主画面合成参数     八画面，不显示台标，4/5通道，空/指定",
+      "method": "PUT",
+      "param": {
+        "layout": 7,
+        "show_alias": 0,
+        "members": [
+          {
+            "chn_idx": 4,
+            "member_type": 0,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 5,
+            "member_type": 1,
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hduvmps/13_0",
+      "title": "获取电视墙自主画面合成信息  是否修改八画面，不显示台标，4/5通道，空/指定",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "layout": 7,
+        "show_alias": 0,
+        "members": [
+          {
+            "chn_idx": 4,
+            "member_type": 0,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 5,
+            "member_type": 1,
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hduvmps",
+      "title": "获取开启自主画面合成的电视墙列表   是否13_0的电视墙是否为八画面，不显示台标",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": [
+          {
+            "layout": 7,
+            "show_alias": 0,
+            "hdu_id": "13_0"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hduvmps/13_0",
+      "title": "停止电视墙自主画面合成     八画面，不显示台标，4/5通道，空/指定",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hduvmps",
+      "title": "获取开启自主画面合成的电视墙列表   是否停止电视墙13_0自主换面合成",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/monitors",
+      "title": "获取监控列表       是否保活成功",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "monitors": [
+          {
+            "mode": 0,
+            "src": {
+              "mt_id": "1",
+              "encrypt": {
+                "mode": 0,
+                "key": ""
+              },
+              "payload_formats": {
+                "real_payload": "106",
+                "active_payload": "106"
+              },
+              "media_formats": {
+                "sampling": 0,
+                "chn_num": 0,
+                "bitrate": 24,
+                "max_frame": 0
+              },
+              "rtcp": {
+                "ip": "172.16.185.233",
+                "port": 21064
+              }
+            },
+            "dst": {
+              "ip": "12.235.155.15",
+              "port": 6615
+            }
+          },
+          {
+            "mode": 1,
+            "src": {
+              "mt_id": "1",
+              "encrypt": {
+                "mode": 0,
+                "key": ""
+              },
+              "payload_formats": {
+                "real_payload": "98",
+                "active_payload": "98"
+              },
+              "media_formats": {
+                "sampling": 7,
+                "chn_num": 1,
+                "bitrate": 0,
+                "max_frame": 0
+              },
+              "rtcp": {
+                "ip": "172.16.185.233",
+                "port": 21648
+              }
+            },
+            "dst": {
+              "ip": "12.235.155.15",
+              "port": 6618
+            }
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hduvmps",
+      "title": "开启电视墙自主画面合成     7画面，不显示台标，未添加终端，电视墙号13_1",
+      "method": "POST",
+      "param": {
+        "layout": 4,
+        "hdu_id": "13_1",
+        "show_alias": 0,
+        "members": []
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hduvmps/13_1",
+      "title": "获取电视墙自主画面合成信息  是否开启7画面，不显示台标，未添加终端",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "layout": 4,
+        "show_alias": 0,
+        "members": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hduvmps/13_1",
+      "title": "修改电视墙自主画面合成参数     九画面，显示台标，3/4通道，指定/指定",
+      "method": "PUT",
+      "param": {
+        "layout": 8,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": 3,
+            "member_type": 1,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 4,
+            "member_type": 1,
+            "mt_id": "1"
+          }
+        ]
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hduvmps/13_1",
+      "title": "获取电视墙自主画面合成信息  是否修改九画面，显示台标，3/4通道，指定/指定",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "layout": 8,
+        "show_alias": 1,
+        "members": [
+          {
+            "chn_idx": 3,
+            "member_type": 1,
+            "mt_id": "1"
+          },
+          {
+            "chn_idx": 4,
+            "member_type": 1,
+            "mt_id": "1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hduvmps",
+      "title": "获取开启自主画面合成的电视墙列表   是否13_1的电视墙是否为九画面，显示台标",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": [
+          {
+            "layout": 8,
+            "show_alias": 1,
+            "hdu_id": "13_1"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hduvmps/13_1",
+      "title": "停止电视墙自主画面合成     九画面，显示台标，3/4通道，指定/指定",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hduvmps",
+      "title": "获取开启自主画面合成的电视墙列表   是否停止电视墙13_1自主换面合成",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表    未开启电视墙的情况",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      开启选看，终端类型为指定",
+      "method": "POST",
+      "param": {
+        "occupy": 1,
+        "mode": 1,
+        "specific": {
+          "member_type": "1",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息       开启选看，终端类型指定终端为1",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdu_id": "13_0",
+        "mode": 1,
+        "specific": {
+          "member_type": "1",
+          "mt_id": "1",
+          "vmp_id": ""
+        }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表     电视墙13_0是否在会议中",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": [
+          {
+            "hdu_id": "13_0"
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      释放选看电视墙",
+      "method": "POST",
+      "param": {
+        "occupy": 0,
+        "mode": 1,
+        "specific": {
+          "member_type": "1",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表    是否释放选看电视墙",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      开启选看，终端类型发言人跟随",
+      "method": "POST",
+      "param": {
+        "occupy": 1,
+        "mode": 1,
+        "specific": {
+          "member_type": "2",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息       开启选看，终端类型发言人跟随",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdu_id": "13_0",
+        "mode": 1,
+        "specific": {
+          "member_type": "2",
+          "mt_id": "",
+          "vmp_id": ""
+        }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      释放选看发言人跟随的电视墙",
+      "method": "POST",
+      "param": {
+        "occupy": 0,
+        "mode": 1,
+        "specific": {
+          "member_type": "1",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表    是否释放选看发言人跟随的电视墙",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      开启选看，终端类型主席跟随",
+      "method": "POST",
+      "param": {
+        "occupy": 1,
+        "mode": 1,
+        "specific": {
+          "member_type": "3",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息       开启选看，终端类型主席跟随",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdu_id": "13_0",
+        "mode": 1,
+        "specific": {
+          "member_type": "3",
+          "mt_id": "",
+          "vmp_id": ""
+        }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      释放选看主席跟随的电视墙",
+      "method": "POST",
+      "param": {
+        "occupy": 0,
+        "mode": 1,
+        "specific": {
+          "member_type": "1",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表    是否释放选看主席跟随的电视墙",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      开启选看，终端类型轮询视频跟随",
+      "method": "POST",
+      "param": {
+        "occupy": 1,
+        "mode": 1,
+        "specific": {
+          "member_type": "4",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息       开启选看，终端类型轮询视频跟随",
+      "method": "GET",
+      "param": {},
+      "response": {
+          "success": 1,
+          "hdu_id": "13_0",
+          "mode": 1,
+          "specific": {
+            "member_type": "4",
+            "mt_id": "",
+            "vmp_id": ""
+          }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      释放选看轮询视频跟随的电视墙",
+      "method": "POST",
+      "param": {
+        "occupy": 0,
+        "mode": 1,
+        "specific": {
+          "member_type": "1",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表    是否释放选看轮询视频跟随的电视墙",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_1",
+      "title": "电视墙操作      开启选看，终端类型选看画面合成",
+      "method": "POST",
+      "param": {
+        "occupy": 1,
+        "mode": 1,
+        "specific": {
+          "member_type": "6",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_1",
+      "title": "获取电视墙通道信息       开启选看，终端类型选看画面合成",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdu_id": "13_1",
+        "mode": 1,
+        "specific": {
+          "member_type": "6",
+          "mt_id": "",
+          "vmp_id": "1"
+        }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_1",
+      "title": "电视墙操作      释放选看画面合成的电视墙",
+      "method": "POST",
+      "param": {
+        "occupy": 0,
+        "mode": 1,
+        "specific": {
+          "member_type": "1",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表    是否释放选看画面合成的电视墙",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      开启选看，终端类型选看双流",
+      "method": "POST",
+      "param": {
+        "occupy": 1,
+        "mode": 1,
+        "specific": {
+          "member_type": "10",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息       开启选看，终端类型选看双流",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdu_id": "13_0",
+        "mode": 1,
+        "specific": {
+          "member_type": "10",
+          "mt_id": "",
+          "vmp_id": ""
+        }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      释放选看双流的电视墙",
+      "method": "POST",
+      "param": {
+        "occupy": 0,
+        "mode": 1,
+        "specific": {
+          "member_type": "1",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表    是否释放选看双流跟随的电视墙",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      开启四分屏，0/1通道",
+      "method": "POST",
+      "param": {
+        "occupy": 1,
+        "mode": 2,
+        "specific": {
+          "member_type": "10",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "1"
+            },
+            {
+              "chn_idx": 1,
+              "mt_id": "1"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息     开启四分屏，0/1通道",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdu_id": "13_0",
+        "mode": 2,
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": [0, 1],
+              "mt_id": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      释放四分屏，0/1通道",
+      "method": "POST",
+      "param": {
+        "occupy": 0,
+        "mode": 2,
+        "specific": {
+          "member_type": "1",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表    是否释放四分屏，0/1通道",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      开启四分屏，1终端",
+      "method": "POST",
+      "param": {
+        "occupy": 1,
+        "mode": 2,
+        "specific": {
+          "member_type": "10",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "1"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息     开启四分屏，1终端",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdu_id": "13_0",
+        "mode": 2,
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      释放四分屏，1终端",
+      "method": "POST",
+      "param": {
+        "occupy": 0,
+        "mode": 2,
+        "specific": {
+          "member_type": "1",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "1"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表    是否释放四分屏，1终端",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      开启轮询，仅图像，无限轮训，相隔15秒",
+      "method": "POST",
+      "param": {
+        "occupy": 1,
+        "mode": 3,
+        "specific": {
+          "member_type": "10",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息       开启轮询，仅图像，无限轮训，相隔15秒",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdu_id": "13_0",
+        "mode": 3,
+        "poll": {
+          "num": "0",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      释放轮询，仅图像，无限轮训，相隔15秒",
+      "method": "POST",
+      "param": {
+        "occupy": 0,
+        "mode": 3,
+        "specific": {
+          "member_type": "1",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表    是否释轮询，仅图像，无限轮训，相隔15秒",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      开启轮询，音视频，100次轮训，相隔5秒，两终端",
+      "method": "POST",
+      "param": {
+        "occupy": 1,
+        "mode": 3,
+        "specific": {
+          "member_type": "10",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "100",
+          "mode": "3",
+          "keep_time": "5",
+          "members": [
+            {
+              "mt_id": "1"
+            },
+            {
+              "mt_id": "2"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息       开启轮询，音视频，100次轮训，相隔5秒，两终端",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdu_id": "13_0",
+        "mode": 3,
+        "poll": {
+          "num": "100",
+          "keep_time": "5",
+          "members": [
+            {
+              "mt_id": "1"
+            },
+            {
+              "mt_id": "2"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "电视墙操作      释放开启轮询，音视频，100次轮训，相隔5秒，两终端",
+      "method": "POST",
+      "param": {
+        "occupy": 0,
+        "mode": 3,
+        "specific": {
+          "member_type": "1",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表    是否释放开启轮询，音视频，100次轮训，相隔5秒，无终端",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "开启电视墙     开启选看终端",
+      "method": "POST",
+      "param": {
+        "hdu_id": "13_0",
+        "mode": 1,
+        "specific": {
+          "member_type": "1",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息       是否开启电视墙选看",
+      "method": "GET",
+      "param": {},
+      "response": {
+          "success": 1,
+          "hdu_id": "13_0",
+          "mode": 1,
+          "specific": {
+            "member_type": "1",
+            "mt_id": "1",
+            "vmp_id": ""
+          }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "关闭电视墙       关闭电视墙选看 ",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表    是否关闭电视墙选看",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "开启电视墙     开启选看发言人",
+      "method": "POST",
+      "param": {
+        "hdu_id": "13_0",
+        "mode": 1,
+        "specific": {
+          "member_type": "2",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息       是否开启电视墙发言人选看",
+      "method": "GET",
+      "param": {},
+      "response": {
+          "success": 1,
+          "hdu_id": "13_0",
+          "mode": 1,
+          "specific": {
+            "member_type": "2",
+            "mt_id": "",
+            "vmp_id": ""
+          }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "关闭电视墙       关闭电视墙发言人选看 ",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表    是否关闭电视墙发言人选看",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "开启电视墙     开启选看主席",
+      "method": "POST",
+      "param": {
+        "hdu_id": "13_0",
+        "mode": 1,
+        "specific": {
+          "member_type": "3",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息       是否开启电视墙主席选看",
+      "method": "GET",
+      "param": {},
+      "response": {
+          "success": 1,
+          "hdu_id": "13_0",
+          "mode": 1,
+          "specific": {
+            "member_type": "3",
+            "mt_id": "",
+            "vmp_id": ""
+          }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "关闭电视墙       关闭电视墙发言人选看 ",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表    是否关闭电视墙发言人选看",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "开启电视墙     开启电视墙轮询视频跟随",
+      "method": "POST",
+      "param": {
+        "hdu_id": "13_0",
+        "mode": 1,
+        "specific": {
+          "member_type": "4",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息       是否开启电视墙轮询视频跟随",
+      "method": "GET",
+      "param": {},
+      "response": {
+          "success": 1,
+          "hdu_id": "13_0",
+          "mode": 1,
+          "specific": {
+            "member_type": "4",
+            "mt_id": "",
+            "vmp_id": ""
+          }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "关闭电视墙       关闭电视墙轮询视频跟随 ",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表    是否关闭电视墙轮询视频跟随",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "开启电视墙       开启电视墙选看画面合成",
+      "method": "POST",
+      "param": {
+        "hdu_id": "13_0",
+        "mode": 1,
+        "specific": {
+          "member_type": "6",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息       是否开启电视墙选看画面合成",
+      "method": "GET",
+      "param": {},
+      "response": {
+          "success": 1,
+          "hdu_id": "13_0",
+          "mode": 1,
+          "specific": {
+            "member_type": "6",
+            "mt_id": "",
+            "vmp_id": "1"
+          }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "关闭电视墙       关闭电视墙选看画面合成 ",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表    是否关闭电视墙发言人选看",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "开启电视墙     开启电视墙选看双流",
+      "method": "POST",
+      "param": {
+        "hdu_id": "13_0",
+        "mode": 1,
+        "specific": {
+          "member_type": "10",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息       是否开启电视墙选看双流",
+      "method": "GET",
+      "param": {},
+      "response": {
+          "success": 1,
+          "hdu_id": "13_0",
+          "mode": 1,
+          "specific": {
+            "member_type": "10",
+            "mt_id": "",
+            "vmp_id": ""
+          }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "关闭电视墙        关闭电视墙选看双流 ",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表     是否关闭电视墙选看双流",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+   {
+     "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+     "title": "开启电视墙     开启电视墙选看四分屏，0/1通道",
+     "method": "POST",
+     "param": {
+       "hdu_id": "13_0",
+       "mode": 2,
+       "specific": {
+         "member_type": "10",
+         "mt_id": "1",
+         "vmp_id": "1"
+       },
+       "poll": {
+         "num": "0",
+         "mode": "1",
+         "keep_time": "15",
+         "members": [
+           {
+             "mt_id": "1"
+           }
+         ]
+       },
+       "spilt": {
+         "members": [
+           {
+             "chn_idx": 0,
+             "mt_id": "1"
+           },
+           {
+             "chn_idx": 1,
+             "mt_id": "1"
+           }
+         ]
+       }
+     },
+     "response": {
+       "success": 1
+     }
+   },
+   {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息     开启四分屏，0/1通道",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdu_id": "13_0",
+        "mode": 2,
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": [0, 1],
+              "mt_id": "1"
+            }
+          ]
+        }
+      }
+    },
+   {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "关闭电视墙        关闭电视墙四分屏，0/1通道 ",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+   {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表     是否关闭电视墙四分屏，0/1通道",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+   {
+     "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+     "title": "开启电视墙     开启电视墙选看四分屏，一终端",
+     "method": "POST",
+     "param": {
+       "hdu_id": "13_0",
+       "mode": 2,
+       "specific": {
+         "member_type": "10",
+         "mt_id": "1",
+         "vmp_id": "1"
+       },
+       "poll": {
+         "num": "0",
+         "mode": "1",
+         "keep_time": "15",
+         "members": [
+           {
+             "mt_id": "1"
+           }
+         ]
+       },
+       "spilt": {
+         "members": [
+           {
+             "chn_idx": 0,
+             "mt_id": "1"
+           }
+         ]
+       }
+     },
+     "response": {
+       "success": 1
+     }
+   },
+   {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息     开启四分屏，一终端",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdu_id": "13_0",
+        "mode": 2,
+        "spilt": {
+          "members": [
+            {
+             "chn_idx": 0,
+             "mt_id": "1"
+           }
+          ]
+        }
+      }
+    },
+   {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "关闭电视墙        关闭电视墙开启四分屏，一终端 ",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+   {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表     是否关闭电视墙开启四分屏，一终端",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "开启电视墙       开启电视墙轮询，仅图像，无限轮训，相隔15秒",
+      "method": "POST",
+      "param": {
+        "hdu_id": "13_0",
+        "mode": 3,
+        "specific": {
+          "member_type": "10",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "0",
+          "mode": "1",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息       是否开启电视墙轮询，仅图像，无限轮训，相隔15秒",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdu_id": "13_0",
+        "mode": 3,
+        "poll": {
+          "num": "0",
+          "keep_time": "15",
+          "members": [
+            {
+              "mt_id": "1"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "关闭电视墙        关闭电视墙轮询，仅图像，无限轮训，相隔15秒 ",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表     是否关闭电视墙轮询，仅图像，无限轮训，相隔15秒",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "开启电视墙       开启电视墙轮询，音视频，100次轮训，相隔5秒，两终端",
+      "method": "POST",
+      "param": {
+        "hdu_id": "13_0",
+        "mode": 3,
+        "specific": {
+          "member_type": "10",
+          "mt_id": "1",
+          "vmp_id": "1"
+        },
+        "poll": {
+          "num": "100",
+          "mode": "3",
+          "keep_time": "5",
+          "members": [
+            {
+              "mt_id": "1"
+            },
+            {
+              "mt_id": "2"
+            }
+          ]
+        },
+        "spilt": {
+          "members": [
+            {
+              "chn_idx": 0,
+              "mt_id": "2"
+            }
+          ]
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "获取电视墙通道信息       是否开启电视墙轮询，音视频，100次轮训，相隔5秒，两终端",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdu_id": "13_0",
+        "mode": 3,
+        "poll": {
+          "num": "100",
+          "keep_time": "5",
+          "members": [
+            {
+              "mt_id": "1"
+            },
+            {
+              "mt_id": "2"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus/13_0",
+      "title": "关闭电视墙        关闭电视墙轮询，音视频，100次轮训，相隔5秒，两终端 ",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/hdus",
+      "title": "获取会议电视墙列表     是否关闭电视墙轮询，音视频，100次轮训，相隔5秒，两终端",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "hdus": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/monitors",
+      "title": "获取监控列表       超过30秒是否关闭",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "monitors": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/inspections",
+      "title": "获取终端选看列表       是否为空",
+      "method": "GET",
+      "param": {},
+      "response": {
+            "success": 1,
+            "inspections": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/inspections",
+      "title": "开启终端选看      开启选看终端，视频选看，2选看1",
+      "method": "POST",
+      "param": {
+        "mode": 1,
+        "src": {
+          "type": 1,
+          "mt_id": "1"
+        },
+        "dst": {
+          "mt_id": "2"
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/inspections",
+      "title": "获取终端选看列表      是否开启选看终端，视频选看，2选看1",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "inspections": [
+          {
+            "mode": 1,
+            "src": {
+              "type": 1,
+              "mt_id": "1"
+            },
+            "dst": {
+              "mt_id": "2"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/inspections",
+      "title": "开启终端选看      开启选看终端，音频选看，2选看1",
+      "method": "POST",
+      "param": {
+        "mode": 2,
+        "src": {
+          "type": 1,
+          "mt_id": "1"
+        },
+        "dst": {
+          "mt_id": "2"
+        }
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/inspections",
+      "title": "获取终端选看列表      是否开启选看终端，音视频选看，2选看1",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "inspections": [
+          {
+            "mode": 2,
+            "src": {
+              "type": 1,
+              "mt_id": "1"
+            },
+            "dst": {
+              "mt_id": "2"
+            }
+          },
+           {
+            "mode": 1,
+            "src": {
+              "type": 1,
+              "mt_id": "1"
+            },
+            "dst": {
+              "mt_id": "2"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/inspections/2/1",
+      "title": "取消终端选看       是否取消视频选看，2选看1",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/inspections",
+      "title": "获取终端选看列表      是否取消视频选看，音频未取消，2选看1",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "inspections": [
+           {
+            "mode": 2,
+            "src": {
+              "type": 1,
+              "mt_id": "1"
+            },
+            "dst": {
+              "mt_id": "2"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/inspections",
+      "title": "取消终端选看     取消音频选看",
+      "method": "DELETE",
+      "param": {
+        "mode": 2,
+        "dst": {
+          "mt_id": "2"
+        }
+      },
+      "response": {
+          "success": 1
+        }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/inspections",
+      "title": "获取终端选看列表       是否取消音频选看",
+      "method": "GET",
+      "param": {},
+      "response": {
+            "success": 1,
+            "inspections": []
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1/silence",
+      "enable": true,
+      "title": "终端静音操作",
+      "method": "PUT",
+      "param": {
+        "value": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1",
+      "title": "获取与会终端信息    终端是否静音",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "alias": "shiye",
+        "mt_id": "1",
+        "ip": "172.16.177.12",
+        "online": 1,
+        "e164": "",
+        "bitrate":1024,
+        "type": 1,
+        "dual":1,
+        "silence":1,
+        "mute":0,
+        "snd_volume": 1,
+        "rcv_volume": 15,
+        "protocol":0,
+        "call_mode": 2,
+        "v_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "v_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "dv_snd_chn": [],
+        "dv_rcv_chn": [],
+        "a_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "a_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1/silence",
+      "enable": true,
+      "title": "终端静音操作      取消终端静音",
+      "method": "PUT",
+      "param": {
+        "value": 0
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1",
+      "title": "获取与会终端信息    终端是否取消静音",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "alias": "shiye",
+        "mt_id": "1",
+        "ip": "172.16.177.12",
+        "online": 1,
+        "e164": "",
+        "bitrate":1024,
+        "type": 1,
+        "dual":1,
+        "silence":0,
+        "mute":0,
+        "snd_volume": 1,
+        "rcv_volume": 15,
+        "protocol":0,
+        "call_mode": 2,
+        "v_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "v_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "dv_snd_chn": [],
+        "dv_rcv_chn": [],
+        "a_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "a_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1/mute",
+      "title": "终端哑音操作",
+      "method": "PUT",
+      "param": {
+          "value": 1
+        },
+      "response": {
+            "success": 1
+          }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1",
+      "title": "获取与会终端信息    终端是否哑音",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "alias": "shiye",
+        "mt_id": "1",
+        "ip": "172.16.177.12",
+        "online": 1,
+        "e164": "",
+        "bitrate":1024,
+        "type": 1,
+        "dual":1,
+        "silence":0,
+        "mute":1,
+        "snd_volume": 1,
+        "rcv_volume": 15,
+        "protocol":0,
+        "call_mode": 2,
+        "v_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "v_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "dv_snd_chn": [],
+        "dv_rcv_chn": [],
+        "a_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "a_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1/mute",
+      "title": "终端哑音操作     停止终端哑音",
+      "method": "PUT",
+      "param": {
+          "value": 0
+        },
+      "response": {
+            "success": 1
+          }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1",
+      "title": "获取与会终端信息    终端是否哑音",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "alias": "shiye",
+        "mt_id": "1",
+        "ip": "172.16.177.12",
+        "online": 1,
+        "e164": "",
+        "bitrate":1024,
+        "type": 1,
+        "dual":1,
+        "silence":0,
+        "mute":0,
+        "snd_volume": 1,
+        "rcv_volume": 15,
+        "protocol":0,
+        "call_mode": 2,
+        "v_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "v_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "dv_snd_chn": [],
+        "dv_rcv_chn": [],
+        "a_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "a_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1/volume",
+      "title": "修改终端音量     扬声器20",
+      "method": "PUT",
+      "param": {
+        "vol_mode": 1,
+        "vol_value": 20
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1",
+      "title": "获取与会终端信息     扬声器音量是否调整",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "alias": "shiye",
+        "mt_id": "1",
+        "ip": "172.16.177.12",
+        "online": 1,
+        "e164": "",
+        "bitrate":1024,
+        "type": 1,
+        "dual":1,
+        "silence":0,
+        "mute":0,
+        "snd_volume": 1,
+        "rcv_volume": 20,
+        "protocol":0,
+        "call_mode": 2,
+        "v_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "v_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "dv_snd_chn": [],
+        "dv_rcv_chn": [],
+        "a_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "a_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1/volume",
+      "title": "修改终端音量     扬声器20",
+      "method": "PUT",
+      "param": {
+        "vol_mode": 2,
+        "vol_value": 20
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1",
+      "title": "获取与会终端信息     扬声器音量是否调整",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "alias": "shiye",
+        "mt_id": "1",
+        "ip": "172.16.177.12",
+        "online": 1,
+        "e164": "",
+        "bitrate":1024,
+        "type": 1,
+        "dual":1,
+        "silence":0,
+        "mute":0,
+        "snd_volume": 20,
+        "rcv_volume": 20,
+        "protocol":0,
+        "call_mode": 2,
+        "v_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "v_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "dv_snd_chn": [],
+        "dv_rcv_chn": [],
+        "a_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "a_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1/volume",
+      "title": "修改终端音量     扬声器15",
+      "method": "PUT",
+      "param": {
+        "vol_mode": 1,
+        "vol_value": 15
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1/volume",
+      "title": "修改终端音量     麦克风15",
+      "method": "PUT",
+      "param": {
+        "vol_mode": 2,
+        "vol_value": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts/1",
+      "title": "获取与会终端信息     扬声器麦克风音量是否调整",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "alias": "shiye",
+        "mt_id": "1",
+        "ip": "172.16.177.12",
+        "online": 1,
+        "e164": "",
+        "bitrate":1024,
+        "type": 1,
+        "dual":1,
+        "silence":0,
+        "mute":0,
+        "snd_volume": 1,
+        "rcv_volume": 15,
+        "protocol":0,
+        "call_mode": 2,
+        "v_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "v_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "dv_snd_chn": [],
+        "dv_rcv_chn": [],
+        "a_snd_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ],
+        "a_rcv_chn": [
+          {
+            "chn_id": 1,
+            "chn_alias": ""
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll/state",
+      "title": "修改轮询状态    停止音视频轮询",
+      "method": "PUT",
+      "param": {
+        "value": 0,
+        "mode":3
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/poll",
+      "title": "获取会议轮询信息    是否停止轮询",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "state": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "停止会议自动画面合成",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/vmps/1",
+      "title": "获取会议画面合成信息    是否停止",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mode": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/chairman",
+      "title": "指定会议主席为空",
+      "method": "PUT",
+      "param": {
+        "mt_id": ""
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/chairman",
+      "title": "获取会议主席     确认会议主席是否已取消",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mt_id": ""
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/speaker",
+      "title": "指定会议发言人为空",
+      "method": "PUT",
+      "param": {
+        "mt_id": ""
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/speaker",
+      "title": "获取会议发言人    确定会议发言人是否已取消",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mt_id": ""
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/dualstream",
+      "title": "取消会议双流源",
+      "method": "DELETE",
+      "param": {
+        "mt_id": "1"
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/dualstream",
+      "title": "获取会议双流源     确认双流源是否取消",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "mt_id":""
+      }
+    },
+    {
+      "uri": "/api/v1/vc/version",
+      "title": "获取API版本信息",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "version": "V5.0.0.3.0.20160913"
+      }
+    }
+  ]
+}

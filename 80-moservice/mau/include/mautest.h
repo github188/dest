@@ -1,0 +1,47 @@
+#pragma once
+#include "osp.h"
+
+API void initcmu();
+API void dntf();
+API void addconf(u8 byIdx = 0);
+API void delconf(u8 byIdx = 0);
+API void deldev();
+API void findconf(u8 byIdx = 0);
+API void addmt();
+API void callmt();
+API void delmt();
+API void dropmt();
+API void joinconf();
+API void joinconf2();
+API void getconf();
+API void createconf();
+API void releaseconf(u16 wMeetingId);
+API void mcuntf();
+API void createconfbycm();
+API void createconfbycmtemp(void);
+API void createconfbytemp(u32 dwSerialNO, u32 dwGkPreFix);
+API void mtcreateconf(u32 dwGkPreFix, u32 dwSerialNO);
+API void mtcreateconfbytemp(u32 dwGkPreFix, u32 dwGkConfPre, u32 dwSerialNO, u32 dwTempSerialNO);
+API void delayconf(u32 dwGkPreFix, u32 dwSerialNO, u32 dwDelayTime);
+API void confsafe(u32 dwGkPreFix, u32 dwSerialNO, u32 dwConfOpen);
+API void addtemp(s8 *pchtempname);
+API void mdftemp(u32 dwSerialNO, u32 dwGkPreFix, s8 *pchtempname);
+API void deltemp(void);
+API void addbook(s8 *pchbookname);
+API void mdfbook(s8 *pchbookname);
+API void delbook(void);
+API void forcebrd(u32 dwGkPreFix, u32 dwSerialNO, u32 dwForcebrd);
+API void confmute(u32 dwGkPreFix, u32 dwSerialNO);
+API void confnotmute(u32 dwGkPreFix, u32 dwSerialNO);
+API void confsilence(u32 dwGkPreFix, u32 dwSerialNO);
+API void confnotsilence(u32 dwGkPreFix, u32 dwSerialNO);
+API void setchair(u32 dwGkPreFix, u32 dwSerialNO, u32 dwMt1, u32 dwMt2);
+API void setspeaker(u32 dwGkPreFix, u32 dwSerialNO, u32 dwMt1, u32 dwMt2);
+API void cancelchair(u32 dwGkPreFix, u32 dwSerialNO);
+API void cancelspeaker(u32 dwGkPreFix, u32 dwSerialNO);
+API void setmtmute(u32 dwGkPreFix, u32 dwSerialNO, u32 dwMt1, u32 dwMt2);
+API void setmtsilence(u32 dwGkPreFix, u32 dwSerialNO, u32 dwMt1, u32 dwMt2);
+API void cancelmtmute(u32 dwGkPreFix, u32 dwSerialNO, u32 dwMt1, u32 dwMt2);
+API void cancelmtsilence(u32 dwGkPreFix, u32 dwSerialNO, u32 dwMt1, u32 dwMt2);
+API void enablecmu(u16 wMpcId);
+API void disablecmu(u16 wMpcId);

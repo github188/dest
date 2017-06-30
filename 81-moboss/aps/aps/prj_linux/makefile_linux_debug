@@ -1,0 +1,76 @@
+##
+# 2006/06/06
+# V3.9  Copyright(C) 2003-2006 Suzhou Keda Technology Co.Ltd
+##
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in OSP linux project.
+###
+#########################################################################
+
+TOP := ..
+
+COMM_DIR := ../../../linuxcab
+
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+
+APP_TARGET      := aps
+
+## Define debugging symbols
+DEBUG = 2
+LINUX_COMPILER = _LINUX_
+PWLIB_SUPPORT = 0
+PRIVATENET = 0
+CFLAGS := -D_JSON_CONVERT_ -D_NOTUSE_MQWRAPPER_
+
+## Object files that compose the target(s)
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(patsubst %.cpp,%, $(SRCS)) \
+        $(SRC_DIR)/../../../common/source/bossutils \
+        $(SRC_DIR)/../../../common/source/bossversion 
+
+## Libraries to include in shared object file
+
+LIB_PATH += ../../../../10-common/lib/debug/linux \
+            ../../../module/thirdparty/microhttpd/deplibs
+
+LIBS := rt ssl \
+       dbpool dbi mysqlclient \
+       osp kdvsys captureexception connectsa connectadp jansson jsonconvert jsoncpp \
+	   readwritelock event_core event_pthreads mqmsgparse_nomqwrapper rabbitmq_d kdvlog\
+	   kdvencrypt microhttpd gcrypt gnutls gpg-error pthread z
+
+
+## Add driver-specific include directory to the search path
+
+INC_PATH += $(TOP)/include \
+			../../common/include \
+			../../../common/include \
+			../../../common/include/rwlock \
+			../../../common/include/dbpool \
+			../../../common/include/mqmsgparse \
+			../../../../10-common/include/database \
+			../../../../10-common/include/system \
+			../../../../10-common/include/platform \
+			../../../../10-common/include/protocol \
+			../../../../10-common/include/jsoncpp \
+			../../../../10-common/include/jsonconvert \
+			../../../../10-common/include/operation \
+			../../../../10-common/include/watchdog \
+			../../../../10-common/include/sa \
+			../../../../10-common/include/libevent2 \
+			../../../../10-common/include/libevent2/linux \
+			../../../../10-common/include/connectadp \
+			../../../module/thirdparty/microhttpd/libmicrohttpd-0.9.22/src/include
+
+ifeq ($(PWLIB_SUPPORT),1)
+   INC_PATH += $(PWLIBDIR)/include/ptlib/unix $(PWLIBDIR)/include
+endif
+
+INSTALL_APP_PATH = ../../../../10-common/version/debug/linux/aps
+
+include $(COMM_DIR)/common.mk

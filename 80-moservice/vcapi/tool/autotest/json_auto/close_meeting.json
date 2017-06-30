@@ -1,0 +1,68 @@
+{
+  "title": "视频会议",
+  "requests": [
+    {
+      "uri": "/api/v1/mc/confs/{conf_id_high}",
+      "title": "结束会议     上级会议",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1,
+        "description": "操作成功",
+        "conf_id": "7770221"
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id_high}",
+      "title": "获取视频会议信息     上级会议是否结束",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 0,
+        "error_code": 0
+      }
+    },
+    {
+      "uri": "/api/v1/mc/confs/{conf_id}",
+      "title": "结束会议     本级会议",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1,
+        "description": "操作成功",
+        "conf_id": "7770221"
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}",
+      "title": "获取视频会议信息     本级会议是否结束",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 0,
+        "error_code": 0
+      }
+    },
+    {
+      "uri": "/api/v1/mc/confs/{conf_id_low}",
+      "title": "结束会议     下级会议",
+      "method": "DELETE",
+      "param": {},
+      "response": {
+        "success": 1,
+        "description": "操作成功",
+        "conf_id": "7770221"
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id_low}",
+      "title": "获取视频会议信息     下级会议是否结束",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 0,
+        "error_code": 0
+      }
+    }
+  ]
+}

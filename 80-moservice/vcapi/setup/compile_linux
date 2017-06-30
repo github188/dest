@@ -1,0 +1,20 @@
+#!/bin/sh
+
+#tar
+rm -rf temp
+mkdir temp
+
+echo "compressing files"
+cd temp
+cp ../env.tgz ./
+cp ../selfcab.sh ./
+
+tar zcvf src.tgz ../../src
+tar cvf api.tar env.tgz src.tgz
+
+echo "make bin"
+cat selfcab.sh api.tar > apisetup.bin
+#cat selfupdate.sh ./creatcfg.sh ../clean.sh ./csscreat.sh ../corecfg.sh css.tar.gz > cssupdate.bin
+
+cd ../
+

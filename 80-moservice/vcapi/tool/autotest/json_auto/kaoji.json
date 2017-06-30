@@ -1,0 +1,36 @@
+{
+  "title": "登陆认证",
+  "requests": [
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/silence",
+      "title": "会场静音操作",
+      "method": "PUT",
+      "param": {
+        "value": 1
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/silence",
+      "title": "会场静音操作",
+      "method": "PUT",
+      "param": {
+        "value": 0
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/system/heartbeat",
+      "title": "保持用户心跳",
+      "method": "POST",
+      "param": {},
+      "response": {
+        "success": 1
+      }
+    }
+  ]
+}

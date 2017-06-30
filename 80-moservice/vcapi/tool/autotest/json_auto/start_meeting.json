@@ -1,0 +1,376 @@
+{
+  "title": "视频会议",
+  "requests": [
+    {
+      "uri": "/api/v1/mc/confs",
+      "title": "创建会议       上级会议",
+      "method": "POST",
+      "param": {
+        "name": "auto high",
+        "duration": 240,
+        "bitrate": 1024,
+        "closed_conf": 0,
+        "safe_conf": 0,
+        "encrypted_type": 0,
+        "conf_type": 1,
+        "call_times": 0,
+        "call_interval": 20,
+        "mute": 0,
+        "slience": 0,
+        "video_quality": 0,
+        "encrypted_key": "",
+        "dual_mode": 1,
+        "voice_activity_detection": 0,
+        "cascade_mode": 1,
+        "cascade_upload": 1,
+        "cascade_return": 0,
+        "cascade_return_para": 0,
+        "max_join_mt": 192,
+        "auto_end": 1,
+        "preoccpuy_resouce": 1,
+        "public_conf": 0,
+        "video_formats": [
+          {
+            "format": 5,
+            "resolution": 12,
+            "frame": 30,
+            "bitrate": 1024
+          }
+        ],
+        "invite_members": [
+          {
+            "name": "gkmt_451",
+            "account": "0512110000451",
+            "account_type": 5
+          }
+        ]
+      },
+      "response": {
+        "success": 1,
+        "conf_id": "112233",
+        "description": "操作成功"
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id_high}",
+      "title": "获取视频会议信息    上级会议是否开启",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "name": "auto high",
+        "conf_id": "0009001",
+        "conf_type": 1,
+        "start_time": "2014-12-01T08:12:22+08:00",
+        "end_time": "2014-12-02T09:09:09+08:00",
+        "duration": 240,
+        "bitrate": 1024,
+        "closed_conf": 0,
+        "safe_conf": 0,
+        "encrypted_type": 0,
+        "call_times": 0,
+        "call_interval": 20,
+        "call_chase": 1,
+        "mute": 0,
+        "silence": 0,
+        "video_quality": 0,
+        "encrypted_key": "",
+        "dual_mode": 1,
+        "public_conf": 0,
+        "auto_end": 1,
+        "preoccupy_resource": 1,
+        "max_join_mt": 192,
+        "voice_inspire_enable": 0,
+        "creator": {
+          "name": "keda_user_admin1",
+          "account": "b812b02c-d80e-4250-b9da-e3f8d0ea3cdf",
+          "account_type": 1,
+          "telephone": "",
+          "mobile": "123"
+        },
+        "video_formats": [
+          {
+            "format": 5,
+            "resolution": 12,
+            "frame": 30,
+            "bitrate": 1024
+          }
+        ],
+        "vmp_enable": 0,
+        "mix_enable": 0,
+        "poll_enable": 0
+      }
+    },
+    {
+      "uri": "/api/v1/mc/confs",
+      "title": "创建会议       本级会议",
+      "method": "POST",
+      "param": {
+        "name": "autotest",
+        "duration": 240,
+        "bitrate": 1024,
+        "closed_conf": 0,
+        "safe_conf": 0,
+        "encrypted_type": 0,
+        "conf_type": 1,
+        "call_times": 0,
+        "call_interval": 20,
+        "mute": 0,
+        "slience": 0,
+        "video_quality": 0,
+        "encrypted_key": "",
+        "dual_mode": 1,
+        "voice_activity_detection": 0,
+        "cascade_mode": 1,
+        "cascade_upload": 1,
+        "cascade_return": 0,
+        "cascade_return_para": 0,
+        "max_join_mt": 192,
+        "auto_end": 1,
+        "preoccpuy_resouce": 1,
+        "public_conf": 0,
+        "video_formats": [
+          {
+            "format":5,
+            "resolution":12,
+            "frame":30,
+            "bitrate":1024
+          }
+        ],
+        "invite_members": [
+          {
+            "name": "shiye",
+            "account": "172.16.177.12",
+            "account_type": 7
+          },
+          {
+            "name": "gkmt_450",
+            "account": "0512110000450",
+            "account_type": 5
+          }
+        ]
+      },
+      "response": {
+        "success": 1,
+        "conf_id": "112233",
+        "description":"操作成功"
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}",
+      "title": "获取视频会议信息    本级会议是否开启",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "name": "autotest",
+        "conf_id": "0009001",
+        "conf_type": 1,
+        "start_time": "2014-12-01T08:12:22+08:00",
+        "end_time": "2014-12-02T09:09:09+08:00",
+        "duration": 240,
+        "bitrate": 1024,
+        "closed_conf": 0,
+        "safe_conf": 0,
+        "encrypted_type": 0,
+        "call_times": 0,
+        "call_interval": 20,
+        "call_chase": 1,
+        "mute": 0,
+        "silence": 0,
+        "video_quality": 0,
+        "encrypted_key": "",
+        "dual_mode": 1,
+        "public_conf": 0,
+        "auto_end": 1,
+        "preoccupy_resource": 1,
+        "max_join_mt": 192,
+        "voice_inspire_enable": 0,
+        "creator": {
+          "name": "keda_user_admin1",
+          "account": "b812b02c-d80e-4250-b9da-e3f8d0ea3cdf",
+          "account_type": 1,
+          "telephone": "",
+          "mobile": "123"
+        },
+        "video_formats": [
+          {
+            "format": 5,
+            "resolution": 12,
+            "frame": 30,
+            "bitrate": 1024
+          }
+        ],
+        "vmp_enable": 0,
+        "mix_enable": 0,
+        "poll_enable": 0
+      }
+    },
+    {
+      "uri": "/api/v1/mc/confs",
+      "title": "创建会议       下级会议",
+      "method": "POST",
+      "param": {
+        "name": "auto low",
+        "duration": 240,
+        "bitrate": 1024,
+        "closed_conf": 0,
+        "safe_conf": 0,
+        "encrypted_type": 0,
+        "conf_type": 1,
+        "call_times": 0,
+        "call_interval": 20,
+        "mute": 0,
+        "slience": 0,
+        "video_quality": 0,
+        "encrypted_key": "",
+        "dual_mode": 1,
+        "voice_activity_detection": 0,
+        "cascade_mode": 1,
+        "cascade_upload": 1,
+        "cascade_return": 0,
+        "cascade_return_para": 0,
+        "max_join_mt": 192,
+        "auto_end": 1,
+        "preoccpuy_resouce": 1,
+        "public_conf": 0,
+        "video_formats": [
+          {
+            "format":5,
+            "resolution":12,
+            "frame":30,
+            "bitrate":1024
+          }
+        ],
+        "invite_members": [
+          {
+            "name": "gkmt_455",
+            "account": "0512110000455",
+            "account_type": 5
+          }
+        ]
+      },
+      "response": {
+        "success": 1,
+        "conf_id": "112233",
+        "description":"操作成功"
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id_low}",
+      "title": "获取视频会议信息    下级会议是否开启",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "name": "auto low",
+        "conf_id": "0009001",
+        "conf_type": 1,
+        "start_time": "2014-12-01T08:12:22+08:00",
+        "end_time": "2014-12-02T09:09:09+08:00",
+        "duration": 240,
+        "bitrate": 1024,
+        "closed_conf": 0,
+        "safe_conf": 0,
+        "encrypted_type": 0,
+        "call_times": 0,
+        "call_interval": 20,
+        "call_chase": 1,
+        "mute": 0,
+        "silence": 0,
+        "video_quality": 0,
+        "encrypted_key": "",
+        "dual_mode": 1,
+        "public_conf": 0,
+        "auto_end": 1,
+        "preoccupy_resource": 1,
+        "max_join_mt": 192,
+        "voice_inspire_enable": 0,
+        "creator": {
+          "name": "keda_user_admin1",
+          "account": "b812b02c-d80e-4250-b9da-e3f8d0ea3cdf",
+          "account_type": 1,
+          "telephone": "",
+          "mobile": "123"
+        },
+        "video_formats": [
+          {
+            "format": 5,
+            "resolution": 12,
+            "frame": 30,
+            "bitrate": 1024
+          }
+        ],
+        "vmp_enable": 0,
+        "mix_enable": 0,
+        "poll_enable": 0
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id_high}/mts",
+      "title": "批量添加本级终端      上级会议添加本级会议",
+      "method": "POST",
+      "param": {
+        "mts1": []
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id_high}/cascades",
+      "title": "获取会议级联信息     上级会议是否添加本级会议",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "conf_id": "0009001",
+        "name": "auto high",
+        "cascade_id": "0",
+        "mt_id":"0",
+        "cascades": [
+          {
+            "conf_id": "0009007",
+            "name": "autotest",
+            "cascade_id": "2",
+            "mt_id":"2",
+            "cascades":[]
+          }
+        ]
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/mts",
+      "title": "批量添加本级终端      本级会议添加下级会议",
+      "method": "POST",
+      "param": {
+        "mts2": []
+      },
+      "response": {
+        "success": 1
+      }
+    },
+    {
+      "uri": "/api/v1/vc/confs/{conf_id}/cascades",
+      "title": "获取会议级联信息     本级会议是否添加下级会议",
+      "method": "GET",
+      "param": {},
+      "response": {
+        "success": 1,
+        "conf_id": "0009001",
+        "name": "autotest",
+        "cascade_id": "0",
+        "mt_id":"0",
+        "cascades": [
+          {
+            "conf_id": "0009007",
+            "name": "auto low",
+            "cascade_id": "4",
+            "mt_id":"4",
+            "cascades":[]
+          }
+        ]
+      }
+    }
+  ]
+}

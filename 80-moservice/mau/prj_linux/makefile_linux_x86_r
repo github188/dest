@@ -1,0 +1,45 @@
+###
+### Copyright (c) 2010 Kedacom
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in css linux project.
+###
+#########################################################################
+
+TOP := ..
+
+COMM_DIR := ../../common/linux_compile
+
+SRC_DIR := $(TOP)/source
+
+## Name and type of the target for this Makefile
+
+APP_TARGET      := css
+
+## Define debugging symbols
+
+DEBUG = 2
+LINUX_COMPILER = 
+CFLAGS += -m32 -D_CARRIER_ -D_BOOK_ -D LINUX2
+LDFLAGS += -m32 -Wl,-rpath-link,../../../10-common/lib/release/linux
+
+## Object files that compose the target(s)
+
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(patsubst %.cpp,%, $(SRCS))
+PCH_H = ../include/inc.h
+
+## Libraries to include in shared object file
+LIBS := _acl_cpp _acl conflistconvert protobuf tinyxml kdvlog zkclient connectsa zkwrapper zookeeper rabbitmqwrap rabbitmq_r connectadp upu_r jansson\
+        db-4.2 pthread kdvsys dbi commonlib lanman\
+        sybct sybcs sybtcl sybblk sybdb sybunic mysqlclient dl z \
+        osp captureexception kdvsys rt ssl rediswrap kdvencrypt
+## Add driver-specific include directory to the search path
+INC_PATH += $(TOP)/include ../../common/include ../../../10-common/include/cbb  ../../../10-common/include/watchdog ../../../10-common/include/sa ../../../10-common/include/protocol ../../../10-common/include/platform ../../../10-common/include/mau ../../../10-common/include/system ../../../10-common/include/mcu ../../../10-common/include/database ../../../10-common/include/db-6.0.20/linux ../../../10-common/include/jansson ../../../10-common/include/libevent2/linux ../../../10-common/include/libevent2 ../../../10-common/include/librabbitmq ../../../10-common/include/operation ../../../10-common/include/zkclient ../../../10-common/include/upu ../../../10-common/include/pas ../../../10-common/include/connectadp ../../acl/lib_acl_cpp/include ../../acl/lib_acl/include ../../../10-common/include/rediswrap/
+
+LIB_PATH += ../../../10-common/lib/release/linux
+
+include $(COMM_DIR)/common.mk

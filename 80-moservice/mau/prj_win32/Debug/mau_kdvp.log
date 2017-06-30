@@ -1,0 +1,41 @@
+﻿生成启动时间为 2017/6/8 16:04:03。
+     1>项目“E:\work_studio\Mustang_\80-moservice\mau\prj_win32\mau_kdvp.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\include /I..\..\common\include /I"..\..\..\10-common\include\cbb" /I"..\..\..\10-common\include\gk" /I"..\..\..\10-common\include\protocol" /I"..\..\..\10-common\include\platform" /I"..\..\..\10-common\include\mau" /I"..\..\..\10-common\include\system" /I"..\..\..\10-common\include\mcu" /I"..\..\..\10-common\include\database" /I"..\..\..\10-common\include\db-6.0.20\win32" /I"..\..\..\10-common\include\jansson" /I"..\..\..\10-common\include\libevent2\win" /I"..\..\..\10-common\include\libevent2" /I"..\..\..\10-common\include\librabbitmq" /I"..\..\..\10-common\include\librabbitmq\win32\msinttypes" /I"..\..\..\10-common\include\rediswrap" /I"..\..\..\10-common\include\operation" /I"..\..\..\10-common\include\zkclient" /I"..\..\..\10-common\include\upu" /I"..\..\..\10-common\include\pas" /I"..\..\..\10-common\include\connectadp" /I"..\..\..\10-common\include\sa" /I"..\..\..\10-common\include\cbb\zlib" /I..\..\acl\lib_acl_cpp\include /I..\..\acl\lib_acl\include /I"..\..\..\10-common\include\nppclient" /ZI /nologo /W3 /WX- /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0600 /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /Gy- /fp:precise /Zc:wchar_t /Zc:forScope /GR /Yu"inc.h" /Fp".\Debug\inc.pch" /Fo".\Debug\\" /Fd".\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt ..\source\nussn.cpp
+         nussn.cpp
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"Debug\mau.exe" /INCREMENTAL /NOLOGO /LIBPATH:"..\..\..\10-common\lib\debug\win32_2010" /LIBPATH:"..\..\..\10-common\lib\debug\win32" osplib.lib kdvsys.lib commonlib.lib tinyxmldll.lib dbi_vs2010.lib libmysql.lib kdvlog.lib jsoncpp.lib "jansson-2.5.lib" librabbitmq.lib librabbitmqwrap.lib zkclient.lib connectadplib_vs2010.lib conflistconvert.lib connectsa.lib lanman.lib libupu_win32.lib zlib.lib librediswrap.lib kdvencrypt.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:nafxcwd.lib /NODEFAULTLIB:libcd.lib /NODEFAULTLIB:libcmtd.lib /NODEFAULTLIB:libcpd.lib /NODEFAULTLIB:libc.lib /MANIFEST /ManifestFile:"Debug\mau.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"E:\work_studio\Mustang_\80-moservice\mau\prj_win32\Debug\mau.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"Debug\mau.lib" /MACHINE:X86 Debug\mau.exe.embed.manifest.res
+         .\Debug\apdbopr.obj
+         .\Debug\asyndbopr.obj
+         .\Debug\bmclicense.obj
+         .\Debug\bmcssn.obj
+         .\Debug\cmcmussn.obj
+         .\Debug\cmmaussn.obj
+         .\Debug\cmussn.obj
+         .\Debug\confinfodbopr.obj
+         .\Debug\connmsadpssn.obj
+         .\Debug\dbopr.obj
+         .\Debug\hdussn.obj
+         .\Debug\main.obj
+         .\Debug\maudata.obj
+         .\Debug\mautest.obj
+         .\Debug\mauutility.obj
+         .\Debug\mauvc.obj
+         .\Debug\nppssn.obj
+         .\Debug\nussn.obj
+         .\Debug\resmgrssn.obj
+         .\Debug\scheduledbopr.obj
+         .\Debug\templatedbopr.obj
+         .\Debug\upussn.obj
+         .\Debug\vmeetingdbopr.obj
+         .\Debug\redisadapter.obj
+         .\Debug\inc.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\mau.exe.embed.manifest" /manifest Debug\mau.exe.intermediate.manifest
+       LinkEmbedManifest:
+         mau_kdvp.vcxproj -> E:\work_studio\Mustang_\80-moservice\mau\prj_win32\Debug\mau.exe
+     1>已完成生成项目“E:\work_studio\Mustang_\80-moservice\mau\prj_win32\mau_kdvp.vcxproj”(Build 个目标)的操作。
+
+已成功生成。
+
+已用时间 00:00:04.07

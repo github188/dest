@@ -1,0 +1,59 @@
+###
+### Copyright (c) 2004 Keda Telecom, Inc.
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in OSP linux project.
+###
+#########################################################################
+
+TOP := ..
+
+
+COMM_DIR := ../../common/linux_compile
+
+SRC_DIR := $(TOP)/src
+
+## Name and type of the target for this Makefile
+SO_TARGET     := rabbitmqwrap
+
+
+## Define debugging symbols
+DEBUG = 1
+#LINUX_COMPILER= 
+PWLIB_SUPPORT = 0
+CFLAGS += -m32 -D_UTF8
+LDFLAGS += -m32
+
+#CFLAGS := -DHAVE_CONFIG_H -D_EVENT_HAVE_UINT32_T -D_EVENT_HAVE_UINT16_T -D_EVENT_HAVE_UINT64_T -D_EVENT_HAVE_SYS_TIME_H
+
+## Object files that compose the target(s)
+
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(patsubst %.cpp,%, $(SRCS))
+
+## Libraries to include in shared object file
+LIBS := pthread  
+
+#LIB_PATH = $(CURDIR)../../../10-common/lib/debug/linux
+
+## Add driver-specific include directory to the search path
+
+INC_PATH += $(TOP)/include/ \
+			../../../10-common/include/system \
+			../../../10-common/include/librabbitmq \
+			../../../10-common/include/libevent2 \
+			../../../10-common/include/libevent2/event2 \
+			../../../10-common/include/libevent2/internal \
+			../../../10-common/include/libevent2/linux 
+
+ifeq ($(PWLIB_SUPPORT),1)
+   INC_PATH += $(PWLIBDIR)/include/ptlib/unix $(PWLIBDIR)/include
+endif
+
+INSTALL_LIB_PATH = ../../../10-common/lib/debug/linux
+
+include $(COMM_DIR)/common.mk
+

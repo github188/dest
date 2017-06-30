@@ -1,0 +1,22 @@
+echo make -f makefile_linux_debug clean
+make -f makefile_linux_debug clean
+
+echo make -f makefile_linux_debug
+make -f makefile_linux_debug 1> ../../../../10-common/version/compileinfo/aps_linux_d.txt 2>&1
+
+echo *************start debug check format error***************
+../../../linuxcab/checkformaterror.sh  ../../../../10-common/version/compileinfo/aps_linux_d.txt ../../../../10-common/version/debug/linux/aps/aps
+
+
+
+
+
+echo make -f makefile_linux_release clean
+make -f makefile_linux_release clean
+
+echo make -f makefile_linux_release
+make -f makefile_linux_release 1> ../../../../10-common/version/compileinfo/aps_linux_r.txt 2>&1
+
+echo *************start release check format error***************
+../../../linuxcab/checkformaterror.sh  ../../../../10-common/version/compileinfo/aps_linux_r.txt ../../../../10-common/version/release/linux/aps/aps
+

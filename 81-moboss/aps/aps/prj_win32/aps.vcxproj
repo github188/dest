@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B50B7594-815D-46AA-A151-A6BFDED4917A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>aps</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\..\..\..\10-common\version\$(Configuration)\win32\aps\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\..\..\..\10-common\version\$(Configuration)\win32\aps\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_JSON_CONVERT_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\include;..\..\common\include;..\..\..\common\include;..\..\..\common\include\dbpool;..\..\..\common\include\rwlock;..\..\..\module\thirdparty\microhttpd\libmicrohttpd-1.9.30\win\include;..\..\..\common\include\mqmsgparse;..\..\..\..\10-common\include\system;..\..\..\..\10-common\include\platform;..\..\..\..\10-common\include\protocol;..\..\..\..\10-common\include\cbb\zlib;..\..\..\..\10-common\include\database;..\..\..\..\10-common\include\jsoncpp;..\..\..\..\10-common\include\jsonconvert;..\..\..\..\10-common\include\librabbitmq;..\..\..\..\10-common\include\operation;..\..\..\..\10-common\include\watchdog;..\..\..\..\10-common\include\sa;..\..\..\..\10-common\include\connectadp;..\..\..\..\10-common\include\libevent2;..\..\..\..\10-common\include\libevent2\win;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\..\..\module\thirdparty\microhttpd\libmicrohttpd-1.9.30\win\lib;..\..\..\..\10-common\lib\debug\win32_2010;..\..\..\..\10-common\lib\debug\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ospdll.lib;kdvsysdll.lib;readwritelock.lib;dbi_vs2010.lib;dbpool.lib;jsoncpp.lib;jsonconvert.lib;mqmsgparse.lib;zlibx.lib;connectsa.lib;connectadplib_vs2010.lib;jansson-2.5.lib;kdvlog.lib;librabbitmqwrap.lib;libmicrohttpd-dll_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>LIBCMTD</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_JSON_CONVERT_;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\include;..\..\common\include;..\..\..\common\include;..\..\..\common\include\dbpool;..\..\..\common\include\rwlock;..\..\..\common\include\mqmsgparse;..\..\..\..\10-common\include\system;..\..\..\..\10-common\include\platform;..\..\..\..\10-common\include\protocol;..\..\..\..\10-common\include\cbb\zlib;..\..\..\..\10-common\include\database;..\..\..\..\10-common\include\jsoncpp;..\..\..\..\10-common\include\jsonconvert;..\..\..\..\10-common\include\librabbitmq;..\..\..\..\10-common\include\operation;..\..\..\..\10-common\include\watchdog;..\..\..\..\10-common\include\sa;..\..\..\..\10-common\include\connectadp;..\..\..\module\thirdparty\microhttpd\libmicrohttpd-1.9.30\win\include;..\..\..\..\10-common\include\libevent2;..\..\..\..\10-common\include\libevent2\win;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\..\..\module\thirdparty\microhttpd\libmicrohttpd-1.9.30\win\lib;..\..\..\..\10-common\lib\release\win32_2010;..\..\..\..\10-common\lib\release\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ospdll.lib;kdvsysdll.lib;readwritelock.lib;dbi_vs2010.lib;dbpool.lib;jsoncpp.lib;jsonconvert.lib;mqmsgparse.lib;zlibx.lib;connectsa.lib;connectadplib_vs2010.lib;jansson-2.5.lib;kdvlog.lib;librabbitmqwrap.lib;libmicrohttpd-dll_r.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>LIBCMTD</IgnoreSpecificDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\common\include\bossconst.h" />
+    <ClInclude Include="..\..\..\common\include\bossutils.h" />
+    <ClInclude Include="..\..\..\common\include\bossversion.h" />
+    <ClInclude Include="..\include\apdb.h" />
+    <ClInclude Include="..\include\centerctrl.h" />
+    <ClInclude Include="..\include\config.h" />
+    <ClInclude Include="..\include\consassn.h" />
+    <ClInclude Include="..\include\constuls.h" />
+    <ClInclude Include="..\include\dbctrl.h" />
+    <ClInclude Include="..\include\dbopr.h" />
+    <ClInclude Include="..\include\dbtabledef.h" />
+    <ClInclude Include="..\include\debugprint.h" />
+    <ClInclude Include="..\include\errorcode.h" />
+    <ClInclude Include="..\include\eventself.h" />
+    <ClInclude Include="..\include\httpssn.h" />
+    <ClInclude Include="..\include\ipdb.h" />
+    <ClInclude Include="..\include\microhttpd.h" />
+    <ClInclude Include="..\include\old_252_eventulculs.h" />
+    <ClInclude Include="..\include\old_252_ulcstruct.h" />
+    <ClInclude Include="..\include\old_26_eventulculs.h" />
+    <ClInclude Include="..\include\old_26_structulc.h" />
+    <ClInclude Include="..\include\old_ulcssn.h" />
+    <ClInclude Include="..\include\pxycfg.h" />
+    <ClInclude Include="..\include\srvlistmgr.h" />
+    <ClInclude Include="..\include\structextend.h" />
+    <ClInclude Include="..\include\structlogin.h" />
+    <ClInclude Include="..\include\structnack.h" />
+    <ClInclude Include="..\include\structpxy.h" />
+    <ClInclude Include="..\include\structself.h" />
+    <ClInclude Include="..\include\structulc.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\common\source\bossutils.cpp" />
+    <ClCompile Include="..\..\..\common\source\bossversion.cpp" />
+    <ClCompile Include="..\source\apdb.cpp" />
+    <ClCompile Include="..\source\apsutility.cpp" />
+    <ClCompile Include="..\source\centerctrl.cpp" />
+    <ClCompile Include="..\source\config.cpp" />
+    <ClCompile Include="..\source\consassn.cpp" />
+    <ClCompile Include="..\source\dbctrl.cpp" />
+    <ClCompile Include="..\source\dbopr.cpp" />
+    <ClCompile Include="..\source\debugprint.cpp" />
+    <ClCompile Include="..\source\httpssn.cpp" />
+    <ClCompile Include="..\source\ipdb.cpp" />
+    <ClCompile Include="..\source\main.cpp" />
+    <ClCompile Include="..\source\old_ulcssn.cpp" />
+    <ClCompile Include="..\source\pxycfg.cpp" />
+    <ClCompile Include="..\source\srvlistmgr.cpp" />
+    <ClCompile Include="..\source\structulc.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

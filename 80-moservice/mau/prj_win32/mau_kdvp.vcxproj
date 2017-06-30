@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <SccProjectName />
+    <SccLocalPath />
+    <Keyword>MFCProj</Keyword>
+    <ProjectGuid>{1D89DC0C-0496-4CFE-9E6C-D08DBDD920D3}</ProjectGuid>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v100</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v100</PlatformToolset>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(VCTargetsPath)Microsoft.Cpp.UpgradeFromVC60.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(IntDir)</OutDir>
+    <IntDir>$(IntDir)</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <TargetName>mau</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(IntDir)</OutDir>
+    <IntDir>$(IntDir)</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>mau</TargetName>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <Optimization>MaxSpeed</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>..\include;..\..\common\include;..\..\..\10-common\include\cbb;..\..\..\10-common\include\gk;..\..\..\10-common\include\protocol;..\..\..\10-common\include\platform;..\..\..\10-common\include\mau;..\..\..\10-common\include\system;..\..\..\10-common\include\mcu;..\..\..\10-common\include\database;..\..\..\10-common\include\db-6.0.20\win32;..\..\..\10-common\include\jansson;..\..\..\10-common\include\libevent2\win;..\..\..\10-common\include\libevent2;..\..\..\10-common\include\librabbitmq;..\..\..\10-common\include\librabbitmq\win32\msinttypes;..\..\..\10-common\include\rediswrap;..\..\..\10-common\include\operation;..\..\..\10-common\include\zkclient;..\..\..\10-common\include\upu;..\..\..\10-common\include\pas;..\..\..\10-common\include\connectadp;..\..\..\10-common\include\sa;..\..\..\10-common\include\cbb\zlib;..\..\acl\lib_acl_cpp\include;..\..\acl\lib_acl\include;..\..\..\10-common\include\nppclient;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions> _CRT_SECURE_NO_WARNINGS;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Release\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\Release\inc.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\Release\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>inc.h</PrecompiledHeaderFile>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Midl>
+      <TypeLibraryName>.\Release\mau_kdvp.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Release\mau_kdvp.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <SubSystem>Console</SubSystem>
+      <IgnoreSpecificDefaultLibraries>nafxcwd.lib;libcd.lib;libcmtd.lib;LIBCMT;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <OutputFile>$(IntDir)mau.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\..\..\10-common\lib\release\win32_2010;..\..\..\10-common\lib\release\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>ospLib.lib;kdvsys.lib;commonlib.lib;tinyxmldll.lib;dbi_vs2010.lib;libmysql.lib;kdvlog.lib;jsoncpp.lib;jansson-2.5.lib;librabbitmq.lib;librabbitmqwrap.lib;zkclient.lib;conflistconvert.lib;connectadplib_vs2010.lib;connectsa.lib;libupu_win32.lib;librediswrap.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <Optimization>Disabled</Optimization>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <WarningLevel>Level3</WarningLevel>
+      <MinimalRebuild>true</MinimalRebuild>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>..\include;..\..\common\include;..\..\..\10-common\include\cbb;..\..\..\10-common\include\gk;..\..\..\10-common\include\protocol;..\..\..\10-common\include\platform;..\..\..\10-common\include\mau;..\..\..\10-common\include\system;..\..\..\10-common\include\mcu;..\..\..\10-common\include\database;..\..\..\10-common\include\db-6.0.20\win32;..\..\..\10-common\include\jansson;..\..\..\10-common\include\libevent2\win;..\..\..\10-common\include\libevent2;..\..\..\10-common\include\librabbitmq;..\..\..\10-common\include\librabbitmq\win32\msinttypes;..\..\..\10-common\include\rediswrap;..\..\..\10-common\include\operation;..\..\..\10-common\include\zkclient;..\..\..\10-common\include\upu;..\..\..\10-common\include\pas;..\..\..\10-common\include\connectadp;..\..\..\10-common\include\sa;..\..\..\10-common\include\cbb\zlib;..\..\acl\lib_acl_cpp\include;..\..\acl\lib_acl\include;..\..\..\10-common\include\nppclient;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions> _CRT_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
+      <PrecompiledHeaderOutputFile>.\Debug\inc.pch</PrecompiledHeaderOutputFile>
+      <ObjectFileName>.\Debug\</ObjectFileName>
+      <ProgramDataBaseFileName>.\Debug\</ProgramDataBaseFileName>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>inc.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Midl>
+      <TypeLibraryName>.\Debug\mau_kdvp.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0804</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Bscmake>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <OutputFile>.\Debug\mau_kdvp.bsc</OutputFile>
+    </Bscmake>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <IgnoreSpecificDefaultLibraries>nafxcwd.lib;libcd.lib;libcmtd.lib;libcpd.lib;libc.lib%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <OutputFile>$(OutDir)mau.exe</OutputFile>
+      <AdditionalLibraryDirectories>..\..\..\10-common\lib\debug\win32_2010;..\..\..\10-common\lib\debug\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>osplib.lib;kdvsys.lib;commonlib.lib;tinyxmldll.lib;dbi_vs2010.lib;libmysql.lib;kdvlog.lib;jsoncpp.lib;jansson-2.5.lib;librabbitmq.lib;librabbitmqwrap.lib;zkclient.lib;connectadplib_vs2010.lib;conflistconvert.lib;connectsa.lib;lanman.lib;libupu_win32.lib;zlib.lib;librediswrap.lib;kdvencrypt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <ShowProgress>NotSet</ShowProgress>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\source\apdbopr.cpp" />
+    <ClCompile Include="..\source\asyndbopr.cpp" />
+    <ClCompile Include="..\source\bmclicense.cpp" />
+    <ClCompile Include="..\source\bmcssn.cpp" />
+    <ClCompile Include="..\source\cmcmussn.cpp" />
+    <ClCompile Include="..\source\cmmaussn.cpp" />
+    <ClCompile Include="..\source\cmussn.cpp" />
+    <ClCompile Include="..\source\confinfodbopr.cpp" />
+    <ClCompile Include="..\source\connmsadpssn.cpp" />
+    <ClCompile Include="..\source\dbopr.cpp" />
+    <ClCompile Include="..\source\hdussn.cpp" />
+    <ClCompile Include="..\source\main.cpp" />
+    <ClCompile Include="..\source\maudata.cpp" />
+    <ClCompile Include="..\source\mautest.cpp" />
+    <ClCompile Include="..\source\mauutility.cpp" />
+    <ClCompile Include="..\source\mauvc.cpp" />
+    <ClCompile Include="..\source\nppssn.cpp" />
+    <ClCompile Include="..\source\nussn.cpp" />
+    <ClCompile Include="..\source\resmgrssn.cpp" />
+    <ClCompile Include="..\source\scheduledbopr.cpp" />
+    <ClCompile Include="..\source\templatedbopr.cpp" />
+    <ClCompile Include="..\source\upussn.cpp" />
+    <ClCompile Include="..\source\vmeetingdbopr.cpp" />
+    <ClCompile Include="..\source\redisadapter.cpp" />
+    <ClCompile Include="..\source\inc.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\10-common\include\librabbitmq\rabbitmqwrapper.h" />
+    <ClInclude Include="..\..\..\10-common\include\mau\eventnumau.h" />
+    <ClInclude Include="..\..\..\10-common\include\mau\mauconst.h" />
+    <ClInclude Include="..\..\..\10-common\include\mau\mauerrcode.h" />
+    <ClInclude Include="..\..\..\10-common\include\mau\maustruct.h" />
+    <ClInclude Include="..\..\..\10-common\include\mau\evmau.h" />
+    <ClInclude Include="..\..\common\include\evmcumau.h" />
+    <ClInclude Include="..\..\common\include\jsontranslate.h" />
+    <ClInclude Include="..\include\apdbopr.h" />
+    <ClInclude Include="..\include\asyndbopr.h" />
+    <ClInclude Include="..\include\bmclicense.h" />
+    <ClInclude Include="..\include\bmcssn.h" />
+    <ClInclude Include="..\include\cmcmussn.h" />
+    <ClInclude Include="..\include\cmmaussn.h" />
+    <ClInclude Include="..\include\cmussn.h" />
+    <ClInclude Include="..\include\confinfodbopr.h" />
+    <ClInclude Include="..\include\connmsadpssn.h" />
+    <ClInclude Include="..\include\dbopr.h" />
+    <ClInclude Include="..\include\hdussn.h" />
+    <ClInclude Include="..\include\maudata.h" />
+    <ClInclude Include="..\include\mautest.h" />
+    <ClInclude Include="..\include\mauutility.h" />
+    <ClInclude Include="..\include\mauvc.h" />
+    <ClInclude Include="..\include\nppssn.h" />
+    <ClInclude Include="..\include\nussn.h" />
+    <ClInclude Include="..\include\redisadapter.h" />
+    <ClInclude Include="..\include\resmgrssn.h" />
+    <ClInclude Include="..\include\scheduledbopr.h" />
+    <ClInclude Include="..\include\templatedbopr.h" />
+    <ClInclude Include="..\include\upussn.h" />
+    <ClInclude Include="..\include\vmeetingdbopr.h" />
+    <ClInclude Include="..\include\ztemplatedaemon.h" />
+    <ClInclude Include="..\include\inc.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\prj_linux\Makefile" />
+    <None Include="Makefile" />
+    <None Include="script\changeconfstate.lua" />
+    <None Include="script\constructe164.lua" />
+    <None Include="script\createconf.lua" />
+    <None Include="script\getallconfexinfo.lua" />
+    <None Include="script\getallmonitorinfo.lua" />
+    <None Include="script\getbookconflist.lua" />
+    <None Include="script\getcmuconfnum.lua" />
+    <None Include="script\getconfexinfo.lua" />
+    <None Include="script\getconflist.lua" />
+    <None Include="script\getconflistbycmu.lua" />
+    <None Include="script\getconfmonitorsinfo.lua" />
+    <None Include="script\getconfnum.lua" />
+    <None Include="script\getdetailconfinfo.lua" />
+    <None Include="script\getsimpleconflist.lua" />
+    <None Include="script\isconfexists.lua" />
+    <None Include="script\releaseconf.lua" />
+    <None Include="script\setmaxdomainconfnum.lua" />
+    <None Include="script\setmonitoralivetime.lua" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

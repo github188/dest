@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="会话层">
+      <UniqueIdentifier>{a4fe0385-fd03-4bbc-97c7-9c3fdef6b26f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="数据库层">
+      <UniqueIdentifier>{e32ed8c2-c122-43b1-bc5b-08a9c1cea024}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="逻辑处理层">
+      <UniqueIdentifier>{5c940ef5-27e1-4e61-aab0-e60aa12191a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="event">
+      <UniqueIdentifier>{e0b32994-b7e0-48d7-94c6-c8fed81c69a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="struct">
+      <UniqueIdentifier>{5e4c6bc9-ced1-4495-abd1-4a9fb5074f1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="const">
+      <UniqueIdentifier>{44c7f542-8c7f-49de-9f19-b14414d873bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="old">
+      <UniqueIdentifier>{9f78381c-4e4e-4eda-8b29-c1aff29b2e8c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\config.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\debugprint.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\include\bossconst.h">
+      <Filter>const</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\structextend.h">
+      <Filter>struct</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\structself.h">
+      <Filter>struct</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\eventself.h">
+      <Filter>event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\centerctrl.h">
+      <Filter>逻辑处理层</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\srvlistmgr.h">
+      <Filter>逻辑处理层</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\dbopr.h">
+      <Filter>数据库层</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\dbtabledef.h">
+      <Filter>数据库层</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\consassn.h">
+      <Filter>会话层</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\include\bossutils.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\include\bossversion.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\ipdb.h">
+      <Filter>数据库层</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\apdb.h">
+      <Filter>数据库层</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\dbctrl.h">
+      <Filter>数据库层</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\structlogin.h">
+      <Filter>struct</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\structnack.h">
+      <Filter>struct</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\constuls.h">
+      <Filter>const</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\errorcode.h">
+      <Filter>const</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\old_ulcssn.h">
+      <Filter>会话层</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\httpssn.h">
+      <Filter>会话层</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\structulc.h">
+      <Filter>struct</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\old_252_eventulculs.h">
+      <Filter>old</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\old_252_ulcstruct.h">
+      <Filter>old</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\old_26_eventulculs.h">
+      <Filter>old</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\old_26_structulc.h">
+      <Filter>old</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\structpxy.h">
+      <Filter>struct</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\pxycfg.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\microhttpd.h">
+      <Filter>util</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\source\centerctrl.cpp">
+      <Filter>逻辑处理层</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\srvlistmgr.cpp">
+      <Filter>逻辑处理层</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\dbopr.cpp">
+      <Filter>数据库层</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\consassn.cpp">
+      <Filter>会话层</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\apdb.cpp">
+      <Filter>数据库层</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\ipdb.cpp">
+      <Filter>数据库层</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\dbctrl.cpp">
+      <Filter>数据库层</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\config.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\debugprint.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\source\bossversion.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\source\bossutils.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\old_ulcssn.cpp">
+      <Filter>会话层</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\httpssn.cpp">
+      <Filter>会话层</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\main.cpp">
+      <Filter>会话层</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\pxycfg.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\apsutility.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\structulc.cpp">
+      <Filter>struct</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

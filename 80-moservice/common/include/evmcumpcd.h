@@ -1,0 +1,383 @@
+/*****************************************************************************
+模块名      : MPCD
+文件名      : evmcumpcd.h
+创建时间    : 2012年 01月 05日
+实现功能    : 
+作者        : 陈文灿
+版本        : 
+-----------------------------------------------------------------------------
+修改记录:
+日  期      版本        修改人      修改内容
+2012/01/05  KDVP2.5     陈文灿        创建
+******************************************************************************/
+
+#ifndef		_EV_MCU_MPCD_H_
+#define		_EV_MCU_MPCD_H_
+
+#include "osp.h"
+#include "eventid.h"
+
+//MPC向MPCD注册
+OSPEVENT( MPC_MPCD_REGIST_REQ,                EV_MPC_MPCD_BGN );
+//MPCD同意MPC注册
+OSPEVENT( MPCD_MPC_REGIST_ACK,				  EV_MPC_MPCD_BGN + 1 );
+//MPCD拒绝MPC注册
+OSPEVENT( MPCD_MPC_REGIST_NACK,				  EV_MPC_MPCD_BGN + 2 );
+//MPCD向MPC发送创会请求
+OSPEVENT( MPCD_MPC_CREATECONF_REQ,			  EV_MPC_MPCD_BGN + 3 );
+//MPCD创会请求ACK答复
+OSPEVENT( MPC_MPCD_CREATECONF_ACK,			  EV_MPC_MPCD_BGN + 4 );
+//MPCD创会请求NACK答复
+OSPEVENT( MPC_MPCD_CREATECONF_NACK,			  EV_MPC_MPCD_BGN + 5 );
+//MPCD请求MPC添加终端
+OSPEVENT( MPCD_MPC_ADDMT_REQ,				  EV_MPC_MPCD_BGN + 6 );
+//MPCD添加终端ACK答复
+OSPEVENT( MPC_MPCD_ADDMT_ACK,				  EV_MPC_MPCD_BGN + 7 );
+//MPCD添加终端NACK答复
+OSPEVENT( MPC_MPCD_ADDMT_NACK,				  EV_MPC_MPCD_BGN + 8 );
+//MPCD命令MPC结束会议
+OSPEVENT( MPCD_MPC_RELEASECONF_CMD,			  EV_MPC_MPCD_BGN + 9 );
+//MPC会议结束通知
+OSPEVENT( MPC_MPCD_CONFRELEASE_NTF,			  EV_MPC_MPCD_BGN + 10 );
+//MPC会议状态改变通知
+OSPEVENT( MPC_MPCD_CONFSTATECHANGE_NTF,		  EV_MPC_MPCD_BGN + 11 );
+//MPC请求呼叫会议
+OSPEVENT( MPC_MPCD_CONFCALLADDR_REQ,		  EV_MPC_MPCD_BGN + 12 );
+//MPCD回复MPC 所请求会议的呼叫地址
+OSPEVENT( MPCD_MPC_CONFCALLADDR_ACK,		  EV_MPC_MPCD_BGN + 13 );
+//MPCD NACK回复MPC 所请求会议的呼叫地址
+OSPEVENT( MPCD_MPC_CONFCALLADDR_NACK,		  EV_MPC_MPCD_BGN + 14 );
+//MPCD向MPC请求呼叫地址
+OSPEVENT( MPCD_MPC_CALLADDR_REQ,			  EV_MPC_MPCD_BGN + 15 );
+//MPC ACK回复MPCD 呼叫地址
+OSPEVENT( MPC_MPCD_CALLADDR_ACK,			  EV_MPC_MPCD_BGN + 16 );
+//MPC NACK回复MPCD 呼叫地址
+OSPEVENT( MPC_MPCD_CALLADDR_NACK,			  EV_MPC_MPCD_BGN + 17 );
+
+//MPC 上报MPCD 最大媒体会议数
+OSPEVENT( MPC_MPCD_MAXMEDIACONFNUM_NTF,		  EV_MPC_MPCD_BGN + 18 );
+
+//MPC 上报当前会议列表
+OSPEVENT( MPC_MPCD_CONFLIST_NTF,              EV_MPC_MPCD_BGN + 19 );
+
+//MPCD请求会议完整信息，消息体：u8(E164 len)+会议E164号
+OSPEVENT( MPCD_MPC_CONFINFO_REQ,              EV_MPC_MPCD_BGN + 20 );
+//MPC回应会议完整信息，消息体：TConfInfo
+OSPEVENT( MPC_MPCD_CONFINFO_ACK,              EV_MPC_MPCD_BGN + 21 );
+//MPC拒绝回应会议完整信息，消息体：u8(E164 len)+会议E164号
+OSPEVENT( MPC_MPCD_CONFINFO_NACK,             EV_MPC_MPCD_BGN + 22 );
+
+// wy[2012/08/21]
+//MPC向MPCD同步热备信息，消息体：同步信息类型(EHBType)+ConfE164NO+热备信息Buf
+OSPEVENT( MPC_MPCD_BAKEUP_CONFINFO_NTF,       EV_MPC_MPCD_BGN + 23 );
+//MPCD向MPC请求进行会议基本信息恢复，消息体：TReqHeadInfo+TConfInfo+AliasLen(u16)+AliasBuf
+//                                           +TVmpModule+MtInConfList(192)+MtInviteList(192)
+OSPEVENT( MPCD_MPC_RESUME_CONFINFO_REQ,       EV_MPC_MPCD_BGN + 24 );
+//MPC回复MPCD会议基本信息恢复情况
+OSPEVENT( MPC_MPCD_RESUME_CONFINFO_ACK,       EV_MPC_MPCD_BGN + 25 );
+OSPEVENT( MPC_MPCD_RESUME_CONFINFO_NACK,      EV_MPC_MPCD_BGN + 26 );
+//MPCD向MPC请求进行会议额外信息恢复，消息体：TReqHeadInfo+TBDBConfProtectInfo+TBDBConfPollParam
+//                                           +TMt(VidBrdSrc)+TMt(AudBrdSrc)+TMt(LastSpeaker)
+//                                           +TMt(VacLast)+TMt(DSSrc)+MtDecoderMuteList(192)
+//                                           +MtCaptureMuteList(192)+SelectVideoMt(192*TMt)+SelectAudioMt(192*TMt)
+OSPEVENT( MPCD_MPC_RESUME_CONFINFOEX_REQ,     EV_MPC_MPCD_BGN + 27 );
+//MPC回复MPCD会议额外信息恢复情况
+OSPEVENT( MPC_MPCD_RESUME_CONFINFOEX_ACK,     EV_MPC_MPCD_BGN + 28 );
+OSPEVENT( MPC_MPCD_RESUME_CONFINFOEX_NACK,    EV_MPC_MPCD_BGN + 29 );
+
+//mpc请求缩短会议运行时间，消息体:TReqHeadInfo+u16(wDelayTime)
+OSPEVENT( MPC_MPCD_SUBCONFDURATION_REQ,       EV_MPC_MPCD_BGN + 30 );
+OSPEVENT( MPCD_MPC_SUBCONFDURATION_ACK,	      EV_MPC_MPCD_BGN + 31 );
+OSPEVENT( MPCD_MPC_SUBCONFDURATION_NACK,	  EV_MPC_MPCD_BGN + 32 );
+
+//MPC 上报MPCD MTADP/MP/PRS等接入模块状态, 消息体：TMtsMdStatus
+OSPEVENT( MPC_MPCD_MTSMDSTATUS_NTF,			  EV_MPC_MPCD_BGN + 35 );
+
+//mpc请求延长会议,消息体：TReqHeadInfo+u16(wMtId)+u16(wMccId)+u16(wDelayTime)
+OSPEVENT( MPC_MPCD_DELAYCONF_REQ,			  EV_MPC_MPCD_BGN + 36 );
+OSPEVENT( MPCD_MPC_DELAYCONF_ACK,			  EV_MPC_MPCD_BGN + 37 );
+OSPEVENT( MPCD_MPC_DELAYCONF_NACK,			  EV_MPC_MPCD_BGN + 38 );
+
+//mpcd请求MCU上的会议列表详细信息，消息体：无
+OSPEVENT( MPCD_MCU_LISTALLCONF_REQ,		      EV_MPC_MPCD_BGN + 39 );
+//应答MPCD_MCU_LISTALLCONF_REQ，消息体：无
+OSPEVENT( MCU_MPCD_LISTALLCONF_ACK,	          EV_MPC_MPCD_BGN + 40 );
+//MCU上没有会议,消息体：无
+OSPEVENT( MCU_MPCD_LISTALLCONF_NACK,         EV_MPC_MPCD_BGN + 41 ); 
+
+//会议完整信息通知,消息体: CServMsgHead+TConfInfo+TConfAllMtInfo
+OSPEVENT( MCU_MPCD_CONFINFO_NOTIF,            EV_MPC_MPCD_BGN + 42 );
+//MCU发给MPCD的终端所有信息通知, 消息体：TConfAllMtInfo
+OSPEVENT( MCU_MPCD_CONFALLMTINFO_NOTIF,       EV_MPC_MPCD_BGN + 43 );
+//MCU发给MPCD的终端列表通知, 消息体：u8(实际终端个数)+(TMtStatus+TMtExt+TLogicalChannel)
+OSPEVENT( MCU_MPCD_MTLIST_NOTIF,              EV_MPC_MPCD_BGN + 44 );
+
+//设置主席，消息体:TReqHeadInfo+TMt
+OSPEVENT( MPCD_MCU_SETCHAIRMAN_REQ,           EV_MPC_MPCD_BGN + 45 );
+//设置主席成功，消息体:
+OSPEVENT( MCU_MPCD_SETCHAIRMAN_ACK,           EV_MPC_MPCD_BGN + 46 );
+//设置主席失败，消息体:
+OSPEVENT( MCU_MPCD_SETCHAIRMAN_NACK,          EV_MPC_MPCD_BGN + 47 );
+
+//取消主席，消息体:TReqHeadInfo + TMt
+OSPEVENT( MPCD_MCU_CANCELCHAIRMAN_REQ,        EV_MPC_MPCD_BGN + 48 );
+//取消主席成功，消息体:
+OSPEVENT( MCU_MPCD_CANCELCHAIRMAN_ACK,        EV_MPC_MPCD_BGN + 49 );
+//取消主席失败，消息体:
+OSPEVENT( MCU_MPCD_CANCELCHAIRMAN_NACK,       EV_MPC_MPCD_BGN + 50 );
+
+//设置主讲，消息体：TReqHeadInfo + TMt
+OSPEVENT( MPCD_MCU_SETSPEAKER_REQ,            EV_MPC_MPCD_BGN + 51 );
+//设置主讲成功，消息体:
+OSPEVENT( MCU_MPCD_SETSPEAKER_ACK,            EV_MPC_MPCD_BGN + 52 );
+//设置主讲失败，消息体:
+OSPEVENT( MCU_MPCD_SETSPEAKER_NACK,           EV_MPC_MPCD_BGN + 53 );
+
+//取消主讲，消息体：TReqHeadInfo + TMt
+OSPEVENT( MPCD_MCU_CANCELSPEAKER_REQ,         EV_MPC_MPCD_BGN + 54 );
+//取消主讲成功，消息体:
+OSPEVENT( MCU_MPCD_CANCELSPEAKER_ACK,         EV_MPC_MPCD_BGN + 55 );
+//取消主讲失败，消息体:
+OSPEVENT( MCU_MPCD_CANCELSPEAKER_NACK,        EV_MPC_MPCD_BGN + 56 );
+
+//MPCD请求MPC删除终端，消息体：TReqHeadInfo + TMt
+OSPEVENT( MPCD_MPC_DELMT_REQ,				  EV_MPC_MPCD_BGN + 57 );
+//MPCD删除终端ACK答复，消息体：无
+OSPEVENT( MPC_MPCD_DELMT_ACK,				  EV_MPC_MPCD_BGN + 58 );
+//MPCD删除终端NACK答复，消息体：无
+OSPEVENT( MPC_MPCD_DELMT_NACK,				  EV_MPC_MPCD_BGN + 59 );
+
+//呼叫终端，消息体：TReqHeadInfo + TMt
+OSPEVENT( MPCD_MPC_CALLMT_REQ,				  EV_MPC_MPCD_BGN + 60 );
+//呼叫终端ACK答复，消息体：无
+OSPEVENT( MPC_MPCD_CALLMT_ACK,				  EV_MPC_MPCD_BGN + 61 );
+//呼叫终端NACK答复，消息体：无
+OSPEVENT( MPC_MPCD_CALLMT_NACK,				  EV_MPC_MPCD_BGN + 62 );
+
+
+//挂断终端，消息体：TReqHeadInfo + TMt
+OSPEVENT( MPCD_MPC_DROPMT_REQ,				  EV_MPC_MPCD_BGN + 63 );
+//挂断终端ACK答复，消息体：无
+OSPEVENT( MPC_MPCD_DROPMT_ACK,				  EV_MPC_MPCD_BGN + 64 );
+//挂断终端NACK答复，消息体：无
+OSPEVENT( MPC_MPCD_DROPMT_NACK,				  EV_MPC_MPCD_BGN + 65 );
+
+//MPCD请求MPC终端静音，消息体：TReqHeadInfo + TMt +1byte(1- MUTE 0-NOMUTE)+1byte(1-DECODER 2-CAPTURE)
+OSPEVENT( MPCD_MPC_MTAUDMUTE_REQ,			  EV_MPC_MPCD_BGN + 66 );
+//MPCD终端静音ACK答复，消息体：无
+OSPEVENT( MPC_MPCD_MTAUDMUTE_ACK,			  EV_MPC_MPCD_BGN + 67 );
+//MPCD终端静音NACK答复，消息体：无
+OSPEVENT( MPC_MPCD_MTAUDMUTE_NACK,			  EV_MPC_MPCD_BGN + 68 );
+//发送短消息，消息体：2 byte(终端数,网络序,值为N,0为广播到所有终端) + N个TMt +TROLLMSG
+OSPEVENT( MPCD_MCU_SENDRUNMSG_CMD,            EV_MPC_MPCD_BGN + 69 );
+
+//sp2
+//开始画面合成，消息体：TReqHeadInfo + TVMPParam
+OSPEVENT( MPCD_MPC_STARTVMP_REQ,			  EV_MPC_MPCD_BGN + 70 );
+//开始画面合成ACK答复，消息体：无
+OSPEVENT( MPC_MPCD_STARTVMP_ACK,			  EV_MPC_MPCD_BGN + 71 );
+//开始画面合成NACK答复，消息体：无
+OSPEVENT( MPC_MPCD_STARTVMP_NACK,			  EV_MPC_MPCD_BGN + 72 );
+
+//会场哑音，消息体：TReqHeadInfo
+OSPEVENT( MPCD_MPC_ALLMTMUTE_REQ,			  EV_MPC_MPCD_BGN + 73 );
+//会场哑音ACK答复，消息体：无
+OSPEVENT( MPC_MPCD_ALLMTMUTE_ACK,			  EV_MPC_MPCD_BGN + 74 );
+//会场哑音NACK答复，消息体：无
+OSPEVENT( MPC_MPCD_ALLMTMUTE_NACK,			  EV_MPC_MPCD_BGN + 75 );
+
+//会场静音，消息体：TReqHeadInfo
+OSPEVENT( MPCD_MPC_ALLMTSILENCE_REQ,		  EV_MPC_MPCD_BGN + 76 );
+//会场静音ACK答复，消息体：无
+OSPEVENT( MPC_MPCD_ALLMTSILENCE_ACK,		  EV_MPC_MPCD_BGN + 77 );
+//会场静音NACK答复，消息体：无
+OSPEVENT( MPC_MPCD_ALLMTSILENCE_NACK,		  EV_MPC_MPCD_BGN + 78 );
+
+//MCU通知MPCD会议结束剩余时间, 消息体: 1 u16 (网络序, 会议结束剩余时间, 单位: 分钟)
+OSPEVENT( MCU_MPCD_CONFTIMELEFT_NOTIF,        EV_MPC_MPCD_BGN + 79 );
+//申请主席通知到mpcd, 消息体： TMt(申请的终端) 
+OSPEVENT( MCU_MPCD_MTAPPLYCHAIRMANT_NOTIF,    EV_MPC_MPCD_BGN + 80 );
+//申请主讲通知到mpcd，MT->MCU，消息体NULL
+OSPEVENT( MCU_MPCD_MTAPPLYSPEAKER_NOTIF,	  EV_MPC_MPCD_BGN + 81 ); 
+
+//取消会场哑音，消息体：TReqHeadInfo
+OSPEVENT( MPCD_MPC_CANCELALLMTMUTE_REQ,		  EV_MPC_MPCD_BGN + 82 );
+//会场哑音ACK答复，消息体：无
+OSPEVENT( MPC_MPCD_CANCELALLMTMUTE_ACK,		  EV_MPC_MPCD_BGN + 83 );
+//会场哑音NACK答复，消息体：无
+OSPEVENT( MPC_MPCD_CANCELALLMTMUTE_NACK,	  EV_MPC_MPCD_BGN + 84 );
+
+//取消会场静音，消息体：TReqHeadInfo
+OSPEVENT( MPCD_MPC_CANCELALLMTSILENCE_REQ,	  EV_MPC_MPCD_BGN + 85 );
+//会场静音ACK答复，消息体：无
+OSPEVENT( MPC_MPCD_CANCELALLMTSILENCE_ACK,	  EV_MPC_MPCD_BGN + 86 );
+//会场静音NACK答复，消息体：无
+OSPEVENT( MPC_MPCD_CANCELALLMTSILENCE_NACK,	  EV_MPC_MPCD_BGN + 87 );
+
+//开始讨论
+OSPEVENT( MPCD_MCU_STARTDISCUSS_REQ,    EV_MPC_MPCD_BGN + 88 );
+OSPEVENT( MCU_MPCD_STARTDISCUSS_ACK,    EV_MPC_MPCD_BGN + 89 );
+OSPEVENT( MCU_MPCD_STARTDISCUSS_NACK,   EV_MPC_MPCD_BGN + 90 );
+
+//结束讨论
+OSPEVENT( MPCD_MCU_STOPDISCUSS_REQ,     EV_MPC_MPCD_BGN + 91 );
+OSPEVENT( MCU_MPCD_STOPDISCUSS_ACK,     EV_MPC_MPCD_BGN + 92 );
+OSPEVENT( MCU_MPCD_STOPDISCUSS_NACK,    EV_MPC_MPCD_BGN + 93 );
+
+//修改画面合成参数
+OSPEVENT( MPCD_MPC_CHANGEVMP_REQ,			  EV_MPC_MPCD_BGN + 94);
+//修改画面合成参数ACK答复，消息体：无
+OSPEVENT( MPC_MPCD_CHANGEVMP_ACK,			  EV_MPC_MPCD_BGN + 95);
+//修改画面合成参数NACK答复，消息体：无
+OSPEVENT( MPC_MPCD_CHANGEVMP_NACK,			  EV_MPC_MPCD_BGN + 96);
+
+//开始画面合成，消息体：TReqHeadInfo
+OSPEVENT( MPCD_MPC_STOPVMP_REQ,			      EV_MPC_MPCD_BGN + 97 );
+//开始画面合成ACK答复，消息体：无
+OSPEVENT( MPC_MPCD_STOPVMP_ACK,			      EV_MPC_MPCD_BGN + 98 );
+//开始画面合成NACK答复，消息体：无
+OSPEVENT( MPC_MPCD_STOPVMP_NACK,			  EV_MPC_MPCD_BGN + 99 );
+
+//Mpcd向mcu发送延长会议命令
+OSPEVENT( MPCD_MPC_DELAYCONF_REQ,			  EV_MPC_MPCD_BGN + 100 );
+OSPEVENT( MPC_MPCD_DELAYCONF_ACK,			  EV_MPC_MPCD_BGN + 101 );
+OSPEVENT( MPC_MPCD_DELAYCONF_NACK,			  EV_MPC_MPCD_BGN + 102 );
+
+//MCU延长会议通知, 消息体: 1 u16 (网络序，延长时间，单位：分钟)
+OSPEVENT( MCU_MPCD_DELAYCONF_NOTIF,           EV_MPC_MPCD_BGN + 103 );	
+
+//会议模式通知,消息体：TConfMode
+OSPEVENT( MCU_MPCD_CONFMODE_NOTIF,            EV_MPC_MPCD_BGN + 104 );
+
+//会议简单信息通知，消息体：TBasicConfInfo
+OSPEVENT( MCU_MPCD_SIMCONFINFO_NOTIF,         EV_MPC_MPCD_BGN + 105 );
+
+//MCU给会议控制台的视频复合参数通知, 消息体：  TVMPParam
+OSPEVENT( MCU_MPCD_VMPPARAM_NOTIF,	          EV_MPC_MPCD_BGN + 106 );
+
+//mpcd向mcu添加终端（终端被动添加,MPCD_MPC_ADDMT_REQ为终端主动入会）,消息体：
+OSPEVENT( MPCD_MPC_ADDMT_PASSIVITY_REQ,	      EV_MPC_MPCD_BGN + 107 );
+OSPEVENT( MPC_MPCD_ADDMT_PASSIVITY_ACK,		  EV_MPC_MPCD_BGN + 108 );
+OSPEVENT( MPC_MPCD_ADDMT_PASSIVITY_NACK,	  EV_MPC_MPCD_BGN + 109 );
+
+//mpcd向mcu发送开始轮询命令,消息体：MPCD请求MPC终端静音，消息体：TReqHeadInfo + TPollInfo + TMtPollParam数组
+OSPEVENT( MPCD_MPC_STARTPOLL_CMD,			  EV_MPC_MPCD_BGN + 110 );
+//mpcd向mcu发送停止轮询命令,消息体：MPCD请求MPC终端静音，消息体：TReqHeadInfo
+OSPEVENT( MPCD_MPC_STOPPOLL_CMD,			  EV_MPC_MPCD_BGN + 111 );
+//mpcd向mcu发送暂停轮询命令,消息体：MPCD请求MPC终端静音，消息体：TReqHeadInfo
+OSPEVENT( MPCD_MPC_PAUSEPOLL_CMD,	          EV_MPC_MPCD_BGN + 112 );
+//mpcd向mcu发送继续轮询命令,消息体：MPCD请求MPC终端静音，消息体：TReqHeadInfo
+OSPEVENT( MPCD_MPC_RESUMEPOLL_CMD,	          EV_MPC_MPCD_BGN + 113 );
+
+//mpcd向mcu发送指定轮询位置命令，消息体：TReqHeadInfo + TMt
+OSPEVENT( MPCD_MPC_SPECPOLLPOS_REQ,	          EV_MPC_MPCD_BGN + 114 );
+OSPEVENT( MPC_MPCD_SPECPOLLPOS_ACK,		      EV_MPC_MPCD_BGN + 115 );
+OSPEVENT( MPC_MPCD_SPECPOLLPOS_NACK,	      EV_MPC_MPCD_BGN + 116 );
+
+//mpcd向mcu发送修改轮询参数命令，消息体：TReqHeadInfo + TPollInfo + TMtPollParam数组
+OSPEVENT( MPCD_MPC_CHANGEPOLLPARAM_CMD,	      EV_MPC_MPCD_BGN + 117 );
+//mcu向mpcd发送轮询参数改变通知，消息体：TReqHeadInfo + TPollInfo + TMtPollParam数组
+OSPEVENT( MPC_MPCD_POLLPARAMCHANGE_NOTIF,	  EV_MPC_MPCD_BGN + 118 );
+
+//mcu向mpcd发送轮询状态通知，消息体：TReqHeadInfo + TPollInfo
+OSPEVENT( MPC_MPCD_POLLSTATE_NOTIF,	          EV_MPC_MPCD_BGN + 119 );
+
+
+//混音成员操作
+//增加混音成员, 消息体：TMt数组
+OSPEVENT( MPCD_MPC_ADDMIXMEMBER_CMD,          EV_MPC_MPCD_BGN + 120 );
+//移除混音成员, 消息体：TMt数组
+OSPEVENT( MPCD_MPC_REMOVEMIXMEMBER_CMD,       EV_MPC_MPCD_BGN + 121 );
+
+//终端申请加入混音通知, 消息体：TMt(申请终端)
+OSPEVENT( MPC_MPCD_MTAPPLYMIX_NOTIF,          EV_MPC_MPCD_BGN + 122 );
+
+//Mpcd向mcu发送设置语音通道来时提醒
+OSPEVENT( MPCD_MPC_SETVOICEHINT_CMD,		  EV_MPC_MPCD_BGN + 123 );
+
+//语音通道来时提醒状态通知
+OSPEVENT( MPC_MPCD_VOICEHINT_NTF,	          EV_MPC_MPCD_BGN + 124 );
+
+//mpcd请求MCU上的会议列表详细信息命令，消息体：无
+OSPEVENT( MPCD_MCU_LISTALLCONF_CMD,		      EV_MPC_MPCD_BGN + 125 );
+
+
+//
+//下面开始使用子消息
+//
+//mpcd <--> mcu之间的主消息（不分方向）
+OSPEVENT( MAINEV_MPCD_MPC,	                  EV_MPC_MPCD_BGN + 126 );
+
+//mpcd请求MCU上的会议列表详细信息命令，消息体：无
+OSPEVENT( MCU_MPCD_ALLMTALIAS_NTF,		      EV_MPC_MPCD_BGN + 127 );
+
+
+#define MPCD_MPC_SUBEV_BEGIN (u32)65535			//子消息起始号
+
+#ifndef MAKESUBEV_u16
+//入参是u16的情况下使用
+#define  MAKESUBEV_u16(x)          x - MPCD_MPC_SUBEV_BEGIN
+#endif
+
+#ifndef MAKESUBEV_u32
+//入参是u32的情况下使用
+#define  MAKESUBEV_u32(x)          x
+#endif
+
+#ifndef MAKESUBEV_U16_TO_U32
+//u16子消息转为u32子消息
+#define  MAKESUBEV_U16_TO_U32(x)   x + MPCD_MPC_SUBEV_BEGIN 
+#endif
+
+
+
+
+const u32 SUBEV_MPC_MPCD_MTSTATUS_NTF      = MPCD_MPC_SUBEV_BEGIN + 1;
+
+const u32 SUBEV_MCU_MPCD_ALLMTALIAS_NTF    = MPCD_MPC_SUBEV_BEGIN + 2;
+
+//终端信息拆成两条处理,终端逻辑通道信息通知
+const u32 SUBEV_MCU_MPCD_MTLOGICCHNNL_NTF  = MPCD_MPC_SUBEV_BEGIN + 3;
+
+const u32 SUBEV_MCU_MPCD_CALLMTFAILURE_NTF = MPCD_MPC_SUBEV_BEGIN + 4;		//呼叫终端失败通知
+const u32 SUBEV_MCU_MPCD_CALLSUCCESS_NTF   = MPCD_MPC_SUBEV_BEGIN + 5;      //呼叫终端成功通知
+
+//指定对话方
+const u32 SUBEV_MPCD_MCU_SPECDIALOGIST_REQ     = MPCD_MPC_SUBEV_BEGIN + 6;
+const u32 SUBEV_MCU_MPCD_SPECDIALOGIST_ACK     = MPCD_MPC_SUBEV_BEGIN + 7;
+const u32 SUBEV_MCU_MPCD_SPECDIALOGIST_NACK    = MPCD_MPC_SUBEV_BEGIN + 8;
+
+//取消对话方
+const u32 SUBEV_MPCD_MCU_CANCELDIALOGIST_REQ   = MPCD_MPC_SUBEV_BEGIN + 9;
+const u32 SUBEV_MCU_MPCD_CANCELDIALOGIST_ACK   = MPCD_MPC_SUBEV_BEGIN + 10;
+const u32 SUBEV_MCU_MPCD_CANCELDIALOGIST_NACK  = MPCD_MPC_SUBEV_BEGIN + 11; 
+
+//webmcc拒绝终端加入混音通知
+const u32 SUBEV_MPCD_MCU_REFUSEMIX_NTF		   = MPCD_MPC_SUBEV_BEGIN + 12;
+
+//webmcc修改会议开放属性请求
+const u32 SUBEV_MPCD_MPC_MDFPUBLICCONF_CMD	   = MPCD_MPC_SUBEV_BEGIN + 13;
+
+//rnn[2014/04/22]电视墙相关
+const u32 SUBEV_MPCD_MPC_STARTTVS_REQ		   = MPCD_MPC_SUBEV_BEGIN + 14;
+const u32 SUBEV_MPC_MPCD_STARTTVS_ACK		   = MPCD_MPC_SUBEV_BEGIN + 15;
+const u32 SUBEV_MPC_MPCD_STARTTVS_NACK		   = MPCD_MPC_SUBEV_BEGIN + 16;
+
+const u32 SUBEV_MPCD_MPC_CHANGETVSPARAM_REQ	   = MPCD_MPC_SUBEV_BEGIN + 17;
+const u32 SUBEV_MPC_MPCD_CHANGETVSPARAM_ACK	   = MPCD_MPC_SUBEV_BEGIN + 18;
+const u32 SUBEV_MPC_MPCD_CHANGETVSPARAM_NACK   = MPCD_MPC_SUBEV_BEGIN + 19;
+
+const u32 SUBEV_MPCD_MPC_STOPTVS_REQ		   = MPCD_MPC_SUBEV_BEGIN + 20;
+const u32 SUBEV_MPC_MPCD_STOPTVS_ACK		   = MPCD_MPC_SUBEV_BEGIN + 21;
+const u32 SUBEV_MPC_MPCD_STOPTVS_NACK		   = MPCD_MPC_SUBEV_BEGIN + 22;
+
+const u32 SUBEV_MPC_MPCD_HDUINFO_NTF		   = MPCD_MPC_SUBEV_BEGIN + 23;
+
+const u32 SUBEV_MPCD_MPC_SETHDUVOLUME_NTF	   = MPCD_MPC_SUBEV_BEGIN + 24;	
+
+const u32 SUBEV_MPC_MPCD_PLAYHDUFAIL_NTF	   = MPCD_MPC_SUBEV_BEGIN + 25;
+//end
+
+
+#endif
+

@@ -1,0 +1,54 @@
+###
+### Copyright (c) 2004 Keda Telecom, Inc.
+###
+
+#########################################################################
+###
+###  DESCRIPTION:
+###    Common definitions for all Makefiles in OSP linux project.
+###
+#########################################################################
+
+TOP := ..
+
+
+COMM_DIR := ../../common/linux_compile
+
+SRC_DIR := $(TOP)/src
+
+## Name and type of the target for this Makefile
+SO_TARGET     := rediswrap
+
+## Define debugging symbols
+DEBUG = 1
+#LINUX_COMPILER= 
+CFLAGS += -m32 -D LINUX2 
+LDFLAGS += -m32
+
+
+#CFLAGS := -DHAVE_CONFIG_H -D_EVENT_HAVE_UINT32_T -D_EVENT_HAVE_UINT16_T -D_EVENT_HAVE_UINT64_T -D_EVENT_HAVE_SYS_TIME_H
+
+## Object files that compose the target(s)
+
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(patsubst %.cpp,%, $(SRCS))
+
+## Libraries to include in shared object file
+LIBS := _acl_cpp _acl pthread osp 
+
+## Add driver-specific include directory to the search path
+
+INC_PATH += $(TOP)/include/ \
+			../include \
+			../../acl/lib_acl_cpp/include \
+			../../acl/lib_acl/include \
+			../../../10-common/include/system \
+			../../../10-common/include/platform \
+			../../../10-common/include/rediswrap\
+
+LIB_PATH += ../../../10-common/lib/debug/linux
+
+INSTALL_LIB_PATH = ../../../10-common/lib/debug/linux
+
+include $(COMM_DIR)/common.mk
+
